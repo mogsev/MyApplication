@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_world">Тренировки</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_table_multiplication">Таблица умножения</string>
+    <string name="title_sum">Сложение</string>
+    <string name="title_subtraction">Вычитание</string>
+    <string name="title_multiplication">Умножение</string>
+    <string name="title_division">Деление</string>
+    <string name="title_activity_sum">Сложение</string>
+
+    <string name="title_answer">Выберите правильный ответ</string>
+    <string name="title_proceed">Продолжить</string>
+
+
+</resources>
