@@ -1,6 +1,7 @@
 package com.mogsev.myapplication;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,11 +17,31 @@ import java.util.Random;
 public class SumActivity extends ActionBarActivity {
     private Integer number1, number2, result;
     private Random random;
+    private Integer answer;
+    Button buttonClick = null;
+    TextView textViewResult = null;
+    Button answer1 = null;
+    Button answer2 = null;
+    Button answer3 = null;
+    Button buttonProceed = null;
+    TextView textViewExpression = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sum);
+
+        //Initialize objects
+        textViewResult = (TextView) findViewById(R.id.textViewResult);
+        answer1 = (Button) findViewById(R.id.answer1);
+        answer2 = (Button) findViewById(R.id.answer2);
+        answer3 = (Button) findViewById(R.id.answer3);
+        buttonProceed = (Button) findViewById(R.id.buttonProceed);
+        textViewExpression = (TextView) findViewById(R.id.textViewExpression);
+        random = new Random();
+
+        //filling Activity
         onSum();
     }
 
@@ -47,50 +68,55 @@ public class SumActivity extends ActionBarActivity {
     }
 
     public void onClickAnswer(View view) {
-        Button test = (Button) view;
-        Integer press = new Integer(test.getText().toString());
-        TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
+        buttonClick = (Button) view;
+        answer = new Integer(buttonClick.getText().toString());
         textViewResult.setVisibility(View.VISIBLE);
-        if (press.compareTo(result) == 0) {
-            textViewResult.setText("Правильный ответ");
+        if (answer.compareTo(result) == 0) {
+            textViewResult.setText(R.string.correct_answer);
+            textViewResult.setTextColor(Color.GREEN);
         } else {
-            textViewResult.setText("Ошибка, правильный ответ: " + result);
+            textViewResult.setText(R.string.wrong_answer);
+            textViewResult.append(" ");
+            textViewResult.append(result.toString());
+            textViewResult.setTextColor(Color.RED);
         }
-        Button answer1 = (Button) findViewById(R.id.answer1);
+
         answer1.setEnabled(false);
-        Button answer2 = (Button) findViewById(R.id.answer2);
         answer2.setEnabled(false);
-        Button answer3 = (Button) findViewById(R.id.answer3);
         answer3.setEnabled(false);
-        Button button = (Button) findViewById(R.id.buttonProceed);
-        button.setVisibility(View.VISIBLE);
+        buttonProceed.setVisibility(View.VISIBLE);
     }
 
     public void onClickProceed(View view){
         onSum();
     }
 
-    public void onSum() {
-        Button button = (Button) findViewById(R.id.buttonProceed);
-        button.setVisibility(View.INVISIBLE);
-        TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
-        textViewResult.setVisibility(View.INVISIBLE);
-        random = new Random();
+    private int[] generateExpression() {
         number1 = random.nextInt(10);
         number2 = random.nextInt(10);
         result = number1 + number2;
 
-        TextView textViewExpression = (TextView) findViewById(R.id.textViewExpression);
-        Button answer1 = (Button) findViewById(R.id.answer1);
-        Button answer2 = (Button) findViewById(R.id.answer2);
-        Button answer3 = (Button) findViewById(R.id.answer3);
-        textViewExpression.setText(number1 + " + " + number2);
+        int[] box = {random.nextInt(10), random.nextInt(10), result};
+        for (int i = 0; i < random.nextInt(10); i++) {
+            int num = box[0];
+            box[0] = box[1];
+            box[1] = box[2];
+            box[2] = num;
+        }
+        return box;
+    }
 
+    public void onSum() {
+        buttonProceed.setVisibility(View.INVISIBLE);
+        textViewResult.setVisibility(View.INVISIBLE);
+
+        int[] box = generateExpression();
+        textViewExpression.setText(number1 + " + " + number2);
         answer1.setEnabled(true);
         answer2.setEnabled(true);
         answer3.setEnabled(true);
-        answer1.setText(String.valueOf(number1));
-        answer2.setText(String.valueOf(number2));
-        answer3.setText(String.valueOf(result));
+        answer1.setText(String.valueOf(box[0]));
+        answer2.setText(String.valueOf(box[1]));
+        answer3.setText(String.valueOf(box[2]));
     }
 }

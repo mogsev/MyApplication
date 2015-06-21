@@ -14,5 +14,9 @@
     <string name="title_answer">Выберите правильный ответ</string>
     <string name="title_proceed">Продолжить</string>
 
+    <string name="correct_answer">Правильный ответ</string>
+    <string name="wrong_answer">Ошибка! Правильный ответ:</string>
+
+
 
 </resources>
