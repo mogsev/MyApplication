@@ -18,20 +18,20 @@ public class SumActivity extends ActionBarActivity {
     private Integer number1, number2, result;
     private Random random;
     private Integer answer;
-    Button buttonClick = null;
-    TextView textViewResult = null;
-    Button answer1 = null;
-    Button answer2 = null;
-    Button answer3 = null;
-    Button buttonProceed = null;
-    TextView textViewExpression = null;
+    Button buttonClick;
+    Button answer1;
+    Button answer2;
+    Button answer3;
+    Button buttonProceed;
+    TextView textViewResult;
+    TextView textViewExpression;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sum);
 
-        //Initialize objects
+        //Initialize links for objects
         textViewResult = (TextView) findViewById(R.id.textViewResult);
         answer1 = (Button) findViewById(R.id.answer1);
         answer2 = (Button) findViewById(R.id.answer2);
@@ -66,6 +66,10 @@ public class SumActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     *
+     * @param view
+     */
     public void onClickAnswer(View view) {
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
@@ -85,10 +89,18 @@ public class SumActivity extends ActionBarActivity {
         buttonProceed.setVisibility(View.VISIBLE);
     }
 
+    /**
+     *
+     * @param view
+     */
     public void onClickProceed(View view){
         onSum();
     }
 
+    /**
+     *
+     * @return
+     */
     private int[] generateExpression() {
         number1 = random.nextInt(10);
         number2 = random.nextInt(10);
@@ -104,6 +116,9 @@ public class SumActivity extends ActionBarActivity {
         return box;
     }
 
+    /**
+     *
+     */
     public void onSum() {
         buttonProceed.setVisibility(View.INVISIBLE);
         textViewResult.setVisibility(View.INVISIBLE);

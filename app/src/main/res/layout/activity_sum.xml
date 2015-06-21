@@ -12,9 +12,9 @@
         android:text="SumExpression"
         android:id="@+id/textViewExpression"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp"
+        android:textSize="34dp"
         android:layout_alignParentTop="false"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,10 +22,10 @@
         android:id="@+id/textViewAnswer"
         android:layout_below="@+id/textViewExpression"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:autoText="false"
         android:text="@string/title_answer"
-        android:textSize="22dp" />
+        android:textSize="18dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         android:layout_alignEnd="@+id/answer1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:onClick="onClickAnswer" />
 
     <Button
@@ -65,7 +65,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:textSize="24dp"
         android:onClick="onClickAnswer" />
 
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewResult"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:width="200dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
