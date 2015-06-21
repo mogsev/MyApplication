@@ -26,7 +26,6 @@ public class SumActivity extends ActionBarActivity {
     Button buttonProceed = null;
     TextView textViewExpression = null;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +79,6 @@ public class SumActivity extends ActionBarActivity {
             textViewResult.append(result.toString());
             textViewResult.setTextColor(Color.RED);
         }
-
         answer1.setEnabled(false);
         answer2.setEnabled(false);
         answer3.setEnabled(false);
