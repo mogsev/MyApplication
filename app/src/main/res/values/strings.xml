@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">MathTest</string>
 
     <string name="hello_world">Тренировки</string>
     <string name="action_settings">Settings</string>
@@ -14,9 +14,10 @@
     <string name="title_answer">Выберите правильный ответ</string>
     <string name="title_proceed">Продолжить</string>
 
-    <string name="correct_answer">Правильный ответ</string>
+    <string name="correct_answer">Верный ответ</string>
     <string name="wrong_answer">Ошибка! Правильный ответ:</string>
 
+    <string name="menu_level">Сменить сложность</string>
 
 
 </resources>

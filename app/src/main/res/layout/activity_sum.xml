@@ -69,26 +69,11 @@
         android:textSize="24dp"
         android:onClick="onClickAnswer" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewResult"
-        android:textSize="18dp"
-        android:width="200dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/answer3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:enabled="false" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_proceed"
         android:id="@+id/buttonProceed"
-        android:layout_below="@+id/textViewResult"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -96,6 +81,7 @@
         android:layout_marginTop="10dp"
         android:onClick="onClickProceed"
         android:background="#ff90bfff"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_below="@+id/answer3" />
 
 </RelativeLayout>

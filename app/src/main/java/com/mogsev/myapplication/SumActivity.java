@@ -1,6 +1,7 @@
 package com.mogsev.myapplication;
 
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ public class SumActivity extends ActionBarActivity {
     Button answer2;
     Button answer3;
     Button buttonProceed;
-    TextView textViewResult;
+    TextView textViewAnswer;
     TextView textViewExpression;
 
     @Override
@@ -32,7 +33,7 @@ public class SumActivity extends ActionBarActivity {
         setContentView(R.layout.activity_sum);
 
         //Initialize links for objects
-        textViewResult = (TextView) findViewById(R.id.textViewResult);
+        textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
         answer1 = (Button) findViewById(R.id.answer1);
         answer2 = (Button) findViewById(R.id.answer2);
         answer3 = (Button) findViewById(R.id.answer3);
@@ -56,14 +57,23 @@ public class SumActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+
+        switch (item.getItemId()) {
+            case R.id.action_menu_settings:
+                return true;
+            case R.id.action_menu_level:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        //if (id == R.id.action_settings) {
+        //    return true;
+        //}
 
-        return super.onOptionsItemSelected(item);
+        //return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -73,15 +83,14 @@ public class SumActivity extends ActionBarActivity {
     public void onClickAnswer(View view) {
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
-        textViewResult.setVisibility(View.VISIBLE);
         if (answer.compareTo(result) == 0) {
-            textViewResult.setText(R.string.correct_answer);
-            textViewResult.setTextColor(Color.GREEN);
+            textViewAnswer.setText(R.string.correct_answer);
+            textViewAnswer.setTextColor(Color.GREEN);
         } else {
-            textViewResult.setText(R.string.wrong_answer);
-            textViewResult.append(" ");
-            textViewResult.append(result.toString());
-            textViewResult.setTextColor(Color.RED);
+            textViewAnswer.setText(R.string.wrong_answer);
+            textViewAnswer.append(" ");
+            textViewAnswer.append(result.toString());
+            textViewAnswer.setTextColor(Color.RED);
         }
         answer1.setEnabled(false);
         answer2.setEnabled(false);
@@ -121,7 +130,8 @@ public class SumActivity extends ActionBarActivity {
      */
     public void onSum() {
         buttonProceed.setVisibility(View.INVISIBLE);
-        textViewResult.setVisibility(View.INVISIBLE);
+        textViewAnswer.setTextColor(Color.BLACK);
+        textViewAnswer.setText(R.string.title_answer);
 
         int[] box = generateExpression();
         textViewExpression.setText(number1 + " + " + number2);
