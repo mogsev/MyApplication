@@ -1,6 +1,7 @@
 package com.mogsev.myapplication;
 
 import android.graphics.Color;
+import android.os.PersistableBundle;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,14 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.Random;
+import com.mogsev.util.RandomValue;
+import java.util.ArrayList;
 
 
 public class SumActivity extends ActionBarActivity {
-    private Integer number1, number2, result;
-    private Random random;
     private Integer answer;
+    private int level;
+    private ArrayList<Integer> list;
     Button buttonClick;
     Button answer1;
     Button answer2;
@@ -23,6 +24,7 @@ public class SumActivity extends ActionBarActivity {
     Button buttonProceed;
     TextView textViewAnswer;
     TextView textViewExpression;
+    RandomValue randomValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,11 @@ public class SumActivity extends ActionBarActivity {
         answer3 = (Button) findViewById(R.id.answer3);
         buttonProceed = (Button) findViewById(R.id.buttonProceed);
         textViewExpression = (TextView) findViewById(R.id.textViewExpression);
-        random = new Random();
+        if (level == 0) {
+            level = 10;
+        }
+        randomValue = new RandomValue(level, 0);
+        list = new ArrayList<Integer>();
 
         //filling Activity
         onSum();
@@ -45,7 +51,7 @@ public class SumActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_sum, menu);
+        //getMenuInflater().inflate(R.menu.menu_sum, menu);
         return true;
     }
 
@@ -64,6 +70,18 @@ public class SumActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("level", level);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        level = savedInstanceState.getInt("level");
+    }
+
     /**
      *
      * @param view
@@ -72,13 +90,13 @@ public class SumActivity extends ActionBarActivity {
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
         textViewAnswer.setVisibility(View.VISIBLE);
-        if (answer.compareTo(result) == 0) {
+        if (answer.compareTo(randomValue.getResult()) == 0) {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.append(" ");
-            textViewAnswer.append(result.toString());
+            textViewAnswer.append(randomValue.getResult().toString());
             textViewAnswer.setTextColor(Color.RED);
         }
         answer1.setEnabled(false);
@@ -97,38 +115,19 @@ public class SumActivity extends ActionBarActivity {
 
     /**
      *
-     * @return
-     */
-    private int[] generateExpression() {
-        number1 = random.nextInt(10);
-        number2 = random.nextInt(10);
-        result = number1 + number2;
-
-        int[] box = {random.nextInt(10), random.nextInt(10), result};
-        for (int i = 0; i < random.nextInt(10); i++) {
-            int num = box[0];
-            box[0] = box[1];
-            box[1] = box[2];
-            box[2] = num;
-        }
-        return box;
-    }
-
-    /**
-     *
      */
     public void onSum() {
         buttonProceed.setVisibility(View.INVISIBLE);
         textViewAnswer.setText(R.string.title_answer);
         textViewAnswer.setTextColor(Color.BLACK);
 
-        int[] box = generateExpression();
-        textViewExpression.setText(number1 + " + " + number2);
+        ArrayList<Integer> list = randomValue.getList();
+        textViewExpression.setText(randomValue.getExpression());
         answer1.setEnabled(true);
         answer2.setEnabled(true);
         answer3.setEnabled(true);
-        answer1.setText(String.valueOf(box[0]));
-        answer2.setText(String.valueOf(box[1]));
-        answer3.setText(String.valueOf(box[2]));
+        answer1.setText(String.valueOf(list.get(0)));
+        answer2.setText(String.valueOf(list.get(1)));
+        answer3.setText(String.valueOf(list.get(2)));
     }
 }
