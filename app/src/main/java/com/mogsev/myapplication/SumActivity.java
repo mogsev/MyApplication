@@ -1,11 +1,8 @@
 package com.mogsev.myapplication;
 
-import android.content.DialogInterface;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -57,23 +54,14 @@ public class SumActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
-        switch (item.getItemId()) {
-            case R.id.action_menu_settings:
-                return true;
-            case R.id.action_menu_level:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        //int id = item.getItemId();
+        int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
-        //    return true;
-        //}
+        if (id == R.id.action_settings) {
+            return true;
+        }
 
-        //return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -83,6 +71,7 @@ public class SumActivity extends ActionBarActivity {
     public void onClickAnswer(View view) {
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
+        textViewAnswer.setVisibility(View.VISIBLE);
         if (answer.compareTo(result) == 0) {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
@@ -130,8 +119,8 @@ public class SumActivity extends ActionBarActivity {
      */
     public void onSum() {
         buttonProceed.setVisibility(View.INVISIBLE);
-        textViewAnswer.setTextColor(Color.BLACK);
         textViewAnswer.setText(R.string.title_answer);
+        textViewAnswer.setTextColor(Color.BLACK);
 
         int[] box = generateExpression();
         textViewExpression.setText(number1 + " + " + number2);
