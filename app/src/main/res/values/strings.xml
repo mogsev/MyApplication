@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TestMath</string>
 
@@ -11,11 +12,16 @@
     <string name="title_multiplication">Умножение</string>
     <string name="title_division">Деление</string>
     <string name="title_activity_sum">Сложение</string>
+    <string name="title_expression">Expression</string>
 
     <string name="title_answer">Выберите правильный ответ</string>
     <string name="title_proceed">Продолжить</string>
 
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка! Правильный ответ:</string>
+    <string name="title_activity_subtraction">SubtractionActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

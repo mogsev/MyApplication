@@ -37,6 +37,19 @@ public class RandomValue implements Serializable {
                 result = number1 + number2;
                 expression = number1 + " + " + number2;
                 break;
+            case MathOperation.SUBTRACTION:
+                if (number1 >= number2) {
+                    result = number1 - number2;
+                    expression = number1 + " - " + number2;
+                } else {
+                    result = number2 - number1;
+                    expression = number2 + " - " + number1;
+                }
+                break;
+            case MathOperation.MULTIPLICATION:
+                break;
+            case MathOperation.DIVISION:
+                break;
         }
     }
 

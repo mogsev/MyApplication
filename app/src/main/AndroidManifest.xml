@@ -20,6 +20,10 @@
             android:name=".SumActivity"
             android:label="@string/title_activity_sum" >
         </activity>
+        <activity
+            android:name=".SubtractionActivity"
+            android:label="@string/title_activity_subtraction" >
+        </activity>
     </application>
 
 </manifest>

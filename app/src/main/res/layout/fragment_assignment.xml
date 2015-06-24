@@ -1,15 +1,17 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.mogsev.myapplication.SumActivity"
-    android:padding="10dp">
+    tools:context="com.mogsev.myapplication.AssignmentFragment">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SumExpression"
+        android:text="@string/title_expression"
         android:id="@+id/textViewExpression"
         android:layout_centerHorizontal="true"
         android:textSize="38sp"
@@ -18,7 +20,7 @@
         android:gravity="top|center_vertical"
         android:layout_gravity="center_horizontal" />
 
-       <TextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewAnswer"
@@ -28,31 +30,25 @@
         android:autoText="false"
         android:text="@string/title_answer"
         android:textSize="20sp"
-           android:layout_gravity="center_horizontal" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="clip_horizontal"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal">
+        android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="130dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="answer1"
         android:id="@+id/answer1"
         android:layout_below="@+id/textViewAnswer"
+        android:layout_marginTop="5dp"
         android:textSize="22sp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="onClickAnswer"
-        android:layout_marginRight="20dp" />
+        android:layout_gravity="center_horizontal" />
 
-       <Button
-        android:layout_width="130dp"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="answer2"
         android:id="@+id/answer2"
@@ -62,11 +58,12 @@
         android:layout_alignEnd="@+id/answer1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-           android:onClick="onClickAnswer"
-           android:layout_gravity="center_horizontal" />
+        android:onClick="onClickAnswer"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
 
     <Button
-        android:layout_width="130dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="answer3"
         android:id="@+id/answer3"
@@ -77,12 +74,11 @@
         android:layout_alignParentEnd="true"
         android:textSize="22sp"
         android:onClick="onClickAnswer"
-        android:layout_marginLeft="20dp" />
-
-    </LinearLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
 
     <Button
-        android:layout_width="220dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title_proceed"
         android:id="@+id/buttonProceed"
@@ -92,10 +88,10 @@
         android:layout_alignParentEnd="true"
         android:onClick="onClickProceed"
         android:background="#ff90bfff"
-        android:textSize="22dp"
+        android:textSize="22sp"
         android:layout_below="@+id/answer3"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp" />
 
-
-</LinearLayout>
+    </LinearLayout>
+</FrameLayout>

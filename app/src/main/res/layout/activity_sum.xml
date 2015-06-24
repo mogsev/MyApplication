@@ -4,10 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.mogsev.myapplication.SumActivity"
-    android:paddingLeft="10dp"
-    android:paddingTop="10dp"
-    android:paddingRight="10dp"
-    android:paddingBottom="10dp">
+    android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"

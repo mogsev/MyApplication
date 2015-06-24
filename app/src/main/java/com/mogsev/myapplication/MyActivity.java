@@ -2,7 +2,6 @@ package com.mogsev.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,5 +41,13 @@ public class MyActivity extends Activity {
     public void startActivitySum(View view) {
         Intent intent = new Intent(this, SumActivity.class);
         startActivity(intent);
+    }
+
+    public void startActivityTraining(View view) {
+        switch (view.getId()) {
+            case R.id.button_subtraction:
+                startActivity(new Intent(this, SubtractionActivity.class));
+                break;
+        }
     }
 }
