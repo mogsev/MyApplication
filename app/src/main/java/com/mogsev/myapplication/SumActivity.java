@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class SumActivity extends ActionBarActivity {
     private static final String LIST_RANDOM = "LIST_RANDOM";
     private static final String LEVEL = "LEVEL";
-    private static final String ANSWER_RANDOM = "ANSWER_RANDOM";
-    private Integer answer;
+    private static final String RESULT = "RESULT";
+    private Integer answer, result;
     private int level;
     private ArrayList<Integer> list;
     Button buttonClick;
@@ -41,7 +41,7 @@ public class SumActivity extends ActionBarActivity {
         } else {
             list = savedInstanceState.getIntegerArrayList(LIST_RANDOM);
             level = savedInstanceState.getInt(LEVEL);
-            answer = savedInstanceState.getInt(ANSWER_RANDOM);
+            result = savedInstanceState.getInt(RESULT);
             randomValue = new RandomValue(level, 0);
         }
 
@@ -86,7 +86,7 @@ public class SumActivity extends ActionBarActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(LEVEL, level);
-        outState.putInt(ANSWER_RANDOM, answer);
+        outState.putInt(RESULT, result);
         outState.putIntegerArrayList(LIST_RANDOM, list);
     }
 
@@ -98,13 +98,13 @@ public class SumActivity extends ActionBarActivity {
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
         textViewAnswer.setVisibility(View.VISIBLE);
-        if (answer.compareTo(randomValue.getResult()) == 0) {
+        if (answer.compareTo(result) == 0) {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.append(" ");
-            textViewAnswer.append(randomValue.getResult().toString());
+            textViewAnswer.append(result.toString());
             textViewAnswer.setTextColor(Color.RED);
         }
         answer1.setEnabled(false);
@@ -112,6 +112,7 @@ public class SumActivity extends ActionBarActivity {
         answer3.setEnabled(false);
         buttonProceed.setVisibility(View.VISIBLE);
         list = randomValue.getList();
+        result = randomValue.getResult();
     }
 
     /**
