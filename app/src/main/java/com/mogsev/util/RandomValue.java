@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Created by zhenya on 23.06.2015.
  */
-public class RandomValue {
+public class RandomValue implements Serializable {
     private Random random;
     private Integer number1, number2, result;
     private ArrayList<Integer> list;
@@ -27,9 +27,9 @@ public class RandomValue {
     }
 
     /**
-     *
+     * Generate new data
      */
-    private void generate() {
+    public void generate() {
         number1 = random.nextInt(level);
         number2 = random.nextInt(level);
         switch (operation) {
@@ -45,7 +45,6 @@ public class RandomValue {
      * @return
      */
     public ArrayList<Integer> getList() {
-        generate();
         if (!list.isEmpty()) {
             list.clear();
         }

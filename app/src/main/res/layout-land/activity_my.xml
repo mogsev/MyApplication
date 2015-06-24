@@ -1,32 +1,111 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
     tools:context=".MyActivity"
     android:paddingLeft="10dp"
     android:paddingTop="10dp"
     android:paddingRight="10dp"
     android:paddingBottom="10dp">
 
-    <TextView android:text="@string/hello_world"
+    <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="26dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp" />
+        android:gravity="clip_horizontal|center_horizontal">
 
-    <LinearLayout
+        <TextView android:text="@string/hello_world"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="26sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_span="2" />
+
+    </TableRow>
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp">
+        android:gravity="clip_horizontal|center_horizontal"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal">
 
         <Button
-            android:layout_width="260dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_sum"
+                android:id="@+id/button_sum"
+                android:layout_below="@+id/button_table_multiplication"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textSize="20sp"
+                android:onClick="startActivitySum"
+                android:layout_span="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_subtraction"
+            android:id="@+id/button_subtraction"
+            android:layout_below="@+id/button_sum"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:layout_span="1" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="clip_horizontal|center_horizontal"
+        android:layout_margin="5dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_multiplication"
+            android:id="@+id/button_multiplication"
+            android:layout_below="@+id/button_subtraction"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:layout_span="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_division"
+            android:id="@+id/button_division"
+            android:layout_below="@+id/button_multiplication"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:layout_span="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="clip_horizontal|center_horizontal"
+        android:layout_margin="5dp">
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_table_multiplication"
             android:id="@+id/button_table_multiplication"
@@ -35,76 +114,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:textSize="20dp" />
+            android:textSize="20sp"
+            android:layout_span="2" />
+    </TableRow>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title_sum"
-            android:id="@+id/button_sum"
-            android:layout_below="@+id/button_table_multiplication"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textSize="20dp"
-            android:onClick="startActivitySum" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp">
-
-        <Button
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:text="@string/title_multiplication"
-        android:id="@+id/button_multiplication"
-        android:layout_below="@+id/button_subtraction"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="20dp"
-            android:layout_gravity="left"
-            android:gravity="center" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title_division"
-        android:id="@+id/button_division"
-        android:layout_below="@+id/button_multiplication"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="20dp"
-        android:gravity="center" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:gravity="center_horizontal">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title_subtraction"
-        android:id="@+id/button_subtraction"
-        android:layout_below="@+id/button_sum"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="20dp"
-        android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
-</LinearLayout>
+</TableLayout>

@@ -1,7 +1,6 @@
 package com.mogsev.myapplication;
 
 import android.graphics.Color;
-import android.os.PersistableBundle;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,16 +8,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.mogsev.util.MathOperation;
 import com.mogsev.util.RandomValue;
 import java.util.ArrayList;
 
 
 public class SumActivity extends ActionBarActivity {
-    private static final String LIST_RANDOM = "LIST_RANDOM";
-    private static final String LEVEL = "LEVEL";
-    private static final String RESULT = "RESULT";
-    private Integer answer, result;
-    private int level;
+    private static final String RANDOM_VALUE = "RANDOM_VALUE";
+    private Integer answer;
     private ArrayList<Integer> list;
     Button buttonClick;
     Button answer1;
@@ -36,13 +34,12 @@ public class SumActivity extends ActionBarActivity {
 
         //The application was lunched?
         if (savedInstanceState == null) {
-            randomValue = new RandomValue(20, 0);
+            randomValue = new RandomValue(20, MathOperation.SUM);
+            randomValue.generate();
             list = randomValue.getList();
         } else {
-            list = savedInstanceState.getIntegerArrayList(LIST_RANDOM);
-            level = savedInstanceState.getInt(LEVEL);
-            result = savedInstanceState.getInt(RESULT);
-            randomValue = new RandomValue(level, 0);
+            randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
+            list = randomValue.getList();
         }
 
         //Initialize links for objects
@@ -52,9 +49,6 @@ public class SumActivity extends ActionBarActivity {
         answer3 = (Button) findViewById(R.id.answer3);
         buttonProceed = (Button) findViewById(R.id.buttonProceed);
         textViewExpression = (TextView) findViewById(R.id.textViewExpression);
-        if (level == 0) {
-            level = 10;
-        }
 
         //filling Activity
         onSum();
@@ -85,9 +79,7 @@ public class SumActivity extends ActionBarActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(LEVEL, level);
-        outState.putInt(RESULT, result);
-        outState.putIntegerArrayList(LIST_RANDOM, list);
+        outState.putSerializable(RANDOM_VALUE, randomValue);
     }
 
     /**
@@ -98,21 +90,23 @@ public class SumActivity extends ActionBarActivity {
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
         textViewAnswer.setVisibility(View.VISIBLE);
-        if (answer.compareTo(result) == 0) {
+        if (answer.compareTo(randomValue.getResult()) == 0) {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.append(" ");
-            textViewAnswer.append(result.toString());
+            textViewAnswer.append(randomValue.getResult().toString());
             textViewAnswer.setTextColor(Color.RED);
         }
         answer1.setEnabled(false);
         answer2.setEnabled(false);
         answer3.setEnabled(false);
         buttonProceed.setVisibility(View.VISIBLE);
+
+        // generate new data
+        randomValue.generate();
         list = randomValue.getList();
-        result = randomValue.getResult();
     }
 
     /**
@@ -131,7 +125,6 @@ public class SumActivity extends ActionBarActivity {
         textViewAnswer.setText(R.string.title_answer);
         textViewAnswer.setTextColor(Color.BLACK);
 
-        //ArrayList<Integer> list = randomValue.getList();
         textViewExpression.setText(randomValue.getExpression());
         answer1.setEnabled(true);
         answer2.setEnabled(true);

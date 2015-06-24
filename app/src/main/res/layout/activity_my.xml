@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:textSize="26dp"
+        android:textSize="26sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
@@ -30,7 +30,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp" />
 
@@ -44,7 +44,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:onClick="startActivitySum"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp" />
@@ -59,7 +59,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp" />
 
@@ -73,7 +73,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp" />
 
@@ -87,7 +87,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp" />
 
