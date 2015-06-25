@@ -26,12 +26,16 @@ public class RandomValue implements Serializable {
         this.operation = operation;
     }
 
+    private void generateData() {
+        number1 = random.nextInt(level);
+        number2 = random.nextInt(level);
+    }
+
     /**
      * Generate new data
      */
-    public void generate() {
-        number1 = random.nextInt(level);
-        number2 = random.nextInt(level);
+    public void generateExpression() {
+        generateData();
         switch (operation) {
             case MathOperation.SUM:
                 result = number1 + number2;
@@ -47,14 +51,30 @@ public class RandomValue implements Serializable {
                 }
                 break;
             case MathOperation.MULTIPLICATION:
+                result = number1 * number2;
+                expression = number1 + " * " + number2;
                 break;
             case MathOperation.DIVISION:
+                getDivisionExpression();
                 break;
         }
     }
 
     /**
      *
+     */
+    private void getDivisionExpression() {
+        generateData();
+        if (number1%number2 == 0) {
+            result = number1 / number2;
+            expression = number1 + " / " + number2;
+        } else {
+            getDivisionExpression();
+        }
+    }
+
+    /**
+     * Returns ArrayList that contains data
      * @return
      */
     public ArrayList<Integer> getList() {
@@ -75,13 +95,17 @@ public class RandomValue implements Serializable {
     }
 
     /**
-     *
-     * @return result
+     * Returns result of expression
+     * @return Integer result
      */
     public Integer getResult() {
         return result;
     }
 
+    /**
+     * Returns expression
+     * @return String expression
+     */
     public String getExpression() {
         return expression;
     }

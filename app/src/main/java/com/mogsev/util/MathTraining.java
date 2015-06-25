@@ -56,8 +56,8 @@ public abstract class MathTraining extends Activity {
         answer3.setEnabled(false);
         buttonProceed.setVisibility(View.VISIBLE);
 
-        // generate new data
-        randomValue.generate();
+        // generate new expression
+        randomValue.generateExpression();
         list = randomValue.getList();
     }
 
