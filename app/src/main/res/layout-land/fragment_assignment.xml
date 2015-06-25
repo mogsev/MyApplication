@@ -93,7 +93,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="onClickProceed"
-        android:background="#ff90bfff"
+        android:background="@android:color/holo_blue_light"
         android:textSize="22sp"
         android:layout_below="@+id/answer3"
         android:layout_gravity="center_horizontal"

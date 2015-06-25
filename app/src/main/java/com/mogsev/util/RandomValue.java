@@ -65,7 +65,7 @@ public class RandomValue implements Serializable {
      */
     private void getDivisionExpression() {
         generateData();
-        if (number1%number2 == 0) {
+        if ( (number2 != 0) && ((number1 / number2) > 0)&& (number1%number2 == 0) ) {
             result = number1 / number2;
             expression = number1 + " / " + number2;
         } else {
@@ -81,11 +81,11 @@ public class RandomValue implements Serializable {
         if (!list.isEmpty()) {
             list.clear();
         }
-        list.add(number1);
-        list.add(number2);
+        list.add(result+random.nextInt(level/5));
+        list.add(result-random.nextInt(level/5));
         list.add(result);
-        int value = random.nextInt(10);
-        for (int i = 0; i < value; i++ ) {
+        int step = random.nextInt(10);
+        for (int i = 0; i < step; i++ ) {
             int rest = list.get(0);
             list.set(0, list.get(1));
             list.set(1, list.get(2));

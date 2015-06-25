@@ -47,7 +47,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
-            android:onClick="startActivitySum"
+            android:onClick="startActivityTraining"
             android:layout_span="1" />
 
         <Button
@@ -83,6 +83,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
+            android:onClick="startActivityTraining"
             android:layout_span="1" />
 
         <Button
@@ -96,6 +97,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
+            android:onClick="startActivityTraining"
             android:layout_span="1" />
     </TableRow>
 
@@ -116,6 +118,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
+            android:onClick="startActivityTraining"
             android:layout_span="2" />
     </TableRow>
 

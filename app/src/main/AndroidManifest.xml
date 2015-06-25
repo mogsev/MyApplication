@@ -24,6 +24,14 @@
             android:name=".SubtractionActivity"
             android:label="@string/title_activity_subtraction" >
         </activity>
+        <activity
+            android:name=".MultiplicationActivity"
+            android:label="@string/title_activity_multiplication" >
+        </activity>
+        <activity
+            android:name=".DivisionActivity"
+            android:label="@string/title_activity_division" >
+        </activity>
     </application>
 
 </manifest>

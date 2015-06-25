@@ -35,7 +35,7 @@ public class SumActivity extends ActionBarActivity {
         //The application was lunched?
         if (savedInstanceState == null) {
             randomValue = new RandomValue(20, MathOperation.SUM);
-            randomValue.generate();
+            randomValue.generateExpression();
             list = randomValue.getList();
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
@@ -105,7 +105,7 @@ public class SumActivity extends ActionBarActivity {
         buttonProceed.setVisibility(View.VISIBLE);
 
         // generate new data
-        randomValue.generate();
+        randomValue.generateExpression();
         list = randomValue.getList();
     }
 

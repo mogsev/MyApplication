@@ -15,7 +15,7 @@ public class SubtractionActivity extends MathTraining {
         //The application was lunched?
         if (savedInstanceState == null) {
             randomValue = new RandomValue(20, MathOperation.SUBTRACTION);
-            randomValue.generate();
+            randomValue.generateExpression();
             list = randomValue.getList();
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);

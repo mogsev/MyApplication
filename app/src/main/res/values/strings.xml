@@ -20,5 +20,7 @@
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка! Правильный ответ:</string>
     <string name="title_activity_subtraction">SubtractionActivity</string>
+    <string name="title_activity_multiplication">MultiplicationActivity</string>
+    <string name="title_activity_division">DivisionActivity</string>
 
 </resources>
