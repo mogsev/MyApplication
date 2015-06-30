@@ -2,9 +2,11 @@
 <resources>
     <string name="app_name">TestMath</string>
 
-    <string name="hello_world">Тренировки</string>
+    <string name="title_test">Тренировки</string>
+
     <string name="action_settings">Settings</string>
     <string name="action_level">Уровень сложности</string>
+    <string name="action_about">О MathTest</string>
 
     <string name="title_table_multiplication">Таблица умножения</string>
     <string name="title_sum">Сложение</string>

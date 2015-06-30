@@ -10,7 +10,7 @@
     android:paddingBottom="10dp"
     android:outlineProvider="background">
 
-    <TextView android:text="@string/hello_world"
+    <TextView android:text="@string/title_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
@@ -21,7 +21,7 @@
         android:layout_marginTop="5dp" />
 
     <Button
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/title_table_multiplication"
         android:id="@+id/button_table_multiplication"
@@ -32,11 +32,10 @@
         android:layout_marginTop="10dp"
         android:background="@android:color/holo_blue_light"
         android:textColor="@android:color/white"
-        android:singleLine="false"
-        android:nestedScrollingEnabled="false" />
+        android:singleLine="false" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/title_sum"
         android:id="@+id/button_sum"
@@ -53,7 +52,7 @@
         android:textColor="@android:color/white" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/title_subtraction"
         android:id="@+id/button_subtraction"
@@ -70,7 +69,7 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/title_multiplication"
         android:id="@+id/button_multiplication"
@@ -87,7 +86,7 @@
         android:textColor="@android:color/white"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/title_division"
         android:id="@+id/button_division"

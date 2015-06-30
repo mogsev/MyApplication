@@ -16,7 +16,7 @@
         android:layout_gravity="center_horizontal"
         android:gravity="clip_horizontal|center_horizontal">
 
-        <TextView android:text="@string/hello_world"
+        <TextView android:text="@string/title_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
@@ -37,7 +37,7 @@
         android:layout_gravity="center_horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/title_sum"
             android:id="@+id/button_sum"
@@ -48,10 +48,13 @@
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
-            android:layout_span="1" />
+            android:layout_span="1"
+            android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="10dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/title_subtraction"
             android:id="@+id/button_subtraction"
@@ -62,7 +65,10 @@
             android:layout_alignParentEnd="true"
             android:onClick="startActivityTraining"
             android:textSize="20sp"
-            android:layout_span="1" />
+            android:layout_span="1"
+            android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="10dp" />
 
     </TableRow>
 
@@ -84,7 +90,10 @@
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
-            android:layout_span="1" />
+            android:layout_span="1"
+            android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="10dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -98,7 +107,10 @@
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
-            android:layout_span="1" />
+            android:layout_span="1"
+            android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="10dp" />
     </TableRow>
 
     <TableRow
@@ -119,7 +131,9 @@
             android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
-            android:layout_span="2" />
+            android:layout_span="2"
+            android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white" />
     </TableRow>
 
 </TableLayout>

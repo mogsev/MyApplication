@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-
 public class MyActivity extends Activity {
 
     @Override
@@ -32,17 +31,17 @@ public class MyActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void startActivitySum(View view) {
-        Intent intent = new Intent(this, SumActivity.class);
-        startActivity(intent);
-    }
-
+    /**
+     * Handle clicks on button
+     * @param view
+     */
     public void startActivityTraining(View view) {
         switch (view.getId()) {
             case R.id.button_sum:
