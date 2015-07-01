@@ -1,10 +1,10 @@
 package com.mogsev.myapplication;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,10 +34,10 @@ public class MyActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
             case R.id.action_about :
-                onActionAbout();
+                onActionMenuAbout();
                 break;
             case R.id.action_level :
-
+                onActionMenuLevel();
                 break;
         }
         /*
@@ -49,12 +49,22 @@ public class MyActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void onActionAbout() {
-        AlertDialog.Builder actionAbout = new AlertDialog.Builder(getApplicationContext());
-        actionAbout.setTitle(R.string.action_about)
-                .setMessage(R.string.dialog_about_message);
-        actionAbout.create();
-        actionAbout.show();
+    /**
+     * Create dialog of level menu
+     */
+    private void onActionMenuLevel() {
+
+    }
+
+    /**
+     * Create dialog about app
+     */
+    private void onActionMenuAbout() {
+        AlertDialog.Builder actionAbout = new AlertDialog.Builder(this);
+        LayoutInflater layoutInflater = this.getLayoutInflater();
+        actionAbout.setView(layoutInflater.inflate(R.layout.dialog_about, null))
+                .create()
+                .show();
     }
 
     /**
@@ -76,7 +86,7 @@ public class MyActivity extends ActionBarActivity {
                 startActivity(new Intent(this, DivisionActivity.class));
                 break;
             case R.id.button_table_multiplication:
-                //startActivity(new Intent(this, ));
+                startActivity(new Intent(this, TableMultiplicationActivity.class));
                 break;
         }
     }

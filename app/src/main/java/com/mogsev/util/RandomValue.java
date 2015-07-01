@@ -26,7 +26,7 @@ public class RandomValue implements Serializable {
         this.operation = operation;
     }
 
-    private void generateData() {
+    private void generateData(int level) {
         number1 = random.nextInt(level);
         number2 = random.nextInt(level);
     }
@@ -35,12 +35,14 @@ public class RandomValue implements Serializable {
      * Generate new data
      */
     public void generateExpression() {
-        generateData();
+        generateData(level);
         switch (operation) {
+            // Generate result and expression for Sum
             case MathOperation.SUM:
                 result = number1 + number2;
                 expression = number1 + " + " + number2;
                 break;
+            // Generate result and expression for Subtraction
             case MathOperation.SUBTRACTION:
                 if (number1 >= number2) {
                     result = number1 - number2;
@@ -50,21 +52,40 @@ public class RandomValue implements Serializable {
                     expression = number2 + " - " + number1;
                 }
                 break;
+            // Generate result and expression for Multiplication
             case MathOperation.MULTIPLICATION:
                 result = number1 * number2;
                 expression = number1 + " * " + number2;
                 break;
+            //Generate result and expression for Division
             case MathOperation.DIVISION:
                 getDivisionExpression();
+                break;
+            // Generate result and expression for Table Multiplication
+            case MathOperation.TABLE_MULTIPLICATION:
+                getTableMultiplicationExpression();
                 break;
         }
     }
 
     /**
-     *
+     * Generate result and expression for Table Multiplication
+     */
+    private void getTableMultiplicationExpression() {
+        generateData(10);
+        if ((number1 != 0) && (number2 != 0)) {
+            result = number1 * number2;
+            expression = number1 + " * " + number2;
+        } else {
+            getTableMultiplicationExpression();
+        }
+    }
+
+    /**
+     * Generate result and expression for Division
      */
     private void getDivisionExpression() {
-        generateData();
+        generateData(level);
         if ( (number2 != 0) && ((number1 / number2) > 0)&& (number1%number2 == 0) ) {
             result = number1 / number2;
             expression = number1 + " / " + number2;

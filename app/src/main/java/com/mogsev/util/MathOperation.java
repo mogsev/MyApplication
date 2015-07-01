@@ -8,4 +8,5 @@ public interface MathOperation {
     public static final int SUBTRACTION = 1;
     public static final int MULTIPLICATION = 2;
     public static final int DIVISION = 3;
+    public static final int TABLE_MULTIPLICATION = 4;
 }
