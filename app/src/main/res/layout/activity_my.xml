@@ -7,8 +7,7 @@
     android:paddingLeft="10dp"
     android:paddingTop="10dp"
     android:paddingRight="10dp"
-    android:paddingBottom="10dp"
-    android:outlineProvider="background">
+    android:paddingBottom="10dp" >
 
     <TextView android:text="@string/title_test"
         android:layout_width="wrap_content"
