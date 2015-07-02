@@ -1,24 +1,25 @@
-package com.mogsev.myapplication;
+package com.mogsev.myapplication.activity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.mogsev.util.MathOperation;
-import com.mogsev.util.MathTraining;
-import com.mogsev.util.RandomValue;
+import com.mogsev.myapplication.R;
+import com.mogsev.myapplication.util.MathOperation;
+import com.mogsev.myapplication.util.MathTraining;
+import com.mogsev.myapplication.util.RandomValue;
 
 
-public class TableMultiplicationActivity extends MathTraining {
+public class MultiplicationActivity extends MathTraining {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_table_multiplication);
+        setContentView(R.layout.activity_multiplication);
 
         //The application was lunched?
         if (savedInstanceState == null) {
-            randomValue = new RandomValue(10, MathOperation.TABLE_MULTIPLICATION);
+            randomValue = new RandomValue(20, MathOperation.MULTIPLICATION);
             randomValue.generateExpression();
             list = randomValue.getList();
         } else {
@@ -33,10 +34,11 @@ public class TableMultiplicationActivity extends MathTraining {
         fillingActivity();
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_table_multiplication, menu);
+        getMenuInflater().inflate(R.menu.menu_multiplication, menu);
         return true;
     }
 

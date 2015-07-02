@@ -1,4 +1,4 @@
-package com.mogsev.myapplication;
+package com.mogsev.myapplication.activity;
 
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
@@ -9,8 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.mogsev.util.MathOperation;
-import com.mogsev.util.RandomValue;
+import com.mogsev.myapplication.R;
+import com.mogsev.myapplication.util.MathOperation;
+import com.mogsev.myapplication.util.RandomValue;
 import java.util.ArrayList;
 
 

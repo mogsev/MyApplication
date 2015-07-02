@@ -1,25 +1,24 @@
-package com.mogsev.myapplication;
+package com.mogsev.myapplication.activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.mogsev.util.MathOperation;
-import com.mogsev.util.MathTraining;
-import com.mogsev.util.RandomValue;
+import com.mogsev.myapplication.R;
+import com.mogsev.myapplication.util.MathOperation;
+import com.mogsev.myapplication.util.MathTraining;
+import com.mogsev.myapplication.util.RandomValue;
 
-
-public class MultiplicationActivity extends MathTraining {
+public class DivisionActivity extends MathTraining {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multiplication);
+        setContentView(R.layout.activity_division);
 
         //The application was lunched?
         if (savedInstanceState == null) {
-            randomValue = new RandomValue(20, MathOperation.MULTIPLICATION);
+            randomValue = new RandomValue(20, MathOperation.DIVISION);
             randomValue.generateExpression();
             list = randomValue.getList();
         } else {
@@ -34,11 +33,10 @@ public class MultiplicationActivity extends MathTraining {
         fillingActivity();
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_multiplication, menu);
+        getMenuInflater().inflate(R.menu.menu_division, menu);
         return true;
     }
 

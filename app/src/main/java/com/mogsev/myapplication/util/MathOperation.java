@@ -1,4 +1,4 @@
-package com.mogsev.util;
+package com.mogsev.myapplication.util;
 
 /**
  * Created by zhenya on 23.06.2015.

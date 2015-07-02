@@ -1,9 +1,11 @@
-package com.mogsev.myapplication;
+package com.mogsev.myapplication.activity;
 
 import android.os.Bundle;
-import com.mogsev.util.MathOperation;
-import com.mogsev.util.MathTraining;
-import com.mogsev.util.RandomValue;
+
+import com.mogsev.myapplication.R;
+import com.mogsev.myapplication.util.MathOperation;
+import com.mogsev.myapplication.util.MathTraining;
+import com.mogsev.myapplication.util.RandomValue;
 
 public class SubtractionActivity extends MathTraining {
 

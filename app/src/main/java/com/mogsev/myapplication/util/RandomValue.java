@@ -1,4 +1,4 @@
-package com.mogsev.util;
+package com.mogsev.myapplication.util;
 
 import java.io.Serializable;
 import java.util.ArrayList;

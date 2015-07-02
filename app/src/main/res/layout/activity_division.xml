@@ -1,12 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mogsev.myapplication.DivisionActivity">
+    tools:context="com.mogsev.myapplication.activity.DivisionActivity">
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.mogsev.myapplication.AssignmentFragment"
+        android:name="com.mogsev.myapplication.fragment.AssignmentFragment"
         android:id="@+id/fragment"
         tools:layout="@layout/fragment_assignment" />
 

@@ -19,23 +19,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SumActivity"
+            android:name=".activity.SumActivity"
             android:label="@string/title_activity_sum" >
         </activity>
         <activity
-            android:name=".SubtractionActivity"
+            android:name=".activity.SubtractionActivity"
             android:label="@string/title_activity_subtraction" >
         </activity>
         <activity
-            android:name=".MultiplicationActivity"
+            android:name=".activity.MultiplicationActivity"
             android:label="@string/title_activity_multiplication" >
         </activity>
         <activity
-            android:name=".DivisionActivity"
+            android:name=".activity.DivisionActivity"
             android:label="@string/title_activity_division" >
         </activity>
         <activity
-            android:name=".TableMultiplicationActivity"
+            android:name=".activity.TableMultiplicationActivity"
             android:label="@string/title_activity_table_multiplication" >
         </activity>
     </application>

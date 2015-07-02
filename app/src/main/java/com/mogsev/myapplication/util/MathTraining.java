@@ -1,4 +1,4 @@
-package com.mogsev.util;
+package com.mogsev.myapplication.util;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.mogsev.myapplication.R;
+
 import java.util.ArrayList;
 
 /**

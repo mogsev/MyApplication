@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mogsev.myapplication.SubtractionActivity">
+    tools:context="com.mogsev.myapplication.activity.SubtractionActivity">
 
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.mogsev.myapplication.AssignmentFragment"
+        android:name="com.mogsev.myapplication.fragment.AssignmentFragment"
         android:id="@+id/fragment"
         tools:layout="@layout/fragment_assignment" />
 

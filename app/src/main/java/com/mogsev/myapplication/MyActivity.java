@@ -9,6 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.mogsev.myapplication.activity.DivisionActivity;
+import com.mogsev.myapplication.activity.MultiplicationActivity;
+import com.mogsev.myapplication.activity.SubtractionActivity;
+import com.mogsev.myapplication.activity.SumActivity;
+import com.mogsev.myapplication.activity.TableMultiplicationActivity;
+
 public class MyActivity extends ActionBarActivity {
 
     @Override
@@ -26,11 +32,6 @@ public class MyActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
             case R.id.action_about :
@@ -40,12 +41,6 @@ public class MyActivity extends ActionBarActivity {
                 onActionMenuLevel();
                 break;
         }
-        /*
-        if (id == R.id.action_settings) {
-
-            return true;
-        }*/
-
         return super.onOptionsItemSelected(item);
     }
 
