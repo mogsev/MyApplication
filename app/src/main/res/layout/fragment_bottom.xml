@@ -1,8 +1,117 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mogsev.myapplication.fragment.BottomFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.mogsev.myapplication.fragment.BottomFragment"
+    android:padding="10dp"
+    android:gravity="bottom"
+    android:orientation="horizontal">
 
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ответов:"
+            android:id="@+id/textView4"
+            android:layout_alignParentLeft="true"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ХХ"
+            android:id="@+id/numAnswer"
+            android:layout_toRightOf="@+id/textView4"
+            android:paddingLeft="5dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="из"
+            android:id="@+id/textView6"
+
+            android:layout_toRightOf="@+id/numAnswer"
+            android:paddingLeft="5dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ХХ"
+            android:id="@+id/totalAnswer"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_toRightOf="@+id/textView6"
+            android:paddingLeft="5dp"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Уровень:"
+            android:id="@+id/textView8"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="12sp"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX"
+            android:id="@+id/numLevel"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textView8"
+            android:paddingLeft="5dp"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX"
+            android:id="@+id/numNegativeAnswer"
+            android:gravity="right"
+            android:layout_alignParentBottom="true"
+
+
+            android:textSize="12sp"
+            android:layout_alignParentRight="false"
+            android:layout_toLeftOf="@+id/numPositiveAnswer"
+            android:background="@android:color/holo_red_light"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX"
+            android:id="@+id/numPositiveAnswer"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="right"
+            android:textSize="12sp"
+            android:layout_alignParentLeft="false"
+            android:background="@android:color/holo_green_dark"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+    </RelativeLayout>
+
+</LinearLayout>

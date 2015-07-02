@@ -6,6 +6,7 @@ import android.view.MenuItem;
 
 import com.mogsev.myapplication.R;
 import com.mogsev.myapplication.util.MathOperation;
+import com.mogsev.myapplication.util.MathResult;
 import com.mogsev.myapplication.util.MathTraining;
 import com.mogsev.myapplication.util.RandomValue;
 
@@ -16,6 +17,8 @@ public class TableMultiplicationActivity extends MathTraining {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_multiplication);
+
+        mathResult = new MathResult(MathOperation.TABLE_MULTIPLICATION);
 
         //The application was lunched?
         if (savedInstanceState == null) {

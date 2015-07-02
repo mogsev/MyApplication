@@ -25,6 +25,10 @@ public abstract class MathTraining extends Activity {
     public TextView textViewAnswer;
     public TextView textViewExpression;
     public RandomValue randomValue;
+    public TextView positiveAnswer;
+    public TextView negativeAnswer;
+
+    public MathResult mathResult;
 
     public void initElements() {
         textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
@@ -33,6 +37,11 @@ public abstract class MathTraining extends Activity {
         answer3 = (Button) findViewById(R.id.answer3);
         buttonProceed = (Button) findViewById(R.id.buttonProceed);
         textViewExpression = (TextView) findViewById(R.id.textViewExpression);
+
+        negativeAnswer = (TextView) findViewById(R.id.numNegativeAnswer);
+        negativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswer()));
+        positiveAnswer = (TextView) findViewById(R.id.numPositiveAnswer);
+        positiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswer()));
     }
 
     /**
@@ -46,11 +55,13 @@ public abstract class MathTraining extends Activity {
         if (answer.compareTo(randomValue.getResult()) == 0) {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
+            positiveAnswer.setText(String.valueOf(mathResult.increaseNumPositiveAnswer()));
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.append(" ");
             textViewAnswer.append(randomValue.getResult().toString());
             textViewAnswer.setTextColor(Color.RED);
+            negativeAnswer.setText(String.valueOf(mathResult.increaseNumNegativeAnswer()));
         }
         answer1.setEnabled(false);
         answer2.setEnabled(false);

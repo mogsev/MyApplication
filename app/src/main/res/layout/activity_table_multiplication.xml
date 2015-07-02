@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mogsev.myapplication.activity.TableMultiplicationActivity">
 
@@ -7,7 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.mogsev.myapplication.fragment.AssignmentFragment"
-        android:id="@+id/fragment"
+        android:id="@+id/fragment_assignment"
         tools:layout="@layout/fragment_assignment" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.mogsev.myapplication.fragment.BottomFragment"
+        android:id="@+id/fragment_bottom"
+        tools:layout="@layout/fragment_bottom" />
 
 </RelativeLayout>
