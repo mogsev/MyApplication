@@ -9,7 +9,7 @@ public class MathResult implements Serializable {
     private int numPositiveAnswer;
     private int numNegativeAnswer;
     private int numAnswer;
-    private int totalAnswer;
+    private int totalQuestion;
     private int numLevel;
     private int operation;
 
@@ -29,10 +29,10 @@ public class MathResult implements Serializable {
 
         if (operation == MathOperation.TABLE_MULTIPLICATION) {
             numLevel = 1;
-            totalAnswer = 10;
+            totalQuestion = 10;
         } else {
             numLevel = 1;
-            totalAnswer = 10;
+            totalQuestion = 10;
         }
     }
 
@@ -123,7 +123,11 @@ public class MathResult implements Serializable {
         return numAnswer;
     }
 
-    public int getTotalAnswer() {
-        return totalAnswer;
+    public void setTotalQuestion(int totalQuestion) {
+        this.totalQuestion = totalQuestion;
+    }
+
+    public int getTotalQuestion() {
+        return totalQuestion;
     }
 }

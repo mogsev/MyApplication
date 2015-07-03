@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ХХ"
-            android:id="@+id/textViewTotalAnswer"
+            android:id="@+id/textViewTotalQuestion"
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="false"
             android:layout_toRightOf="@+id/textView6"

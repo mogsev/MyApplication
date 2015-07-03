@@ -13,13 +13,20 @@
     <string name="title_multiplication">Умножение</string>
     <string name="title_division">Деление</string>
     <string name="title_expression">Expression</string>
-
     <string name="title_answer">Выберите правильный ответ</string>
     <string name="title_proceed">Продолжить</string>
+    <string name="title_result">Результат</string>
 
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка! Правильный ответ:</string>
 
     <string name="dialog_about_version">Версия 1.0.1</string>
+    <string name="dialog_total_number_question">Всего вопросов:</string>
+    <string name="dialog_number_positive_answer">Правильных ответов:</string>
+    <string name="dialog_number_negative_answer">Неправильных ответов:</string>
+    <string name="dialog_save_result">Сохранить</string>
+    <string name="dialog_continue_result">Продолжить</string>
+
+    <string name="toast_continue">Продолжаем! Так держать</string>
 
 </resources>

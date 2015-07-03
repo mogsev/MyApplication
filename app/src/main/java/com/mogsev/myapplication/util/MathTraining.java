@@ -33,7 +33,7 @@ public abstract class MathTraining extends Activity {
     public TextView textViewNumPositiveAnswer;
     public TextView textViewNumNegativeAnswer;
     public TextView textViewNumAnswer;
-    public TextView textViewTotalAnswer;
+    public TextView textViewTotalQuestion;
     public TextView textViewNumLevel;
 
     public RandomValue randomValue;
@@ -53,7 +53,7 @@ public abstract class MathTraining extends Activity {
         textViewNumPositiveAnswer = (TextView) findViewById(R.id.textViewNumPositiveAnswer);
         textViewNumLevel = (TextView) findViewById(R.id.textViewNumLevel);
         textViewNumAnswer = (TextView) findViewById(R.id.textViewNumAnswer);
-        textViewTotalAnswer = (TextView) findViewById(R.id.textViewTotalAnswer);
+        textViewTotalQuestion = (TextView) findViewById(R.id.textViewTotalQuestion);
     }
 
     /**
@@ -117,7 +117,7 @@ public abstract class MathTraining extends Activity {
         textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswer()));
         textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
         textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
-        textViewTotalAnswer.setText(String.valueOf(mathResult.getTotalAnswer()));
+        textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
     }
 
     @Override
@@ -128,43 +128,54 @@ public abstract class MathTraining extends Activity {
     }
 
     private void mathResultCheck() {
-        switch (mathResult.getOperation()) {
-            case MathOperation.TABLE_MULTIPLICATION:
-                if (mathResult.getNumAnswer() == 10) {
-                    showResult();
-                    mathResult.setNumAnswer(0);
-                    mathResult.setNumNegativeAnswer(0);
-                    mathResult.setNumPositiveAnswer(0);
-                }
-                break;
-            case MathOperation.MULTIPLICATION:
-
-                break;
-            case MathOperation.DIVISION:
-
-                break;
-            case MathOperation.SUM:
-
-                break;
-            case MathOperation.SUBTRACTION:
-
-                break;
+        if (mathResult.getNumAnswer() == mathResult.getTotalQuestion()) {
+            showResult();
         }
     }
 
     private void showResult() {
-        final AlertDialog.Builder showResult = new AlertDialog.Builder(this);
+        final AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
         View linerLayout = getLayoutInflater().inflate(R.layout.dialog_result, null);
-        showResult.setView(linerLayout);
-        showResult.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        dialogResult.setView(linerLayout);
+        dialogResult.setTitle(R.string.title_result);
+        dialogResult.setPositiveButton(R.string.dialog_save_result, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                cleanOutResult();
+                fillingActivity();
+            }
+        });
+        dialogResult.setNegativeButton(R.string.dialog_continue_result, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                Toast.makeText(getApplicationContext(), R.string.toast_continue, Toast.LENGTH_LONG).show();
+                mathResult.setTotalQuestion(mathResult.getTotalQuestion() + 10);
+                textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
                 dialogInterface.cancel();
             }
         });
-        TextView textView9 = (TextView) linerLayout.findViewById(R.id.textView9);
-        textView9.setText(String.valueOf(mathResult.getTotalAnswer()));
-        showResult.create();
-        showResult.show();
+
+        TextView dialogResultTotalQuestion = (TextView) linerLayout.findViewById(R.id.dialogResultTotalQuestion);
+        TextView dialogResultPositiveAnswer = (TextView) linerLayout.findViewById(R.id.dialogResultPositiveAnswer);
+        TextView dialogResultNegativeAnswer = (TextView) linerLayout.findViewById(R.id.dialogResultNegativeAnswer);
+        dialogResultTotalQuestion.setText(R.string.dialog_total_number_question);
+        dialogResultTotalQuestion.append(" ");
+        dialogResultTotalQuestion.append(String.valueOf(mathResult.getTotalQuestion()));
+        dialogResultPositiveAnswer.setText(R.string.dialog_number_positive_answer);
+        dialogResultPositiveAnswer.append(" ");
+        dialogResultPositiveAnswer.append(String.valueOf(mathResult.increaseNumPositiveAnswer()));
+        dialogResultNegativeAnswer.setText(R.string.dialog_number_negative_answer);
+        dialogResultNegativeAnswer.append(" ");
+        dialogResultNegativeAnswer.append(String.valueOf(mathResult.getNumNegativeAnswer()));
+        dialogResult.create();
+        dialogResult.show();
+    }
+
+    private void cleanOutResult() {
+        mathResult.setTotalQuestion(mathResult.getCountRandom());
+        mathResult.setNumAnswer(0);
+        mathResult.setNumNegativeAnswer(0);
+        mathResult.setNumPositiveAnswer(0);
     }
 }
