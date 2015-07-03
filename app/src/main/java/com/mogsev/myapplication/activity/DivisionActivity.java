@@ -1,11 +1,10 @@
 package com.mogsev.myapplication.activity;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.mogsev.myapplication.R;
 import com.mogsev.myapplication.util.MathOperation;
+import com.mogsev.myapplication.util.MathResult;
 import com.mogsev.myapplication.util.MathTraining;
 import com.mogsev.myapplication.util.RandomValue;
 
@@ -18,12 +17,14 @@ public class DivisionActivity extends MathTraining {
 
         //The application was lunched?
         if (savedInstanceState == null) {
+            mathResult = new MathResult(MathOperation.DIVISION);
             randomValue = new RandomValue(20, MathOperation.DIVISION);
             randomValue.generateExpression();
             list = randomValue.getList();
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             list = randomValue.getList();
+            mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
         }
 
         //Initialize links for objects
@@ -31,27 +32,5 @@ public class DivisionActivity extends MathTraining {
 
         //filling Activity
         fillingActivity();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_division, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

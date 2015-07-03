@@ -12,4 +12,11 @@
         android:id="@+id/fragment"
         tools:layout="@layout/fragment_assignment" />
 
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.mogsev.myapplication.fragment.BottomFragment"
+        android:id="@+id/fragment_bottom"
+        tools:layout="@layout/fragment_bottom" />
+
 </LinearLayout>

@@ -20,23 +20,23 @@
         </activity>
         <activity
             android:name=".activity.SumActivity"
-            android:label="@string/title_activity_sum" >
+            android:label="@string/title_sum" >
         </activity>
         <activity
             android:name=".activity.SubtractionActivity"
-            android:label="@string/title_activity_subtraction" >
+            android:label="@string/title_subtraction" >
         </activity>
         <activity
             android:name=".activity.MultiplicationActivity"
-            android:label="@string/title_activity_multiplication" >
+            android:label="@string/title_multiplication" >
         </activity>
         <activity
             android:name=".activity.DivisionActivity"
-            android:label="@string/title_activity_division" >
+            android:label="@string/title_division" >
         </activity>
         <activity
             android:name=".activity.TableMultiplicationActivity"
-            android:label="@string/title_activity_table_multiplication" >
+            android:label="@string/title_table_multiplication" >
         </activity>
     </application>
 

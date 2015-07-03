@@ -12,7 +12,6 @@
     <string name="title_subtraction">Вычитание</string>
     <string name="title_multiplication">Умножение</string>
     <string name="title_division">Деление</string>
-    <string name="title_activity_sum">Сложение</string>
     <string name="title_expression">Expression</string>
 
     <string name="title_answer">Выберите правильный ответ</string>
@@ -20,18 +19,7 @@
 
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка! Правильный ответ:</string>
-    <string name="title_activity_subtraction">SubtractionActivity</string>
-    <string name="title_activity_multiplication">MultiplicationActivity</string>
-    <string name="title_activity_division">DivisionActivity</string>
 
     <string name="dialog_about_version">Версия 1.0.1</string>
-    <string name="title_activity_table_multiplication">TableMultiplicationActivity</string>
-
-    <string name="action_example">Example action</string>
-
-    <string name="hello_world">Hello world!</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
