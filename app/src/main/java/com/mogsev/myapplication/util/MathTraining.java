@@ -21,23 +21,23 @@ import java.util.ArrayList;
 public abstract class MathTraining extends Activity {
     public static final String RANDOM_VALUE = "RANDOM_VALUE";
     public static final String MATH_RESULT = "MATH_RESULT";
-    public Integer answer;
     public ArrayList<Integer> list;
-    public Button buttonClick;
-    public Button buttonAnswer1;
-    public Button buttonAnswer2;
-    public Button buttonAnswer3;
-    public Button buttonProceed;
-    public TextView textViewAnswer;
-    public TextView textViewExpression;
-    public TextView textViewNumPositiveAnswer;
-    public TextView textViewNumNegativeAnswer;
-    public TextView textViewNumAnswer;
-    public TextView textViewTotalQuestion;
-    public TextView textViewNumLevel;
-
     public RandomValue randomValue;
     public MathResult mathResult;
+
+    private Integer answer;
+    private Button buttonClick;
+    private Button buttonAnswer1;
+    private Button buttonAnswer2;
+    private Button buttonAnswer3;
+    private Button buttonProceed;
+    private TextView textViewAnswer;
+    private TextView textViewExpression;
+    private TextView textViewNumPositiveAnswer;
+    private TextView textViewNumNegativeAnswer;
+    private TextView textViewNumAnswer;
+    private TextView textViewTotalQuestion;
+    private TextView textViewNumLevel;
 
     public void initElements() {
         // fragment_assignment content
