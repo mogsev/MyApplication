@@ -19,6 +19,7 @@
 
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка! Правильный ответ:</string>
+    <string name="check_answer">Вы уже ответили на этот вопрос</string>
 
     <string name="dialog_about_version">Версия 1.0.1</string>
     <string name="dialog_total_number_question">Всего вопросов:</string>

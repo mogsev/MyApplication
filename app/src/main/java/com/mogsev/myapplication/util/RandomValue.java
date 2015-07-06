@@ -24,6 +24,10 @@ public class RandomValue implements Serializable {
         this.operation = operation;
     }
 
+    /**
+     *
+     * @param level
+     */
     private void generateData(int level) {
         number1 = random.nextInt(level*10);
         number2 = random.nextInt(level*10);
@@ -104,8 +108,6 @@ public class RandomValue implements Serializable {
         }
         getRandomNum(result);
         getRandomNum(result);
-        //list.add(random.nextInt(result));
-        //list.add(result + random.nextInt(result));
         list.add(result);
         int step = random.nextInt(10);
         for (int i = 0; i < step; i++ ) {
@@ -133,13 +135,20 @@ public class RandomValue implements Serializable {
         return expression;
     }
 
-
+    /**
+     *
+     * @param result
+     */
     private void getRandomNum(int result) {
-        int num = random.nextInt(result + result);
-        if (num == result) {
-            getRandomNum(result);
+        if (result != 0) {
+            int num = random.nextInt(result + result);
+            if (num == result) {
+                getRandomNum(result);
+            } else {
+                list.add(num);
+            }
         } else {
-            list.add(num);
+            list.add(random.nextInt(10));
         }
     }
 }

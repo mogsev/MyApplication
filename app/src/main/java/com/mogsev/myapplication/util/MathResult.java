@@ -12,6 +12,7 @@ public class MathResult implements Serializable {
     private int totalQuestion;
     private int numLevel;
     private int operation;
+    private boolean checkAnswer;
 
     /**
      * Empty constructor
@@ -28,6 +29,7 @@ public class MathResult implements Serializable {
         this.operation = operation;
         numLevel = 1;
         totalQuestion = 10;
+        checkAnswer = false;
     }
 
     /**
@@ -114,14 +116,6 @@ public class MathResult implements Serializable {
         }
     }
 
-    /**
-     * It returns count for random ranges
-     * @return int
-     */
-   /** public int getCountRandom() {
-        return numLevel*10;
-    }*/
-
     public void setNumAnswer(int numAnswer) {
         this.numAnswer = numAnswer;
     }
@@ -151,5 +145,13 @@ public class MathResult implements Serializable {
         this.setNumAnswer(0);
         this.setNumNegativeAnswer(0);
         this.setNumPositiveAnswer(0);
+    }
+
+    public boolean isCheckAnswer() {
+        return checkAnswer;
+    }
+
+    public void setCheckAnswer(boolean checkAnswer) {
+        this.checkAnswer = checkAnswer;
     }
 }

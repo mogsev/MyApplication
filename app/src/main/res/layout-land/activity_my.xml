@@ -19,8 +19,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView"
             android:textSize="26sp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:layout_span="2" />
@@ -40,14 +38,10 @@
             android:text="@string/title_sum"
             android:id="@+id/button_sum"
             android:layout_below="@+id/button_table_multiplication"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
             android:layout_span="1"
-            android:background="@android:color/holo_blue_light"
+            android:background="@drawable/button_action"
             android:textColor="@android:color/white"
             android:layout_marginRight="10dp" />
 
@@ -57,14 +51,10 @@
             android:text="@string/title_subtraction"
             android:id="@+id/button_subtraction"
             android:layout_below="@+id/button_sum"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:onClick="startActivityTraining"
             android:textSize="20sp"
             android:layout_span="1"
-            android:background="@android:color/holo_blue_light"
+            android:background="@drawable/button_action"
             android:textColor="@android:color/white"
             android:layout_marginLeft="10dp" />
 
@@ -82,14 +72,10 @@
             android:text="@string/title_multiplication"
             android:id="@+id/button_multiplication"
             android:layout_below="@+id/button_subtraction"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
             android:layout_span="1"
-            android:background="@android:color/holo_blue_light"
+            android:background="@drawable/button_action"
             android:textColor="@android:color/white"
             android:layout_marginRight="10dp" />
 
@@ -99,14 +85,10 @@
             android:text="@string/title_division"
             android:id="@+id/button_division"
             android:layout_below="@+id/button_multiplication"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
             android:layout_span="1"
-            android:background="@android:color/holo_blue_light"
+            android:background="@drawable/button_action"
             android:textColor="@android:color/white"
             android:layout_marginLeft="10dp" />
     </TableRow>
@@ -123,14 +105,10 @@
             android:text="@string/title_table_multiplication"
             android:id="@+id/button_table_multiplication"
             android:layout_below="@+id/textView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:textSize="20sp"
             android:onClick="startActivityTraining"
             android:layout_span="2"
-            android:background="@android:color/holo_blue_light"
+            android:background="@drawable/button_action"
             android:textColor="@android:color/white" />
     </TableRow>
 

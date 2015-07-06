@@ -29,9 +29,8 @@
         android:onClick="startActivityTraining"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"
-        android:singleLine="false" />
+        android:background="@drawable/button_action"
+        android:textColor="@android:color/white" />
 
     <Button
         android:layout_width="250dp"
@@ -39,15 +38,11 @@
         android:text="@string/title_sum"
         android:id="@+id/button_sum"
         android:layout_below="@+id/button_table_multiplication"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textSize="20sp"
         android:onClick="startActivityTraining"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/button_action"
         android:textColor="@android:color/white" />
 
     <Button
@@ -56,14 +51,10 @@
         android:text="@string/title_subtraction"
         android:id="@+id/button_subtraction"
         android:layout_below="@+id/button_sum"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textSize="20sp"
         android:onClick="startActivityTraining"
         android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/button_action"
         android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal" />
 
@@ -73,15 +64,11 @@
         android:text="@string/title_multiplication"
         android:id="@+id/button_multiplication"
         android:layout_below="@+id/button_subtraction"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textSize="20sp"
         android:onClick="startActivityTraining"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/button_action"
         android:textColor="@android:color/white"/>
 
     <Button
@@ -90,15 +77,11 @@
         android:text="@string/title_division"
         android:id="@+id/button_division"
         android:layout_below="@+id/button_multiplication"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textSize="20sp"
         android:onClick="startActivityTraining"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/button_action"
         android:textColor="@android:color/white"/>
 
 </LinearLayout>

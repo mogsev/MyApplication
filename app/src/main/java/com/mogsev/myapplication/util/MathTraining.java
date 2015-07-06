@@ -74,22 +74,18 @@ public abstract class MathTraining extends Activity {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
             textViewNumPositiveAnswer.setText(String.valueOf(mathResult.increaseNumPositiveAnswer()));
+            buttonClick.setBackgroundResource(R.drawable.button_answer_positive);
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.append(" ");
             textViewAnswer.append(randomValue.getResult().toString());
             textViewAnswer.setTextColor(Color.RED);
             textViewNumNegativeAnswer.setText(String.valueOf(mathResult.increaseNumNegativeAnswer()));
+            buttonClick.setBackgroundResource(R.drawable.button_answer_negative);
         }
         textViewNumAnswer.setText(String.valueOf(mathResult.increaseNumAnswer()));
-        buttonAnswer1.setEnabled(false);
-        buttonAnswer2.setEnabled(false);
-        buttonAnswer3.setEnabled(false);
         buttonProceed.setVisibility(View.VISIBLE);
-
-        // generate new expression
-        randomValue.generateExpression(mathResult.getNumLevel());
-        list = randomValue.getList();
+        mathResult.setCheckAnswer(true);
     }
 
     /**
@@ -104,31 +100,32 @@ public abstract class MathTraining extends Activity {
      * data filling Activity
      */
     public void fillingActivity() {
-        // fragment_assignment content
-        buttonProceed.setVisibility(View.INVISIBLE);
-        textViewAnswer.setText(R.string.title_answer);
-        textViewAnswer.setTextColor(Color.BLACK);
-        textViewExpression.setText(randomValue.getExpression());
-        buttonAnswer1.setEnabled(true);
-        buttonAnswer2.setEnabled(true);
-        buttonAnswer3.setEnabled(true);
-        buttonAnswer1.setText(String.valueOf(list.get(0)));
-        buttonAnswer2.setText(String.valueOf(list.get(1)));
-        buttonAnswer3.setText(String.valueOf(list.get(2)));
+            // fragment_assignment content
+            buttonProceed.setVisibility(View.INVISIBLE);
+            textViewAnswer.setText(R.string.title_answer);
+            textViewAnswer.setTextColor(Color.BLACK);
+            textViewExpression.setText(randomValue.getExpression());
+            buttonAnswer1.setBackgroundResource(R.drawable.button_answer);
+            buttonAnswer2.setBackgroundResource(R.drawable.button_answer);
+            buttonAnswer3.setBackgroundResource(R.drawable.button_answer);
+            buttonAnswer1.setText(String.valueOf(list.get(0)));
+            buttonAnswer2.setText(String.valueOf(list.get(1)));
+            buttonAnswer3.setText(String.valueOf(list.get(2)));
 
-        // fragment_bottom content
-        textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswer()));
-        textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswer()));
-        textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
-        textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
-        textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
+            // fragment_bottom content
+            textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswer()));
+            textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswer()));
+            textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
+            textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
+            textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
+
     }
 
     /**
      * Check result of expression
      */
     private void mathResultCheck() {
-        if (mathResult.getNumAnswer() == mathResult.getTotalQuestion()) {
+        if (mathResult.getNumAnswer() >= mathResult.getTotalQuestion()) {
             if (mathResult.getNumNegativeAnswer() <= 1) {
                 mathResult.increaseNumLevel();
             } else {
@@ -136,8 +133,24 @@ public abstract class MathTraining extends Activity {
             }
             showResult();
         } else {
-            fillingActivity();
+            generateExpression();
         }
+    }
+
+    /**
+     *
+     */
+    private void generateExpression() {
+        // generate new expression
+        //if (mathResult.isCheckAnswer()) {
+            randomValue.generateExpression(mathResult.getNumLevel());
+            list = randomValue.getList();
+            fillingActivity();
+            mathResult.setCheckAnswer(false);
+        //} else {
+        //    textViewAnswer.setText(R.string.check_answer);
+        //    buttonProceed.setVisibility(View.VISIBLE);
+        //}
     }
 
     /**
@@ -154,12 +167,11 @@ public abstract class MathTraining extends Activity {
                 dialogInterface.dismiss();
                 mathResult.cleanOutResult();
                 fillingActivity();
-
             }
         });
         dialogResult.setNegativeButton(R.string.dialog_continue_result, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getApplicationContext(), R.string.toast_continue, Toast.LENGTH_LONG).show();
                 mathResult.setTotalQuestion(mathResult.getTotalQuestion() + 10);
                 textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));

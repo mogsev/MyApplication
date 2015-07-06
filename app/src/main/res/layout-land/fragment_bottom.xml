@@ -8,7 +8,6 @@
     android:gravity="bottom"
     android:orientation="horizontal">
 
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -35,7 +34,6 @@
             android:layout_height="wrap_content"
             android:text="из"
             android:id="@+id/textView6"
-
             android:layout_toRightOf="@+id/textViewNumAnswer"
             android:paddingLeft="5dp"
             android:textSize="12sp" />
@@ -90,8 +88,6 @@
             android:id="@+id/textViewNumNegativeAnswer"
             android:gravity="right"
             android:layout_alignParentBottom="true"
-
-
             android:textSize="12sp"
             android:layout_alignParentRight="false"
             android:layout_toLeftOf="@+id/textViewNumPositiveAnswer"
