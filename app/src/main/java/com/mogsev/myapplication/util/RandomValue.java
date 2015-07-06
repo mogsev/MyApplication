@@ -11,39 +11,38 @@ public class RandomValue implements Serializable {
     private Random random;
     private Integer number1, number2, result;
     private ArrayList<Integer> list;
-    private int operation, level;
+    private int operation;
     private String expression;
 
     /**
      *
-     * @param level
      * @param operation
      */
-    public RandomValue(int level, int operation) {
+    public RandomValue(int operation) {
         list = new ArrayList<Integer>();
         random = new Random();
-        this.level = level;
         this.operation = operation;
     }
 
     private void generateData(int level) {
-        number1 = random.nextInt(level);
-        number2 = random.nextInt(level);
+        number1 = random.nextInt(level*10);
+        number2 = random.nextInt(level*10);
     }
 
     /**
      * Generate new data
      */
-    public void generateExpression() {
-        generateData(level);
+    public void generateExpression(int level) {
         switch (operation) {
             // Generate result and expression for Sum
             case MathOperation.SUM:
+                generateData(level);
                 result = number1 + number2;
                 expression = number1 + " + " + number2;
                 break;
             // Generate result and expression for Subtraction
             case MathOperation.SUBTRACTION:
+                generateData(level);
                 if (number1 >= number2) {
                     result = number1 - number2;
                     expression = number1 + " - " + number2;
@@ -54,12 +53,13 @@ public class RandomValue implements Serializable {
                 break;
             // Generate result and expression for Multiplication
             case MathOperation.MULTIPLICATION:
+                generateData(level);
                 result = number1 * number2;
                 expression = number1 + " * " + number2;
                 break;
             //Generate result and expression for Division
             case MathOperation.DIVISION:
-                getDivisionExpression();
+                getDivisionExpression(level);
                 break;
             // Generate result and expression for Table Multiplication
             case MathOperation.TABLE_MULTIPLICATION:
@@ -72,7 +72,7 @@ public class RandomValue implements Serializable {
      * Generate result and expression for Table Multiplication
      */
     private void getTableMultiplicationExpression() {
-        generateData(10);
+        generateData(1);
         if ((number1 != 0) && (number2 != 0)) {
             result = number1 * number2;
             expression = number1 + " * " + number2;
@@ -84,13 +84,13 @@ public class RandomValue implements Serializable {
     /**
      * Generate result and expression for Division
      */
-    private void getDivisionExpression() {
+    private void getDivisionExpression(int level) {
         generateData(level);
         if ( (number2 != 0) && ((number1 / number2) > 0)&& (number1%number2 == 0) ) {
             result = number1 / number2;
             expression = number1 + " / " + number2;
         } else {
-            getDivisionExpression();
+            getDivisionExpression(level);
         }
     }
 
@@ -102,8 +102,10 @@ public class RandomValue implements Serializable {
         if (!list.isEmpty()) {
             list.clear();
         }
-        list.add(result+random.nextInt(level/5));
-        list.add(result-random.nextInt(level/5));
+        getRandomNum(result);
+        getRandomNum(result);
+        //list.add(random.nextInt(result));
+        //list.add(result + random.nextInt(result));
         list.add(result);
         int step = random.nextInt(10);
         for (int i = 0; i < step; i++ ) {
@@ -131,4 +133,13 @@ public class RandomValue implements Serializable {
         return expression;
     }
 
+
+    private void getRandomNum(int result) {
+        int num = random.nextInt(result + result);
+        if (num == result) {
+            getRandomNum(result);
+        } else {
+            list.add(num);
+        }
+    }
 }

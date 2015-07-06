@@ -26,14 +26,8 @@ public class MathResult implements Serializable {
      */
     public MathResult(int operation) {
         this.operation = operation;
-
-        if (operation == MathOperation.TABLE_MULTIPLICATION) {
-            numLevel = 1;
-            totalQuestion = 10;
-        } else {
-            numLevel = 1;
-            totalQuestion = 10;
-        }
+        numLevel = 1;
+        totalQuestion = 10;
     }
 
     /**
@@ -103,12 +97,30 @@ public class MathResult implements Serializable {
     }
 
     /**
+     * Increase number level
+     */
+    public void increaseNumLevel() {
+        if (operation != MathOperation.TABLE_MULTIPLICATION) {
+            numLevel++;
+        }
+    }
+
+    /**
+     * Decrease number level
+     */
+    public void decreaseNumLevel() {
+        if (!(numLevel <= 1)) {
+                numLevel--;
+        }
+    }
+
+    /**
      * It returns count for random ranges
      * @return int
      */
-    public int getCountRandom() {
+   /** public int getCountRandom() {
         return numLevel*10;
-    }
+    }*/
 
     public void setNumAnswer(int numAnswer) {
         this.numAnswer = numAnswer;
@@ -129,5 +141,15 @@ public class MathResult implements Serializable {
 
     public int getTotalQuestion() {
         return totalQuestion;
+    }
+
+    /**
+     * Cleans result of expression
+     */
+    public void cleanOutResult() {
+        this.setTotalQuestion(10);
+        this.setNumAnswer(0);
+        this.setNumNegativeAnswer(0);
+        this.setNumPositiveAnswer(0);
     }
 }

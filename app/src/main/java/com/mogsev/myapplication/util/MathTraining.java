@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,6 +37,13 @@ public abstract class MathTraining extends Activity {
     private TextView textViewNumAnswer;
     private TextView textViewTotalQuestion;
     private TextView textViewNumLevel;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(RANDOM_VALUE, randomValue);
+        outState.putSerializable(MATH_RESULT, mathResult);
+    }
 
     public void initElements() {
         // fragment_assignment content
@@ -82,7 +88,7 @@ public abstract class MathTraining extends Activity {
         buttonProceed.setVisibility(View.VISIBLE);
 
         // generate new expression
-        randomValue.generateExpression();
+        randomValue.generateExpression(mathResult.getNumLevel());
         list = randomValue.getList();
     }
 
@@ -91,15 +97,13 @@ public abstract class MathTraining extends Activity {
      * @param view
      */
     public void onClickProceed(View view){
-        fillingActivity();
+        mathResultCheck();
     }
 
     /**
      * data filling Activity
      */
     public void fillingActivity() {
-        mathResultCheck();
-
         // fragment_assignment content
         buttonProceed.setVisibility(View.INVISIBLE);
         textViewAnswer.setText(R.string.title_answer);
@@ -120,21 +124,27 @@ public abstract class MathTraining extends Activity {
         textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable(RANDOM_VALUE, randomValue);
-        outState.putSerializable(MATH_RESULT, mathResult);
-    }
-
+    /**
+     * Check result of expression
+     */
     private void mathResultCheck() {
         if (mathResult.getNumAnswer() == mathResult.getTotalQuestion()) {
+            if (mathResult.getNumNegativeAnswer() <= 1) {
+                mathResult.increaseNumLevel();
+            } else {
+                mathResult.decreaseNumLevel();
+            }
             showResult();
+        } else {
+            fillingActivity();
         }
     }
 
+    /**
+     * Show result of expression
+     */
     private void showResult() {
-        final AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
         View linerLayout = getLayoutInflater().inflate(R.layout.dialog_result, null);
         dialogResult.setView(linerLayout);
         dialogResult.setTitle(R.string.title_result);
@@ -142,8 +152,9 @@ public abstract class MathTraining extends Activity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                cleanOutResult();
+                mathResult.cleanOutResult();
                 fillingActivity();
+
             }
         });
         dialogResult.setNegativeButton(R.string.dialog_continue_result, new DialogInterface.OnClickListener() {
@@ -153,6 +164,7 @@ public abstract class MathTraining extends Activity {
                 mathResult.setTotalQuestion(mathResult.getTotalQuestion() + 10);
                 textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
                 dialogInterface.cancel();
+                fillingActivity();
             }
         });
 
@@ -164,18 +176,11 @@ public abstract class MathTraining extends Activity {
         dialogResultTotalQuestion.append(String.valueOf(mathResult.getTotalQuestion()));
         dialogResultPositiveAnswer.setText(R.string.dialog_number_positive_answer);
         dialogResultPositiveAnswer.append(" ");
-        dialogResultPositiveAnswer.append(String.valueOf(mathResult.increaseNumPositiveAnswer()));
+        dialogResultPositiveAnswer.append(String.valueOf(mathResult.getNumPositiveAnswer()));
         dialogResultNegativeAnswer.setText(R.string.dialog_number_negative_answer);
         dialogResultNegativeAnswer.append(" ");
         dialogResultNegativeAnswer.append(String.valueOf(mathResult.getNumNegativeAnswer()));
         dialogResult.create();
         dialogResult.show();
-    }
-
-    private void cleanOutResult() {
-        mathResult.setTotalQuestion(mathResult.getCountRandom());
-        mathResult.setNumAnswer(0);
-        mathResult.setNumNegativeAnswer(0);
-        mathResult.setNumPositiveAnswer(0);
     }
 }

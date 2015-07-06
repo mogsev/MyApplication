@@ -18,13 +18,13 @@ public class SubtractionActivity extends MathTraining {
         //The application was lunched?
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.SUBTRACTION);
-            randomValue = new RandomValue(mathResult.getCountRandom(), MathOperation.SUBTRACTION);
-            randomValue.generateExpression();
+            randomValue = new RandomValue(MathOperation.SUBTRACTION);
+            randomValue.generateExpression(mathResult.getNumLevel());
             list = randomValue.getList();
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
-            list = randomValue.getList();
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
+            list = randomValue.getList();
         }
 
         //Initialize links for objects

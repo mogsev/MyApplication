@@ -18,13 +18,13 @@ public class DivisionActivity extends MathTraining {
         //The application was lunched?
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.DIVISION);
-            randomValue = new RandomValue(20, MathOperation.DIVISION);
-            randomValue.generateExpression();
+            randomValue = new RandomValue(MathOperation.DIVISION);
+            randomValue.generateExpression(mathResult.getNumLevel());
             list = randomValue.getList();
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
-            list = randomValue.getList();
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
+            list = randomValue.getList();
         }
 
         //Initialize links for objects
