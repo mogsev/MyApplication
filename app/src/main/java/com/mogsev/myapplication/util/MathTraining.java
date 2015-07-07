@@ -157,10 +157,10 @@ public abstract class MathTraining extends Activity {
     }
 
     /**
-     * Show result of expression
+     * Show dialog with result of expression
      */
     private void showResult() {
-        AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
+        final AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
         View linerLayout = getLayoutInflater().inflate(R.layout.dialog_result, null);
         dialogResult.setView(linerLayout);
         dialogResult.setTitle(R.string.title_result);
