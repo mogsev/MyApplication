@@ -29,5 +29,7 @@
     <string name="dialog_continue_result">Продолжить</string>
 
     <string name="toast_continue">Продолжаем! Так держать</string>
+    <string name="toast_next_level">Вы перешли на новый уровень</string>
+
 
 </resources>

@@ -134,11 +134,6 @@ public abstract class MathTraining extends Activity {
      */
     private void mathResultCheck() {
         if (mathResult.getNumAnswer() >= mathResult.getTotalQuestion()) {
-            if (mathResult.getNumNegativeAnswer() <= 1) {
-                mathResult.increaseNumLevel();
-            } else {
-                mathResult.decreaseNumLevel();
-            }
             showResult();
         } else {
             generateExpression();
@@ -168,6 +163,7 @@ public abstract class MathTraining extends Activity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
+                checkLevelUp();
                 mathResult.cleanOutResult();
                 fillingActivity();
             }
@@ -179,6 +175,7 @@ public abstract class MathTraining extends Activity {
                 mathResult.setTotalQuestion(mathResult.getTotalQuestion() + 10);
                 textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
                 dialogInterface.cancel();
+                checkLevelUp();
                 fillingActivity();
             }
         });
@@ -216,5 +213,18 @@ public abstract class MathTraining extends Activity {
         buttonAnswer1.setEnabled(bool);
         buttonAnswer2.setEnabled(bool);
         buttonAnswer3.setEnabled(bool);
+    }
+
+    /**
+     *
+     */
+    private void checkLevelUp() {
+        if (mathResult.getNumNegativeAnswer() <= 1) {
+            mathResult.increaseNumLevel();
+            textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
+            if (mathResult.getOperation() != MathOperation.TABLE_MULTIPLICATION) {
+                Toast.makeText(getApplicationContext(), R.string.toast_next_level, Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
