@@ -1,6 +1,9 @@
 package com.mogsev.myapplication.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.mogsev.myapplication.R;
 import com.mogsev.myapplication.util.MathOperation;
@@ -15,20 +18,19 @@ public class DivisionActivity extends MathTraining {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_division);
 
+        //Initialize links for objects
+        initElements();
+
         //The application was lunched?
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.DIVISION);
             randomValue = new RandomValue(MathOperation.DIVISION);
             randomValue.generateExpression(mathResult.getNumLevel());
-            list = randomValue.getList();
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
-            list = randomValue.getList();
         }
-
-        //Initialize links for objects
-        initElements();
+        list = randomValue.getList();
 
         //filling Activity
         fillingActivity();
