@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mogsev.myapplication.activity.DivisionActivity;
 import com.mogsev.myapplication.activity.MultiplicationActivity;
@@ -82,6 +83,9 @@ public class MyActivity extends ActionBarActivity {
                 break;
             case R.id.button_table_multiplication:
                 startActivity(new Intent(this, TableMultiplicationActivity.class));
+                break;
+            case R.id.liner1:
+                Toast.makeText(getApplicationContext(), "Liner good?", Toast.LENGTH_LONG).show();
                 break;
         }
     }
