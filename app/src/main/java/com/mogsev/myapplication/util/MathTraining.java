@@ -1,10 +1,10 @@
 package com.mogsev.myapplication.util;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by zhenya on 24.06.2015.
  */
-public abstract class MathTraining extends Activity {
+public abstract class MathTraining extends AppCompatActivity {
     public static final String RANDOM_VALUE = "RANDOM_VALUE";
     public static final String MATH_RESULT = "MATH_RESULT";
     public ArrayList<Integer> list;

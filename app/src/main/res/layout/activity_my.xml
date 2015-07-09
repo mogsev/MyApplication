@@ -87,7 +87,8 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:clipToPadding="false">
 
         <TableRow
             android:layout_width="match_parent"
@@ -99,10 +100,9 @@
                 android:layout_height="70dp"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:background="@drawable/layout_main_option"
                 android:id="@+id/liner1"
                 android:onClick="startActivityTraining"
-                android:elevation="10dp">
+                android:background="@drawable/layout_main_option">
 
                 <Space
                     android:layout_width="5dp"
@@ -141,8 +141,7 @@
                 android:layout_span="1"
                 android:layout_weight="1"
                 android:background="@drawable/layout_main_option"
-                android:onClick="startActivityTraining"
-                android:elevation="10dp">
+                android:onClick="startActivityTraining">
 
                 <Space
                     android:layout_width="5dp"
@@ -168,7 +167,6 @@
                     android:layout_below="@+id/space_2"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/primary_text_default_material_light"/>
-
             </RelativeLayout>
 
 
