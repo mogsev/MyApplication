@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TestMath</string>
-    <string name="title_test">Тренировки</string>
+    <string name="title_tests">Тренировки</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_level">Уровень сложности</string>
@@ -13,9 +13,11 @@
     <string name="title_multiplication">Умножение</string>
     <string name="title_division">Деление</string>
     <string name="title_expression">Expression</string>
+    <string name="title_multi">По выбору</string>
     <string name="title_answer">Выберите правильный ответ</string>
     <string name="title_proceed">Продолжить</string>
     <string name="title_result">Результат</string>
+    <string name="title_results">РЕЗУЛЬТАТЫ</string>
 
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка! Правильный ответ:</string>
@@ -30,6 +32,15 @@
 
     <string name="toast_continue">Продолжаем! Так держать</string>
     <string name="toast_next_level">Вы перешли на новый уровень</string>
+
+    <!-- Menu -->
+    <string name="menu_results">Результаты</string>
+
+    <!-- SharedPreferences SUM -->
+    <string name="sum_score"></string>
+    <string name="sum_total_questions"></string>
+    <string name="sum_total_positive_answers"></string>
+    <string name="sum_total_negative_answers"></string>
 
 
 </resources>

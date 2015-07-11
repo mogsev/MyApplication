@@ -69,23 +69,23 @@ public class MyActivity extends AppCompatActivity {
      */
     public void startActivityTraining(View view) {
         switch (view.getId()) {
-            case R.id.button_sum:
+            case R.id.training_sum:
                 startActivity(new Intent(this, SumActivity.class));
                 break;
-            case R.id.button_subtraction:
+            case R.id.training_subtraction:
                 startActivity(new Intent(this, SubtractionActivity.class));
                 break;
-            case R.id.button_multiplication:
+            case R.id.training_multiplication:
                 startActivity(new Intent(this, MultiplicationActivity.class));
                 break;
-            case R.id.button_division:
+            case R.id.training_division:
                 startActivity(new Intent(this, DivisionActivity.class));
                 break;
-            case R.id.button_table_multiplication:
+            case R.id.training_table_multiplication:
                 startActivity(new Intent(this, TableMultiplicationActivity.class));
                 break;
-            case R.id.liner1:
-                Toast.makeText(getApplicationContext(), "Liner good?", Toast.LENGTH_LONG).show();
+            case R.id.training_multi:
+
                 break;
         }
     }

@@ -1,11 +1,14 @@
 package com.mogsev.myapplication.util;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,6 +47,22 @@ public abstract class MathTraining extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putSerializable(RANDOM_VALUE, randomValue);
         outState.putSerializable(MATH_RESULT, mathResult);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_math_operation, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_level :
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -142,7 +161,7 @@ public abstract class MathTraining extends AppCompatActivity {
     }
 
     /**
-     *
+     * Generate expression
      */
     private void generateExpression() {
         // generate new expression
@@ -164,6 +183,7 @@ public abstract class MathTraining extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
+                savePreferences(mathResult.getOperation());
                 checkLevelUp();
                 mathResult.cleanOutResult();
                 fillingActivity();
@@ -226,6 +246,28 @@ public abstract class MathTraining extends AppCompatActivity {
             if (mathResult.getOperation() != MathOperation.TABLE_MULTIPLICATION) {
                 Toast.makeText(getApplicationContext(), R.string.toast_next_level, Toast.LENGTH_LONG).show();
             }
+        }
+    }
+
+    private void savePreferences(int operation) {
+        switch (operation) {
+            case MathOperation.SUM:
+                SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(getString(R.string.sum_score), 1000);
+                editor.putInt(getString(R.string.sum_total_questions), 1000);
+                editor.putInt(getString(R.string.sum_total_positive_answers), 1000);
+                editor.putInt(getString(R.string.sum_total_negative_answers), 1000);
+                editor.commit();
+                break;
+            case MathOperation.SUBTRACTION:
+                break;
+            case MathOperation.MULTIPLICATION:
+                break;
+            case MathOperation.DIVISION:
+                break;
+            case MathOperation.TABLE_MULTIPLICATION:
+                break;
         }
     }
 }

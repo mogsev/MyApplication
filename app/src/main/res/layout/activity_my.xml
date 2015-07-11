@@ -5,21 +5,245 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MyActivity"
-    android:paddingLeft="10dp"
+    android:paddingLeft="16dp"
     android:paddingTop="10dp"
-    android:paddingRight="10dp"
-    android:paddingBottom="10dp" >
+    android:paddingRight="16dp" >
 
-    <TextView android:text="@string/title_test"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="26sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="10dp">
 
+        <TableRow>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:background="@drawable/layout_training"
+                android:id="@+id/training_table_multiplication"
+                android:onClick="startActivityTraining">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/image_table_multiplication"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:drawable/ic_menu_preferences"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_table_multiplication"
+                    android:layout_below="@+id/image_table_multiplication"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="7dp" />
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="1"
+            android:layout_weight="1"
+            android:id="@+id/training_sum"
+            android:onClick="startActivityTraining"
+            android:background="@drawable/layout_training"
+            android:layout_marginRight="1dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_sum"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:src="@android:drawable/ic_menu_preferences" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_sum"
+                android:layout_below="@+id/image_sum"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/primary_text_default_material_light"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="7dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="1"
+            android:layout_weight="1"
+            android:background="@drawable/layout_training"
+            android:id="@+id/training_subtraction"
+            android:onClick="startActivityTraining"
+            android:layout_marginLeft="1dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_subtraction"
+                android:layout_centerHorizontal="true"
+                android:src="@android:drawable/ic_menu_preferences"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_subtraction"
+                android:layout_below="@+id/image_subtraction"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/primary_text_default_material_light"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="7dp"/>
+        </RelativeLayout>
+    </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:layout_marginRight="1dp"
+                android:background="@drawable/layout_training"
+                android:id="@+id/training_multiplication"
+                android:onClick="startActivityTraining">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/image_multiplication"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:drawable/ic_menu_preferences"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_multiplication"
+                    android:layout_below="@+id/image_multiplication"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="7dp" />
+            </RelativeLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/layout_training"
+                android:id="@+id/training_division"
+                android:onClick="startActivityTraining">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/image_division"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:drawable/ic_menu_preferences"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_division"
+                    android:layout_below="@+id/image_division"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="7dp"
+                    android:textColor="@color/primary_text_default_material_light"/>
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:background="@drawable/layout_training_shadow"
+                android:id="@+id/training_multi"
+                android:onClick="startActivityTraining">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/image_multi"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:drawable/ic_menu_preferences"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_multi"
+                    android:layout_below="@+id/image_multi"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="7dp" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="4dip"
+            android:layout_marginRight="4dip"
+            android:background="?android:attr/dividerVertical"
+            android:layout_alignTop="@+id/button_results" />
+        <Button
+            android:id="@+id/button_results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/title_results"
+            android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+</LinearLayout>
+
+
+
+
+<!--
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -58,7 +282,7 @@
         android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal" />
 
-    <Button
+        <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/title_multiplication"
@@ -83,105 +307,6 @@
         android:background="@drawable/button_action"
         android:textColor="@android:color/white"/>
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:clipToPadding="false"
-        >
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_span="1"
-                android:layout_weight="1"
-                android:id="@+id/liner1"
-                android:onClick="startActivityTraining"
-                android:background="@drawable/layout_main_option">
-
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:id="@+id/space_1"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView4"
-                    android:layout_centerHorizontal="true"
-                    android:layout_above="@+id/space_1"
-                    android:src="@android:drawable/ic_menu_preferences" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_sum"
-                    android:id="@+id/textView15"
-                    android:layout_below="@+id/space_1"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/primary_text_default_material_light"/>
-            </RelativeLayout>
-
-            <Space
-                android:layout_width="3px"
-                android:layout_height="3px" />
-
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_span="1"
-                android:layout_weight="1"
-                android:background="@drawable/layout_main_option"
-                android:onClick="startActivityTraining">
-
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:id="@+id/space_2"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView17"
-                    android:layout_centerHorizontal="true"
-                    android:layout_above="@+id/space_2"
-                    android:src="@android:drawable/ic_menu_preferences" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView16"
-                    android:text="@string/title_subtraction"
-                    android:layout_below="@+id/space_2"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/primary_text_default_material_light"/>
-            </RelativeLayout>
+        -->
 
 
-        </TableRow>
-        <TableRow>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button"
-                android:elevation="5dp"
-                />
-        </TableRow>
-    </TableLayout>
-
-</LinearLayout>

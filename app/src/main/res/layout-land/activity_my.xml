@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         android:gravity="clip_horizontal|center_horizontal">
 
-        <TextView android:text="@string/title_test"
+        <TextView android:text="@string/title_tests"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView"

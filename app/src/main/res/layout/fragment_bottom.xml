@@ -3,7 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context="com.mogsev.myapplication.fragment.BottomFragment"
-    android:padding="10dp"
     android:gravity="bottom"
     android:orientation="horizontal">
 
