@@ -21,12 +21,14 @@ public class MultiplicationActivity extends MathTraining {
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.MULTIPLICATION);
             randomValue = new RandomValue(MathOperation.MULTIPLICATION);
-            randomValue.generateExpression(mathResult.getNumLevel());
+            randomValue.generateExpression(mathResult.getLevel());
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
         }
         list = randomValue.getList();
+
+        loadPreferences(MathOperation.MULTIPLICATION);
 
         //filling Activity
         fillingActivity();

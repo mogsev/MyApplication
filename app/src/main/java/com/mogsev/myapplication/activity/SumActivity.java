@@ -22,13 +22,14 @@ public class SumActivity extends MathTraining {
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.SUM);
             randomValue = new RandomValue(MathOperation.SUM);
-            randomValue.generateExpression(mathResult.getNumLevel());
-            loadPreferences(MathOperation.SUM);
+            randomValue.generateExpression(mathResult.getLevel());
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
         }
         list = randomValue.getList();
+
+        loadPreferences(MathOperation.SUM);
 
         //filling Activity
         fillingActivity();

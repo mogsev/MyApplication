@@ -22,12 +22,14 @@ public class DivisionActivity extends MathTraining {
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.DIVISION);
             randomValue = new RandomValue(MathOperation.DIVISION);
-            randomValue.generateExpression(mathResult.getNumLevel());
+            randomValue.generateExpression(mathResult.getLevel());
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
         }
         list = randomValue.getList();
+
+        loadPreferences(MathOperation.DIVISION);
 
         //filling Activity
         fillingActivity();

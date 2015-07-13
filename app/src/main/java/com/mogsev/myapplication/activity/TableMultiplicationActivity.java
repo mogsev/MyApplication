@@ -22,7 +22,7 @@ public class TableMultiplicationActivity extends MathTraining {
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.TABLE_MULTIPLICATION);
             randomValue = new RandomValue(MathOperation.TABLE_MULTIPLICATION);
-            randomValue.generateExpression(mathResult.getNumLevel());
+            randomValue.generateExpression(mathResult.getLevel());
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);

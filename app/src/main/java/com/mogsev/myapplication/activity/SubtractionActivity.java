@@ -22,7 +22,7 @@ public class SubtractionActivity extends MathTraining {
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.SUBTRACTION);
             randomValue = new RandomValue(MathOperation.SUBTRACTION);
-            randomValue.generateExpression(mathResult.getNumLevel());
+            randomValue.generateExpression(mathResult.getLevel());
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);

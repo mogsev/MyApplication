@@ -58,11 +58,31 @@ public abstract class MathTraining extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_level :
-
+            case R.id.menu_results :
+                final AlertDialog.Builder dialogResults = new AlertDialog.Builder(this);
+                View layoutInflater = this.getLayoutInflater().inflate(R.layout.dialog_results_operation, null);
+                dialogResults.setView(layoutInflater);
+                TextView score = (TextView) layoutInflater.findViewById(R.id.score);
+                TextView level = (TextView) layoutInflater.findViewById(R.id.level);
+                TextView totalQuestions = (TextView) layoutInflater.findViewById(R.id.totalQuestions);
+                TextView totalPositiveAnswers = (TextView) layoutInflater.findViewById(R.id.totalPositiveAnswers);
+                TextView totalNegativeAnswers = (TextView) layoutInflater.findViewById(R.id.totalNegativeAnswers);
+                score.setText(String.valueOf(mathResult.getScore()));
+                level.setText(String.valueOf(mathResult.getLevel()));
+                totalQuestions.setText(String.valueOf(mathResult.getTotalQuestions()));
+                totalPositiveAnswers.setText(String.valueOf(mathResult.getTotalPositiveAnswers()));
+                totalNegativeAnswers.setText(String.valueOf(mathResult.getTotalNegativeAnswers()));
+                dialogResults.create();
+                dialogResults.show();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        savePreferences(mathResult.getOperation());
     }
 
     /**
@@ -140,7 +160,7 @@ public abstract class MathTraining extends AppCompatActivity {
         // fragment_bottom content
         textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswers()));
         textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswers()));
-        textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
+        textViewNumLevel.setText(String.valueOf(mathResult.getLevel()));
         textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
         textViewTotalQuestion.setText(String.valueOf(mathResult.getQuestions()));
 
@@ -165,7 +185,7 @@ public abstract class MathTraining extends AppCompatActivity {
      */
     private void generateExpression() {
         // generate new expression
-        randomValue.generateExpression(mathResult.getNumLevel());
+        randomValue.generateExpression(mathResult.getLevel());
         list = randomValue.getList();
         mathResult.setCheckAnswer(false);
         fillingActivity();
@@ -183,8 +203,9 @@ public abstract class MathTraining extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                savePreferences(mathResult.getOperation());
                 checkLevelUp();
+                mathResult.resultHandler();
+                savePreferences(mathResult.getOperation());
                 mathResult.cleanOutResult();
                 fillingActivity();
             }
@@ -242,10 +263,7 @@ public abstract class MathTraining extends AppCompatActivity {
     private void checkLevelUp() {
         if (mathResult.getNumNegativeAnswers() <= 1) {
             mathResult.increaseNumLevel();
-            textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
-            if (mathResult.getOperation() != MathOperation.TABLE_MULTIPLICATION) {
-                Toast.makeText(getApplicationContext(), R.string.toast_next_level, Toast.LENGTH_LONG).show();
-            }
+            textViewNumLevel.setText(String.valueOf(mathResult.getLevel()));
         }
     }
 
@@ -254,39 +272,88 @@ public abstract class MathTraining extends AppCompatActivity {
      * @param operation
      */
     private void savePreferences(int operation) {
-        SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("MATH_RESULTS", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         switch (operation) {
             case MathOperation.SUM:
-                editor.putInt(getString(R.string.sum_score), 0);
-                editor.putInt(getString(R.string.sum_total_questions), 0);
-                editor.putInt(getString(R.string.sum_total_positive_answers), 0);
-                editor.putInt(getString(R.string.sum_total_negative_answers), 0);
+                editor.putInt(getString(R.string.sumScore), mathResult.getScore()).apply();
+                editor.putInt(getString(R.string.sumLevel), mathResult.getLevel()).apply();
+                editor.putInt(getString(R.string.sumTotalQuestions), mathResult.getTotalQuestions()).apply();
+                editor.putInt(getString(R.string.sumTotalPositiveAnswers), mathResult.getTotalPositiveAnswers()).apply();
+                editor.putInt(getString(R.string.sumTotalNegativeAnswers), mathResult.getTotalNegativeAnswers()).apply();
                 break;
             case MathOperation.SUBTRACTION:
+                editor.putInt(getString(R.string.subtraction_score), mathResult.getScore());
+                editor.putInt(getString(R.string.subtraction_level), mathResult.getLevel());
+                editor.putInt(getString(R.string.subtraction_total_questions), mathResult.getTotalQuestions());
+                editor.putInt(getString(R.string.subtraction_total_positive_answers), mathResult.getTotalPositiveAnswers());
+                editor.putInt(getString(R.string.subtraction_total_negative_answers), mathResult.getTotalNegativeAnswers());
                 break;
             case MathOperation.MULTIPLICATION:
+                editor.putInt(getString(R.string.multiplication_score), mathResult.getScore());
+                editor.putInt(getString(R.string.multiplication_level), mathResult.getLevel());
+                editor.putInt(getString(R.string.multiplication_total_questions), mathResult.getTotalQuestions());
+                editor.putInt(getString(R.string.multiplication_total_positive_answers), mathResult.getTotalPositiveAnswers());
+                editor.putInt(getString(R.string.multiplication_total_negative_answers), mathResult.getTotalNegativeAnswers());
                 break;
             case MathOperation.DIVISION:
+                editor.putInt(getString(R.string.division_score), mathResult.getScore());
+                editor.putInt(getString(R.string.division_level), mathResult.getLevel());
+                editor.putInt(getString(R.string.division_total_questions), mathResult.getTotalQuestions());
+                editor.putInt(getString(R.string.division_total_positive_answers), mathResult.getTotalPositiveAnswers());
+                editor.putInt(getString(R.string.division_total_negative_answers), mathResult.getTotalNegativeAnswers());
                 break;
             case MathOperation.TABLE_MULTIPLICATION:
+                editor.putInt(getString(R.string.table_multiplication_score), mathResult.getScore());
+                editor.putInt(getString(R.string.table_multiplication_level), mathResult.getLevel());
+                editor.putInt(getString(R.string.table_multiplication_questions), mathResult.getTotalQuestions());
+                editor.putInt(getString(R.string.table_multiplication_positive_answers), mathResult.getTotalPositiveAnswers());
+                editor.putInt(getString(R.string.table_multiplication_negative_answers), mathResult.getTotalNegativeAnswers());
                 break;
         }
-        editor.commit();
     }
 
     /**
      *
      * @param operation
      */
-    protected void loadPreferences(int operation) {
-        SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+    public void loadPreferences(int operation) {
+        SharedPreferences sharedPreferences = this.getSharedPreferences("MATH_RESULTS", Context.MODE_PRIVATE);
         switch (operation) {
             case MathOperation.SUM:
-                mathResult.setScore(sharedPreferences.getInt(getString(R.string.sum_score), 0));
-                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.sum_total_questions), 0));
-                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.sum_total_positive_answers), 0));
-                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.sum_total_negative_answers), 0));
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.sumScore), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.sumLevel), 0));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.sumTotalQuestions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.sumTotalPositiveAnswers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.sumTotalNegativeAnswers), 0));
+                break;
+            case MathOperation.SUBTRACTION:
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.subtraction_score), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.subtraction_level), 0));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.subtraction_total_questions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.subtraction_total_positive_answers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.subtraction_total_negative_answers), 0));
+                break;
+            case MathOperation.MULTIPLICATION:
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.multiplication_score), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.multiplication_level), 0));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.multiplication_total_questions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.multiplication_total_positive_answers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.multiplication_total_negative_answers), 0));
+                break;
+            case MathOperation.DIVISION:
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.division_score), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.division_level), 0));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.division_total_questions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.division_total_positive_answers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.division_total_negative_answers), 0));
+                break;
+            case MathOperation.TABLE_MULTIPLICATION:
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.table_multiplication_score), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.table_multiplication_level), 0));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.table_multiplication_questions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_positive_answers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_negative_answers), 0));
                 break;
         }
     }
