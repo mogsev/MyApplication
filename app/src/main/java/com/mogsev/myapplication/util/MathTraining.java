@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,6 +42,9 @@ public abstract class MathTraining extends AppCompatActivity {
     private TextView textViewNumAnswer;
     private TextView textViewTotalQuestion;
     private TextView textViewNumLevel;
+
+    protected SharedPreferences sharedPreferences;
+    protected SharedPreferences.Editor editor;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -82,7 +86,9 @@ public abstract class MathTraining extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+
         savePreferences(mathResult.getOperation());
+        editor.commit();
     }
 
     /**
@@ -103,6 +109,9 @@ public abstract class MathTraining extends AppCompatActivity {
         textViewNumLevel = (TextView) findViewById(R.id.textViewNumLevel);
         textViewNumAnswer = (TextView) findViewById(R.id.textViewNumAnswer);
         textViewTotalQuestion = (TextView) findViewById(R.id.textViewTotalQuestion);
+
+        sharedPreferences = getApplicationContext().getSharedPreferences("MATH_RESULTS", Context.MODE_MULTI_PROCESS);
+        editor = sharedPreferences.edit();
     }
 
     /**
@@ -113,6 +122,7 @@ public abstract class MathTraining extends AppCompatActivity {
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
         textViewAnswer.setVisibility(View.VISIBLE);
+        textViewExpression.setText(randomValue.getFullExpression());
         if (answer.compareTo(randomValue.getResult()) == 0) {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
@@ -120,8 +130,6 @@ public abstract class MathTraining extends AppCompatActivity {
             buttonClick.setBackgroundResource(R.drawable.button_answer_positive);
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
-            textViewAnswer.append(" ");
-            textViewAnswer.append(randomValue.getResult().toString());
             textViewAnswer.setTextColor(Color.RED);
             textViewNumNegativeAnswer.setText(String.valueOf(mathResult.increaseNumNegativeAnswer()));
             buttonClick.setBackgroundResource(R.drawable.button_answer_negative);
@@ -199,7 +207,7 @@ public abstract class MathTraining extends AppCompatActivity {
         View linerLayout = getLayoutInflater().inflate(R.layout.dialog_result, null);
         dialogResult.setView(linerLayout);
         dialogResult.setTitle(R.string.title_result);
-        dialogResult.setPositiveButton(R.string.dialog_save_result, new DialogInterface.OnClickListener() {
+        dialogResult.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -210,6 +218,7 @@ public abstract class MathTraining extends AppCompatActivity {
                 fillingActivity();
             }
         });
+        /*
         dialogResult.setNegativeButton(R.string.dialog_continue_result, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -221,6 +230,7 @@ public abstract class MathTraining extends AppCompatActivity {
                 fillingActivity();
             }
         });
+        */
 
         TextView dialogResultTotalQuestion = (TextView) linerLayout.findViewById(R.id.dialogResultTotalQuestion);
         TextView dialogResultPositiveAnswer = (TextView) linerLayout.findViewById(R.id.dialogResultPositiveAnswer);
@@ -271,16 +281,16 @@ public abstract class MathTraining extends AppCompatActivity {
      *
      * @param operation
      */
-    private void savePreferences(int operation) {
-        SharedPreferences sharedPreferences = this.getSharedPreferences("MATH_RESULTS", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+    public void savePreferences(int operation) {
         switch (operation) {
             case MathOperation.SUM:
-                editor.putInt(getString(R.string.sumScore), mathResult.getScore()).apply();
-                editor.putInt(getString(R.string.sumLevel), mathResult.getLevel()).apply();
-                editor.putInt(getString(R.string.sumTotalQuestions), mathResult.getTotalQuestions()).apply();
-                editor.putInt(getString(R.string.sumTotalPositiveAnswers), mathResult.getTotalPositiveAnswers()).apply();
-                editor.putInt(getString(R.string.sumTotalNegativeAnswers), mathResult.getTotalNegativeAnswers()).apply();
+                Log.d("Save result", String.valueOf(mathResult.getScore()));
+                editor.clear();
+                editor.putInt(getString(R.string.sum_score), mathResult.getScore());
+                editor.putInt(getString(R.string.sum_level), mathResult.getLevel());
+                editor.putInt(getString(R.string.sum_total_questions), mathResult.getTotalQuestions());
+                editor.putInt(getString(R.string.sum_total_positive_answers), mathResult.getTotalPositiveAnswers());
+                editor.putInt(getString(R.string.sum_total_negative_answers), mathResult.getTotalNegativeAnswers());
                 break;
             case MathOperation.SUBTRACTION:
                 editor.putInt(getString(R.string.subtraction_score), mathResult.getScore());
@@ -311,46 +321,53 @@ public abstract class MathTraining extends AppCompatActivity {
                 editor.putInt(getString(R.string.table_multiplication_negative_answers), mathResult.getTotalNegativeAnswers());
                 break;
         }
+        editor.commit();
     }
 
     /**
      *
      * @param operation
      */
-    public void loadPreferences(int operation) {
+    protected void loadPreferences(int operation) {
         SharedPreferences sharedPreferences = this.getSharedPreferences("MATH_RESULTS", Context.MODE_PRIVATE);
         switch (operation) {
             case MathOperation.SUM:
-                mathResult.setScore(sharedPreferences.getInt(getString(R.string.sumScore), 0));
-                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.sumLevel), 0));
-                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.sumTotalQuestions), 0));
-                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.sumTotalPositiveAnswers), 0));
-                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.sumTotalNegativeAnswers), 0));
+                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_score), 0)));
+                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_level), 0)));
+                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_total_questions), 0)));
+                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_total_positive_answers), 0)));
+                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_total_negative_answers), 0)));
+
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.sum_score), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.sum_level), 1));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.sum_total_questions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.sum_total_positive_answers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.sum_total_negative_answers), 0));
                 break;
             case MathOperation.SUBTRACTION:
                 mathResult.setScore(sharedPreferences.getInt(getString(R.string.subtraction_score), 0));
-                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.subtraction_level), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.subtraction_level), 1));
                 mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.subtraction_total_questions), 0));
                 mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.subtraction_total_positive_answers), 0));
                 mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.subtraction_total_negative_answers), 0));
                 break;
             case MathOperation.MULTIPLICATION:
                 mathResult.setScore(sharedPreferences.getInt(getString(R.string.multiplication_score), 0));
-                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.multiplication_level), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.multiplication_level), 1));
                 mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.multiplication_total_questions), 0));
                 mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.multiplication_total_positive_answers), 0));
                 mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.multiplication_total_negative_answers), 0));
                 break;
             case MathOperation.DIVISION:
                 mathResult.setScore(sharedPreferences.getInt(getString(R.string.division_score), 0));
-                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.division_level), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.division_level), 1));
                 mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.division_total_questions), 0));
                 mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.division_total_positive_answers), 0));
                 mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.division_total_negative_answers), 0));
                 break;
             case MathOperation.TABLE_MULTIPLICATION:
                 mathResult.setScore(sharedPreferences.getInt(getString(R.string.table_multiplication_score), 0));
-                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.table_multiplication_level), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.table_multiplication_level), 1));
                 mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.table_multiplication_questions), 0));
                 mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_positive_answers), 0));
                 mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_negative_answers), 0));

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mogsev.myapplication.activity.DivisionActivity"
+    android:background="@color/gray_50"
     android:paddingLeft="16dp"
     android:paddingTop="10dp"
     android:paddingRight="16dp">

@@ -29,6 +29,8 @@ public class SubtractionActivity extends MathTraining {
         }
         list = randomValue.getList();
 
+        loadPreferences(MathOperation.SUBTRACTION);
+
         //filling Activity
         fillingActivity();
     }

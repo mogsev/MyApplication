@@ -135,6 +135,10 @@ public class RandomValue implements Serializable {
         return expression;
     }
 
+    public String getFullExpression() {
+        return expression + " = " + result;
+    }
+
     /**
      *
      * @param result

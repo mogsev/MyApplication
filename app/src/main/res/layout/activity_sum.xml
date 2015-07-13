@@ -2,7 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mogsev.myapplication.activity.SumActivity">
+    tools:context="com.mogsev.myapplication.activity.SumActivity"
+    android:background="@color/gray_50"
+    android:paddingLeft="16dp"
+    android:paddingTop="10dp"
+    android:paddingRight="16dp">
 
     <fragment
         android:layout_width="match_parent"

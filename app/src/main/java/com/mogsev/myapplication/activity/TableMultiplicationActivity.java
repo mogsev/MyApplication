@@ -29,6 +29,8 @@ public class TableMultiplicationActivity extends MathTraining {
         }
         list = randomValue.getList();
 
+        loadPreferences(MathOperation.TABLE_MULTIPLICATION);
+
         //filling Activity
         fillingActivity();
     }

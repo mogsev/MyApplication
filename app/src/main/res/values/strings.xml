@@ -20,7 +20,7 @@
     <string name="title_results">РЕЗУЛЬТАТЫ</string>
 
     <string name="correct_answer">Правильный ответ</string>
-    <string name="wrong_answer">Ошибка! Правильный ответ:</string>
+    <string name="wrong_answer">Ошибка</string>
     <string name="check_answer">Вы уже ответили на этот вопрос</string>
 
     <string name="dialog_about_version">Версия 1.0.1</string>
@@ -29,6 +29,9 @@
     <string name="dialog_number_negative_answer">Неправильных ответов:</string>
     <string name="dialog_save_result">Сохранить</string>
     <string name="dialog_continue_result">Продолжить</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">CANCEL</string>
+
 
     <string name="toast_continue">Продолжаем! Так держать</string>
     <string name="toast_next_level">Вы перешли на новый уровень</string>
@@ -37,38 +40,38 @@
     <string name="menu_results">Результаты</string>
 
     <!-- SharedPreferences Sum -->
-    <string name="sumScore"></string>
-    <string name="sumLevel"></string>
-    <string name="sumTotalQuestions"></string>
-    <string name="sumTotalPositiveAnswers"></string>
-    <string name="sumTotalNegativeAnswers"></string>
+    <string name="sum_score">sum_score</string>
+    <string name="sum_level">sum_level</string>
+    <string name="sum_total_questions">sum_total_questions</string>
+    <string name="sum_total_positive_answers">sum_total_positive_answers</string>
+    <string name="sum_total_negative_answers">sum_total_negative_answers</string>
 
     <!-- SharedPreferences Subtraction -->
-    <string name="subtraction_score"></string>
-    <string name="subtraction_level"></string>
-    <string name="subtraction_total_questions"></string>
-    <string name="subtraction_total_positive_answers"></string>
-    <string name="subtraction_total_negative_answers"></string>
+    <string name="subtraction_score">subtraction_score</string>
+    <string name="subtraction_level">subtraction_level</string>
+    <string name="subtraction_total_questions">subtraction_total_questions</string>
+    <string name="subtraction_total_positive_answers">subtraction_total_positive_answers</string>
+    <string name="subtraction_total_negative_answers">subtraction_total_negative_answers</string>
 
     <!-- SharedPreferences Multiplication -->
-    <string name="multiplication_score"></string>
-    <string name="multiplication_level"></string>
-    <string name="multiplication_total_questions"></string>
-    <string name="multiplication_total_positive_answers"></string>
-    <string name="multiplication_total_negative_answers"></string>
+    <string name="multiplication_score">multiplication_score</string>
+    <string name="multiplication_level">multiplication_level</string>
+    <string name="multiplication_total_questions">multiplication_total_questions</string>
+    <string name="multiplication_total_positive_answers">multiplication_total_positive_answers</string>
+    <string name="multiplication_total_negative_answers">multiplication_total_negative_answers</string>
 
     <!-- SharedPreferences Division -->
-    <string name="division_score"></string>
-    <string name="division_level"></string>
-    <string name="division_total_questions"></string>
-    <string name="division_total_positive_answers"></string>
-    <string name="division_total_negative_answers"></string>
+    <string name="division_score">division_score</string>
+    <string name="division_level">division_level</string>
+    <string name="division_total_questions">division_total_questions</string>
+    <string name="division_total_positive_answers">division_total_positive_answers</string>
+    <string name="division_total_negative_answers">division_total_negative_answers</string>
 
     <!-- SharedPreferences Table Multiplication -->
-    <string name="table_multiplication_score"></string>
-    <string name="table_multiplication_level"></string>
-    <string name="table_multiplication_questions"></string>
-    <string name="table_multiplication_positive_answers"></string>
-    <string name="table_multiplication_negative_answers"></string>
+    <string name="table_multiplication_score">table_multiplication_score</string>
+    <string name="table_multiplication_level">table_multiplication_level</string>
+    <string name="table_multiplication_questions">table_multiplication_questions</string>
+    <string name="table_multiplication_positive_answers">table_multiplication_positive_answers</string>
+    <string name="table_multiplication_negative_answers">table_multiplication_negative_answers</string>
 
 </resources>
