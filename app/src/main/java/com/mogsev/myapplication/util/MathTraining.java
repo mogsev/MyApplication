@@ -138,11 +138,11 @@ public abstract class MathTraining extends AppCompatActivity {
         setEnabledButtonAnswers(true);
 
         // fragment_bottom content
-        textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswer()));
-        textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswer()));
+        textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswers()));
+        textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswers()));
         textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
         textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
-        textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
+        textViewTotalQuestion.setText(String.valueOf(mathResult.getQuestions()));
 
         if (mathResult.isCheckAnswer()) {
             showCheckView();
@@ -153,7 +153,7 @@ public abstract class MathTraining extends AppCompatActivity {
      * Check result of expression
      */
     private void mathResultCheck() {
-        if (mathResult.getNumAnswer() >= mathResult.getTotalQuestion()) {
+        if (mathResult.getNumAnswer() >= mathResult.getQuestions()) {
             showResult();
         } else {
             generateExpression();
@@ -193,8 +193,8 @@ public abstract class MathTraining extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getApplicationContext(), R.string.toast_continue, Toast.LENGTH_LONG).show();
-                mathResult.setTotalQuestion(mathResult.getTotalQuestion() + 10);
-                textViewTotalQuestion.setText(String.valueOf(mathResult.getTotalQuestion()));
+                mathResult.setQuestions(mathResult.getQuestions() + 10);
+                textViewTotalQuestion.setText(String.valueOf(mathResult.getQuestions()));
                 dialogInterface.cancel();
                 checkLevelUp();
                 fillingActivity();
@@ -206,13 +206,13 @@ public abstract class MathTraining extends AppCompatActivity {
         TextView dialogResultNegativeAnswer = (TextView) linerLayout.findViewById(R.id.dialogResultNegativeAnswer);
         dialogResultTotalQuestion.setText(R.string.dialog_total_number_question);
         dialogResultTotalQuestion.append(" ");
-        dialogResultTotalQuestion.append(String.valueOf(mathResult.getTotalQuestion()));
+        dialogResultTotalQuestion.append(String.valueOf(mathResult.getQuestions()));
         dialogResultPositiveAnswer.setText(R.string.dialog_number_positive_answer);
         dialogResultPositiveAnswer.append(" ");
-        dialogResultPositiveAnswer.append(String.valueOf(mathResult.getNumPositiveAnswer()));
+        dialogResultPositiveAnswer.append(String.valueOf(mathResult.getNumPositiveAnswers()));
         dialogResultNegativeAnswer.setText(R.string.dialog_number_negative_answer);
         dialogResultNegativeAnswer.append(" ");
-        dialogResultNegativeAnswer.append(String.valueOf(mathResult.getNumNegativeAnswer()));
+        dialogResultNegativeAnswer.append(String.valueOf(mathResult.getNumNegativeAnswers()));
         dialogResult.create();
         dialogResult.show();
     }
@@ -240,7 +240,7 @@ public abstract class MathTraining extends AppCompatActivity {
      *
      */
     private void checkLevelUp() {
-        if (mathResult.getNumNegativeAnswer() <= 1) {
+        if (mathResult.getNumNegativeAnswers() <= 1) {
             mathResult.increaseNumLevel();
             textViewNumLevel.setText(String.valueOf(mathResult.getNumLevel()));
             if (mathResult.getOperation() != MathOperation.TABLE_MULTIPLICATION) {
@@ -249,16 +249,19 @@ public abstract class MathTraining extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param operation
+     */
     private void savePreferences(int operation) {
+        SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         switch (operation) {
             case MathOperation.SUM:
-                SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(getString(R.string.sum_score), 1000);
-                editor.putInt(getString(R.string.sum_total_questions), 1000);
-                editor.putInt(getString(R.string.sum_total_positive_answers), 1000);
-                editor.putInt(getString(R.string.sum_total_negative_answers), 1000);
-                editor.commit();
+                editor.putInt(getString(R.string.sum_score), 0);
+                editor.putInt(getString(R.string.sum_total_questions), 0);
+                editor.putInt(getString(R.string.sum_total_positive_answers), 0);
+                editor.putInt(getString(R.string.sum_total_negative_answers), 0);
                 break;
             case MathOperation.SUBTRACTION:
                 break;
@@ -267,6 +270,23 @@ public abstract class MathTraining extends AppCompatActivity {
             case MathOperation.DIVISION:
                 break;
             case MathOperation.TABLE_MULTIPLICATION:
+                break;
+        }
+        editor.commit();
+    }
+
+    /**
+     *
+     * @param operation
+     */
+    protected void loadPreferences(int operation) {
+        SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+        switch (operation) {
+            case MathOperation.SUM:
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.sum_score), 0));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.sum_total_questions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.sum_total_positive_answers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.sum_total_negative_answers), 0));
                 break;
         }
     }

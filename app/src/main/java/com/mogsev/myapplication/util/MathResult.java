@@ -6,10 +6,14 @@ import java.io.Serializable;
  * Created by zhenya on 03.07.2015.
  */
 public class MathResult implements Serializable {
-    private int numPositiveAnswer;
-    private int numNegativeAnswer;
+    private int score;
+    private int totalQuestions;
+    private int totalPositiveAnswers;
+    private int totalNegativeAnswers;
+    private int numPositiveAnswers;
+    private int numNegativeAnswers;
     private int numAnswer;
-    private int totalQuestion;
+    private int questions;
     private int numLevel;
     private int operation;
     private boolean checkAnswer;
@@ -28,7 +32,7 @@ public class MathResult implements Serializable {
     public MathResult(int operation) {
         this.operation = operation;
         numLevel = 1;
-        totalQuestion = 10;
+        questions = 10;
         checkAnswer = false;
     }
 
@@ -36,16 +40,16 @@ public class MathResult implements Serializable {
      * Return amount positive answers
      * @return
      */
-    public int getNumPositiveAnswer() {
-        return numPositiveAnswer;
+    public int getNumPositiveAnswers() {
+        return numPositiveAnswers;
     }
 
     /**
      *
-     * @param numPositiveAnswer
+     * @param numPositiveAnswers
      */
-    public void setNumPositiveAnswer(int numPositiveAnswer) {
-        this.numPositiveAnswer = numPositiveAnswer;
+    public void setNumPositiveAnswers(int numPositiveAnswers) {
+        this.numPositiveAnswers = numPositiveAnswers;
     }
 
     /**
@@ -53,24 +57,24 @@ public class MathResult implements Serializable {
      * @return
      */
     public int increaseNumPositiveAnswer() {
-        numPositiveAnswer++;
-        return numPositiveAnswer;
+        numPositiveAnswers++;
+        return numPositiveAnswers;
     }
 
     /**
      * Return amount negative answers
      * @return
      */
-    public int getNumNegativeAnswer() {
-        return numNegativeAnswer;
+    public int getNumNegativeAnswers() {
+        return numNegativeAnswers;
     }
 
     /**
      *
-     * @param numNegativeAnswer
+     * @param numNegativeAnswers
      */
-    public void setNumNegativeAnswer(int numNegativeAnswer) {
-        this.numNegativeAnswer = numNegativeAnswer;
+    public void setNumNegativeAnswers(int numNegativeAnswers) {
+        this.numNegativeAnswers = numNegativeAnswers;
     }
 
     /**
@@ -78,8 +82,8 @@ public class MathResult implements Serializable {
      * @return
      */
     public int increaseNumNegativeAnswer() {
-        numNegativeAnswer++;
-        return numNegativeAnswer;
+        numNegativeAnswers++;
+        return numNegativeAnswers;
     }
 
     /**
@@ -129,22 +133,22 @@ public class MathResult implements Serializable {
         return numAnswer;
     }
 
-    public void setTotalQuestion(int totalQuestion) {
-        this.totalQuestion = totalQuestion;
+    public void setQuestions(int questions) {
+        this.questions = questions;
     }
 
-    public int getTotalQuestion() {
-        return totalQuestion;
+    public int getQuestions() {
+        return questions;
     }
 
     /**
      * Cleans result of expression
      */
     public void cleanOutResult() {
-        this.setTotalQuestion(10);
+        this.setQuestions(10);
         this.setNumAnswer(0);
-        this.setNumNegativeAnswer(0);
-        this.setNumPositiveAnswer(0);
+        this.setNumNegativeAnswers(0);
+        this.setNumPositiveAnswers(0);
     }
 
     public boolean isCheckAnswer() {
@@ -153,5 +157,37 @@ public class MathResult implements Serializable {
 
     public void setCheckAnswer(boolean checkAnswer) {
         this.checkAnswer = checkAnswer;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getTotalQuestions() {
+        return totalQuestions;
+    }
+
+    public void setTotalQuestions(int totalQuestions) {
+        this.totalQuestions = totalQuestions;
+    }
+
+    public int getTotalPositiveAnswers() {
+        return totalPositiveAnswers;
+    }
+
+    public void setTotalPositiveAnswers(int totalPositiveAnswers) {
+        this.totalPositiveAnswers = totalPositiveAnswers;
+    }
+
+    public int getTotalNegativeAnswers() {
+        return totalNegativeAnswers;
+    }
+
+    public void setTotalNegativeAnswers(int totalNegativeAnswers) {
+        this.totalNegativeAnswers = totalNegativeAnswers;
     }
 }

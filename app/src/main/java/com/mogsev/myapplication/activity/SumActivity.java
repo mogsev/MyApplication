@@ -23,6 +23,7 @@ public class SumActivity extends MathTraining {
             mathResult = new MathResult(MathOperation.SUM);
             randomValue = new RandomValue(MathOperation.SUM);
             randomValue.generateExpression(mathResult.getNumLevel());
+            loadPreferences(MathOperation.SUM);
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);

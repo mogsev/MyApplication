@@ -42,5 +42,22 @@
     <string name="sum_total_positive_answers"></string>
     <string name="sum_total_negative_answers"></string>
 
+    <!-- SharedPreferences SUBTRACTION -->
+    <string name="subtraction_score"></string>
+    <string name="subtraction_total_questions"></string>
+    <string name="subtraction_total_positive_answers"></string>
+    <string name="subtraction_total_negative_answers"></string>
+
+    <!-- SharedPreferences MULTIPLICATION -->
+    <string name="multiplication_score"></string>
+    <string name="multiplication_total_questions"></string>
+    <string name="multiplication_total_positive_answers"></string>
+    <string name="multiplication_total_negative_answers"></string>
+
+    <!-- SharedPreferences DIVISION -->
+    <string name="division_score"></string>
+    <string name="division_total_questions"></string>
+    <string name="division_total_positive_answers"></string>
+    <string name="division_total_negative_answers"></string>
 
 </resources>
