@@ -6,7 +6,7 @@
     android:background="@color/gray_50"
     android:paddingLeft="16dp"
     android:paddingTop="10dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp" >
 
     <fragment
         android:layout_width="match_parent"

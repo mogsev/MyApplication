@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public abstract class MathTraining extends AppCompatActivity {
     private TextView textViewNumAnswer;
     private TextView textViewTotalQuestion;
     private TextView textViewNumLevel;
+    private LinearLayout linearLayout;
 
     protected SharedPreferences sharedPreferences;
     protected SharedPreferences.Editor editor;
@@ -112,6 +114,8 @@ public abstract class MathTraining extends AppCompatActivity {
 
         sharedPreferences = getApplicationContext().getSharedPreferences("MATH_RESULTS", Context.MODE_MULTI_PROCESS);
         editor = sharedPreferences.edit();
+
+        linearLayout = (LinearLayout) findViewById(R.id.linearProceed);
     }
 
     /**
@@ -127,17 +131,18 @@ public abstract class MathTraining extends AppCompatActivity {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
             textViewNumPositiveAnswer.setText(String.valueOf(mathResult.increaseNumPositiveAnswer()));
-            buttonClick.setBackgroundResource(R.drawable.button_answer_positive);
+            //buttonClick.setBackgroundResource(R.drawable.button_answer_positive);
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.setTextColor(Color.RED);
             textViewNumNegativeAnswer.setText(String.valueOf(mathResult.increaseNumNegativeAnswer()));
-            buttonClick.setBackgroundResource(R.drawable.button_answer_negative);
+            //buttonClick.setBackgroundResource(R.drawable.button_answer_negative);
         }
         textViewNumAnswer.setText(String.valueOf(mathResult.increaseNumAnswer()));
         setEnabledButtonAnswers(false);
         buttonProceed.setVisibility(View.VISIBLE);
         mathResult.setCheckAnswer(true);
+        linearLayout.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -153,13 +158,14 @@ public abstract class MathTraining extends AppCompatActivity {
      */
     public void fillingActivity() {
         // fragment_assignment content
+        linearLayout.setVisibility(View.INVISIBLE);
         buttonProceed.setVisibility(View.INVISIBLE);
         textViewAnswer.setText(R.string.title_answer);
         textViewAnswer.setTextColor(Color.BLACK);
         textViewExpression.setText(randomValue.getExpression());
-        buttonAnswer1.setBackgroundResource(R.drawable.button_answer);
-        buttonAnswer2.setBackgroundResource(R.drawable.button_answer);
-        buttonAnswer3.setBackgroundResource(R.drawable.button_answer);
+        //buttonAnswer1.setBackgroundResource(R.drawable.button_answer);
+        //buttonAnswer2.setBackgroundResource(R.drawable.button_answer);
+        //buttonAnswer3.setBackgroundResource(R.drawable.button_answer);
         buttonAnswer1.setText(String.valueOf(list.get(0)));
         buttonAnswer2.setText(String.valueOf(list.get(1)));
         buttonAnswer3.setText(String.valueOf(list.get(2)));

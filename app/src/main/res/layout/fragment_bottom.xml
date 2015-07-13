@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     tools:context="com.mogsev.myapplication.fragment.BottomFragment"
     android:gravity="bottom"
-    android:orientation="horizontal">
+    android:orientation="horizontal" >
 
     <RelativeLayout
         android:layout_width="wrap_content"
