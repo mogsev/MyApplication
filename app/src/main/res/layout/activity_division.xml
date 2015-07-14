@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,20 +6,29 @@
     android:background="@color/gray_50"
     android:paddingLeft="16dp"
     android:paddingTop="10dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp"
+    android:paddingBottom="8dp"
+    android:orientation="vertical" >
 
     <fragment
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:name="com.mogsev.myapplication.fragment.AssignmentFragment"
-        android:id="@+id/fragment"
+        android:id="@+id/fragment_assignment"
         tools:layout="@layout/fragment_assignment" />
 
     <fragment
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.mogsev.myapplication.fragment.ProceedFragment"
+        android:id="@+id/fragment_proceed"
+        tools:layout="@layout/fragment_proceed" />
+
+    <fragment
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.mogsev.myapplication.fragment.BottomFragment"
         android:id="@+id/fragment_bottom"
         tools:layout="@layout/fragment_bottom" />
 
-</RelativeLayout>
+</LinearLayout>

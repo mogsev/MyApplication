@@ -26,6 +26,11 @@ public class DivisionActivity extends MathTraining {
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
+
+            // The dialog of results was shown?
+            if (savedInstanceState.getBoolean("dialogResults")) {
+                showResult();
+            }
         }
         list = randomValue.getList();
 

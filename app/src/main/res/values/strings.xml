@@ -23,6 +23,7 @@
     <string name="wrong_answer">Ошибка</string>
     <string name="check_answer">Вы уже ответили на этот вопрос</string>
 
+    <!-- Dialog -->
     <string name="dialog_about_version">Версия 1.0.1</string>
     <string name="dialog_total_number_question">Всего вопросов:</string>
     <string name="dialog_number_positive_answer">Правильных ответов:</string>
@@ -32,7 +33,7 @@
     <string name="dialog_ok">OK</string>
     <string name="dialog_cancel">CANCEL</string>
 
-
+    <!-- Toast -->
     <string name="toast_continue">Продолжаем! Так держать</string>
     <string name="toast_next_level">Вы перешли на новый уровень</string>
 
@@ -73,5 +74,8 @@
     <string name="table_multiplication_questions">table_multiplication_questions</string>
     <string name="table_multiplication_positive_answers">table_multiplication_positive_answers</string>
     <string name="table_multiplication_negative_answers">table_multiplication_negative_answers</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

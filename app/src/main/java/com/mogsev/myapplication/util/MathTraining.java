@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +25,7 @@ import java.util.ArrayList;
 public abstract class MathTraining extends AppCompatActivity {
     public static final String RANDOM_VALUE = "RANDOM_VALUE";
     public static final String MATH_RESULT = "MATH_RESULT";
+    public static final String MATH_RESULTS = "MATH_RESULTS";
     public ArrayList<Integer> list;
     public RandomValue randomValue;
     public MathResult mathResult;
@@ -42,8 +42,10 @@ public abstract class MathTraining extends AppCompatActivity {
     private TextView textViewNumNegativeAnswer;
     private TextView textViewNumAnswer;
     private TextView textViewTotalQuestion;
-    private TextView textViewNumLevel;
-    private LinearLayout linearLayout;
+    private TextView textViewLevel;
+    private View fragmentProceed;
+
+    private AlertDialog dialogResults;
 
     protected SharedPreferences sharedPreferences;
     protected SharedPreferences.Editor editor;
@@ -53,6 +55,10 @@ public abstract class MathTraining extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putSerializable(RANDOM_VALUE, randomValue);
         outState.putSerializable(MATH_RESULT, mathResult);
+        if (dialogResults != null && dialogResults.isShowing()) {
+            dialogResults.dismiss();
+            outState.putBoolean("dialogResults", true);
+        }
     }
 
     @Override
@@ -105,17 +111,19 @@ public abstract class MathTraining extends AppCompatActivity {
         buttonProceed = (Button) findViewById(R.id.buttonProceed);
         textViewExpression = (TextView) findViewById(R.id.textViewExpression);
 
+        // fragment_proceed content
+        fragmentProceed = (View) getFragmentManager().findFragmentById(R.id.fragment_proceed).getView();
+
         // fragment_bottom content
         textViewNumNegativeAnswer = (TextView) findViewById(R.id.textViewNumNegativeAnswer);
         textViewNumPositiveAnswer = (TextView) findViewById(R.id.textViewNumPositiveAnswer);
-        textViewNumLevel = (TextView) findViewById(R.id.textViewNumLevel);
+        textViewLevel = (TextView) findViewById(R.id.textViewNumLevel);
         textViewNumAnswer = (TextView) findViewById(R.id.textViewNumAnswer);
         textViewTotalQuestion = (TextView) findViewById(R.id.textViewTotalQuestion);
 
+        // SharedPreferences
         sharedPreferences = getApplicationContext().getSharedPreferences("MATH_RESULTS", Context.MODE_MULTI_PROCESS);
         editor = sharedPreferences.edit();
-
-        linearLayout = (LinearLayout) findViewById(R.id.linearProceed);
     }
 
     /**
@@ -142,7 +150,7 @@ public abstract class MathTraining extends AppCompatActivity {
         setEnabledButtonAnswers(false);
         buttonProceed.setVisibility(View.VISIBLE);
         mathResult.setCheckAnswer(true);
-        linearLayout.setVisibility(View.VISIBLE);
+        fragmentProceed.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -157,15 +165,12 @@ public abstract class MathTraining extends AppCompatActivity {
      * data filling Activity
      */
     public void fillingActivity() {
+        fragmentProceed.setVisibility(View.INVISIBLE);
         // fragment_assignment content
-        linearLayout.setVisibility(View.INVISIBLE);
         buttonProceed.setVisibility(View.INVISIBLE);
         textViewAnswer.setText(R.string.title_answer);
         textViewAnswer.setTextColor(Color.BLACK);
         textViewExpression.setText(randomValue.getExpression());
-        //buttonAnswer1.setBackgroundResource(R.drawable.button_answer);
-        //buttonAnswer2.setBackgroundResource(R.drawable.button_answer);
-        //buttonAnswer3.setBackgroundResource(R.drawable.button_answer);
         buttonAnswer1.setText(String.valueOf(list.get(0)));
         buttonAnswer2.setText(String.valueOf(list.get(1)));
         buttonAnswer3.setText(String.valueOf(list.get(2)));
@@ -174,7 +179,7 @@ public abstract class MathTraining extends AppCompatActivity {
         // fragment_bottom content
         textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswers()));
         textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswers()));
-        textViewNumLevel.setText(String.valueOf(mathResult.getLevel()));
+        textViewLevel.setText(String.valueOf(mathResult.getLevel()));
         textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
         textViewTotalQuestion.setText(String.valueOf(mathResult.getQuestions()));
 
@@ -208,12 +213,12 @@ public abstract class MathTraining extends AppCompatActivity {
     /**
      * Show dialog with result of expression
      */
-    private void showResult() {
-        final AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
+    protected void showResult() {
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         View linerLayout = getLayoutInflater().inflate(R.layout.dialog_result, null);
-        dialogResult.setView(linerLayout);
-        dialogResult.setTitle(R.string.title_result);
-        dialogResult.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+        dialogBuilder.setView(linerLayout);
+        dialogBuilder.setTitle(R.string.title_result);
+        dialogBuilder.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -225,7 +230,7 @@ public abstract class MathTraining extends AppCompatActivity {
             }
         });
         /*
-        dialogResult.setNegativeButton(R.string.dialog_continue_result, new DialogInterface.OnClickListener() {
+        dialogBuilder.setNegativeButton(R.string.dialog_continue_result, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getApplicationContext(), R.string.toast_continue, Toast.LENGTH_LONG).show();
@@ -250,8 +255,8 @@ public abstract class MathTraining extends AppCompatActivity {
         dialogResultNegativeAnswer.setText(R.string.dialog_number_negative_answer);
         dialogResultNegativeAnswer.append(" ");
         dialogResultNegativeAnswer.append(String.valueOf(mathResult.getNumNegativeAnswers()));
-        dialogResult.create();
-        dialogResult.show();
+        dialogResults = dialogBuilder.create();
+        dialogResults.show();
     }
 
     /**
@@ -261,6 +266,7 @@ public abstract class MathTraining extends AppCompatActivity {
         textViewAnswer.setText(R.string.check_answer);
         textViewAnswer.setTextColor(Color.GREEN);
         buttonProceed.setVisibility(View.VISIBLE);
+        fragmentProceed.setVisibility(View.VISIBLE);
         setEnabledButtonAnswers(false);
     }
 
@@ -279,7 +285,8 @@ public abstract class MathTraining extends AppCompatActivity {
     private void checkLevelUp() {
         if (mathResult.getNumNegativeAnswers() <= 1) {
             mathResult.increaseNumLevel();
-            textViewNumLevel.setText(String.valueOf(mathResult.getLevel()));
+            textViewLevel.setText(String.valueOf(mathResult.getLevel()));
+            Toast.makeText(getApplicationContext(), R.string.toast_next_level, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -290,8 +297,6 @@ public abstract class MathTraining extends AppCompatActivity {
     public void savePreferences(int operation) {
         switch (operation) {
             case MathOperation.SUM:
-                Log.d("Save result", String.valueOf(mathResult.getScore()));
-                editor.clear();
                 editor.putInt(getString(R.string.sum_score), mathResult.getScore());
                 editor.putInt(getString(R.string.sum_level), mathResult.getLevel());
                 editor.putInt(getString(R.string.sum_total_questions), mathResult.getTotalQuestions());
@@ -335,15 +340,9 @@ public abstract class MathTraining extends AppCompatActivity {
      * @param operation
      */
     protected void loadPreferences(int operation) {
-        SharedPreferences sharedPreferences = this.getSharedPreferences("MATH_RESULTS", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getSharedPreferences(MATH_RESULTS, Context.MODE_PRIVATE);
         switch (operation) {
             case MathOperation.SUM:
-                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_score), 0)));
-                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_level), 0)));
-                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_total_questions), 0)));
-                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_total_positive_answers), 0)));
-                Log.d("sharedPrefer", String.valueOf(sharedPreferences.getInt(getString(R.string.sum_total_negative_answers), 0)));
-
                 mathResult.setScore(sharedPreferences.getInt(getString(R.string.sum_score), 0));
                 mathResult.setLevel(sharedPreferences.getInt(getString(R.string.sum_level), 1));
                 mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.sum_total_questions), 0));
