@@ -158,7 +158,11 @@ public abstract class MathTraining extends AppCompatActivity {
      * @param view
      */
     public void onClickProceed(View view){
-        mathResultCheck();
+        if (mathResult.getNumAnswer() >= mathResult.getQuestions()) {
+            showResult();
+        } else {
+            generateExpression();
+        }
     }
 
     /**
@@ -189,17 +193,6 @@ public abstract class MathTraining extends AppCompatActivity {
     }
 
     /**
-     * Check result of expression
-     */
-    private void mathResultCheck() {
-        if (mathResult.getNumAnswer() >= mathResult.getQuestions()) {
-            showResult();
-        } else {
-            generateExpression();
-        }
-    }
-
-    /**
      * Generate expression
      */
     private void generateExpression() {
@@ -226,6 +219,7 @@ public abstract class MathTraining extends AppCompatActivity {
                 mathResult.resultHandler();
                 savePreferences(mathResult.getOperation());
                 mathResult.cleanOutResult();
+                generateExpression();
                 fillingActivity();
             }
         });

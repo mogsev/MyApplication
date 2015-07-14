@@ -25,7 +25,7 @@
         tools:layout="@layout/fragment_proceed" />
 
     <fragment
-        android:layout_width="match_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.mogsev.myapplication.fragment.BottomFragment"
         android:id="@+id/fragment_bottom"
