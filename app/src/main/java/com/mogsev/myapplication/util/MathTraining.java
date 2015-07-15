@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,13 +52,14 @@ public abstract class MathTraining extends AppCompatActivity {
 
     private AlertDialog dialogResults;
 
+    private Handler handler;
+
     protected SharedPreferences sharedPreferences;
     protected SharedPreferences.Editor editor;
 
     //ProgressBar
     private ProgressBar progressBar;
     private TimerProgress timer;
-    //protected boolean isTimer;
     protected int startTimer;
 
     @Override
@@ -137,6 +140,18 @@ public abstract class MathTraining extends AppCompatActivity {
 
         //progressBar
         progressBar = (ProgressBar) findViewById(R.id.progressBarTime);
+
+        // Handler
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                if (msg.what == 0) {
+                    setEnabledButtonAnswers(false);
+                    fragmentProceed.setVisibility(View.VISIBLE);
+                }
+            }
+        };
     }
 
     /**
@@ -451,7 +466,7 @@ public abstract class MathTraining extends AppCompatActivity {
                         startTime++;
                         progressBar.setProgress(startTime);
                         try {
-                            Thread.sleep(1);
+                            Thread.sleep(10);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -468,9 +483,11 @@ public abstract class MathTraining extends AppCompatActivity {
         private void close() {
             progressBar.setProgress(0);
             startTimer = 0;
-            timer = null;
-            setEnabledButtonAnswers(false);
-            fragmentProceed.setVisibility(View.VISIBLE);
+            //timer = null;
+
+            //setEnabledButtonAnswers(false);
+            handler.sendEmptyMessage(0);
+            //fragmentProceed.setVisibility(View.VISIBLE);
         }
     }
 }
