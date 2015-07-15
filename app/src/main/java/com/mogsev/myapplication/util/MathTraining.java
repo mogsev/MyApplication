@@ -11,12 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mogsev.myapplication.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -26,6 +27,8 @@ public abstract class MathTraining extends AppCompatActivity {
     public static final String RANDOM_VALUE = "RANDOM_VALUE";
     public static final String MATH_RESULT = "MATH_RESULT";
     public static final String MATH_RESULTS = "MATH_RESULTS";
+    public static final String START_TIMER = "START_TIMER";
+
     public ArrayList<Integer> list;
     public RandomValue randomValue;
     public MathResult mathResult;
@@ -35,7 +38,7 @@ public abstract class MathTraining extends AppCompatActivity {
     private Button buttonAnswer1;
     private Button buttonAnswer2;
     private Button buttonAnswer3;
-    private Button buttonProceed;
+    //private Button buttonProceed;
     private TextView textViewAnswer;
     private TextView textViewExpression;
     private TextView textViewNumPositiveAnswer;
@@ -50,11 +53,18 @@ public abstract class MathTraining extends AppCompatActivity {
     protected SharedPreferences sharedPreferences;
     protected SharedPreferences.Editor editor;
 
+    //ProgressBar
+    private ProgressBar progressBar;
+    private TimerProgress timer;
+    //protected boolean isTimer;
+    protected int startTimer;
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putSerializable(RANDOM_VALUE, randomValue);
         outState.putSerializable(MATH_RESULT, mathResult);
+        outState.putInt(START_TIMER, timer.startTime);
         if (dialogResults != null && dialogResults.isShowing()) {
             dialogResults.dismiss();
             outState.putBoolean("dialogResults", true);
@@ -96,7 +106,7 @@ public abstract class MathTraining extends AppCompatActivity {
         super.onPause();
 
         savePreferences(mathResult.getOperation());
-        editor.commit();
+        //editor.commit();
     }
 
     /**
@@ -108,7 +118,7 @@ public abstract class MathTraining extends AppCompatActivity {
         buttonAnswer1 = (Button) findViewById(R.id.answer1);
         buttonAnswer2 = (Button) findViewById(R.id.answer2);
         buttonAnswer3 = (Button) findViewById(R.id.answer3);
-        buttonProceed = (Button) findViewById(R.id.buttonProceed);
+        //buttonProceed = (Button) findViewById(R.id.buttonProceed);
         textViewExpression = (TextView) findViewById(R.id.textViewExpression);
 
         // fragment_proceed content
@@ -124,6 +134,9 @@ public abstract class MathTraining extends AppCompatActivity {
         // SharedPreferences
         sharedPreferences = getApplicationContext().getSharedPreferences("MATH_RESULTS", Context.MODE_MULTI_PROCESS);
         editor = sharedPreferences.edit();
+
+        //progressBar
+        progressBar = (ProgressBar) findViewById(R.id.progressBarTime);
     }
 
     /**
@@ -131,6 +144,8 @@ public abstract class MathTraining extends AppCompatActivity {
      * @param view
      */
     public void onClickAnswer(View view) {
+        timer.timerOff();
+        timer = null;
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
         textViewAnswer.setVisibility(View.VISIBLE);
@@ -139,16 +154,14 @@ public abstract class MathTraining extends AppCompatActivity {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
             textViewNumPositiveAnswer.setText(String.valueOf(mathResult.increaseNumPositiveAnswer()));
-            //buttonClick.setBackgroundResource(R.drawable.button_answer_positive);
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.setTextColor(Color.RED);
             textViewNumNegativeAnswer.setText(String.valueOf(mathResult.increaseNumNegativeAnswer()));
-            //buttonClick.setBackgroundResource(R.drawable.button_answer_negative);
         }
         textViewNumAnswer.setText(String.valueOf(mathResult.increaseNumAnswer()));
         setEnabledButtonAnswers(false);
-        buttonProceed.setVisibility(View.VISIBLE);
+        //buttonProceed.setVisibility(View.VISIBLE);
         mathResult.setCheckAnswer(true);
         fragmentProceed.setVisibility(View.VISIBLE);
     }
@@ -171,7 +184,7 @@ public abstract class MathTraining extends AppCompatActivity {
     public void fillingActivity() {
         fragmentProceed.setVisibility(View.INVISIBLE);
         // fragment_assignment content
-        buttonProceed.setVisibility(View.INVISIBLE);
+        //buttonProceed.setVisibility(View.INVISIBLE);
         textViewAnswer.setText(R.string.title_answer);
         textViewAnswer.setTextColor(Color.BLACK);
         textViewExpression.setText(randomValue.getExpression());
@@ -187,8 +200,12 @@ public abstract class MathTraining extends AppCompatActivity {
         textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
         textViewTotalQuestion.setText(String.valueOf(mathResult.getQuestions()));
 
+        // Check result view
         if (mathResult.isCheckAnswer()) {
             showCheckView();
+        } else {
+            timer = new TimerProgress(startTimer);
+            timer.start();
         }
     }
 
@@ -259,7 +276,7 @@ public abstract class MathTraining extends AppCompatActivity {
     private void showCheckView() {
         textViewAnswer.setText(R.string.check_answer);
         textViewAnswer.setTextColor(Color.GREEN);
-        buttonProceed.setVisibility(View.VISIBLE);
+        //buttonProceed.setVisibility(View.VISIBLE);
         fragmentProceed.setVisibility(View.VISIBLE);
         setEnabledButtonAnswers(false);
     }
@@ -371,6 +388,89 @@ public abstract class MathTraining extends AppCompatActivity {
                 mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_positive_answers), 0));
                 mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_negative_answers), 0));
                 break;
+        }
+    }
+
+    /**
+     *
+     */
+    private class TimerProgress {
+        private boolean isTimer;
+        private int time;
+        private int startTime;
+        private int endTime;
+        private Thread timerThread;
+
+        TimerProgress() {
+            startTime = 0;
+            isTimer = true;
+            switch (mathResult.getLevel()) {
+                case 2:
+                    time = 900;
+                    break;
+                case 3:
+                    time = 800;
+                    break;
+                case 4:
+                    time = 700;
+                    break;
+                case 5:
+                    time = 900;
+                    break;
+                case 7:
+                    time = 900;
+                    break;
+                case 8:
+                    time = 800;
+                    break;
+                case 10:
+                    time = 900;
+                    break;
+                default:
+                    time = 1000;
+                    break;
+            }
+            endTime = time;
+            progressBar.setMax(time);
+        }
+
+        TimerProgress(int startTime) {
+            this();
+            this.startTime = startTime;
+        }
+
+        public void timerOff() {
+            isTimer = false;
+        }
+
+        public void start() {
+            timerThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while ( startTime < endTime ) {
+                        startTime++;
+                        progressBar.setProgress(startTime);
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        if (!isTimer) {
+                            break;
+                        }
+                    }
+                    close();
+                }
+            });
+            timerThread.start();
+        }
+
+        private void close() {
+            progressBar.setProgress(0);
+            startTimer = 0;
+            timer = null;
+            setEnabledButtonAnswers(false);
+            fragmentProceed.setVisibility(View.VISIBLE);
         }
     }
 }

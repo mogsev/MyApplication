@@ -8,6 +8,8 @@ import com.mogsev.myapplication.util.MathResult;
 import com.mogsev.myapplication.util.MathTraining;
 import com.mogsev.myapplication.util.RandomValue;
 
+import java.util.Timer;
+
 public class SumActivity extends MathTraining {
 
     @Override
@@ -26,6 +28,7 @@ public class SumActivity extends MathTraining {
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
+            startTimer = (int) savedInstanceState.getInt(START_TIMER);
 
             // The dialog of results was shown?
             if (savedInstanceState.getBoolean("dialogResults")) {

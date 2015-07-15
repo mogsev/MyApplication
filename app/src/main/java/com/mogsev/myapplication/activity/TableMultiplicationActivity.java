@@ -26,6 +26,7 @@ public class TableMultiplicationActivity extends MathTraining {
         } else {
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
+            startTimer = (int) savedInstanceState.getInt(START_TIMER);
 
             // The dialog of results was shown?
             if (savedInstanceState.getBoolean("dialogResults")) {
