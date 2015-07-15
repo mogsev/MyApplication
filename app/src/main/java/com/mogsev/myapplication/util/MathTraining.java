@@ -67,7 +67,9 @@ public abstract class MathTraining extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putSerializable(RANDOM_VALUE, randomValue);
         outState.putSerializable(MATH_RESULT, mathResult);
-        outState.putInt(START_TIMER, timer.startTime);
+        if (timer != null) {
+            outState.putInt(START_TIMER, timer.getStartTime());
+        }
         if (dialogResults != null && dialogResults.isShowing()) {
             dialogResults.dismiss();
             outState.putBoolean("dialogResults", true);
@@ -160,7 +162,7 @@ public abstract class MathTraining extends AppCompatActivity {
      */
     public void onClickAnswer(View view) {
         timer.timerOff();
-        timer = null;
+        //timer = null;
         buttonClick = (Button) view;
         answer = new Integer(buttonClick.getText().toString());
         textViewAnswer.setVisibility(View.VISIBLE);
@@ -186,6 +188,7 @@ public abstract class MathTraining extends AppCompatActivity {
      * @param view
      */
     public void onClickProceed(View view){
+
         if (mathResult.getNumAnswer() >= mathResult.getQuestions()) {
             showResult();
         } else {
@@ -197,6 +200,7 @@ public abstract class MathTraining extends AppCompatActivity {
      * data filling Activity
      */
     public void fillingActivity() {
+
         fragmentProceed.setVisibility(View.INVISIBLE);
         // fragment_assignment content
         //buttonProceed.setVisibility(View.INVISIBLE);
@@ -458,6 +462,14 @@ public abstract class MathTraining extends AppCompatActivity {
             isTimer = false;
         }
 
+        public int getStartTime() {
+            return startTime;
+        }
+
+        public void setStartTime(int startTime) {
+            this.startTime = startTime;
+        }
+
         public void start() {
             timerThread = new Thread(new Runnable() {
                 @Override
@@ -470,7 +482,10 @@ public abstract class MathTraining extends AppCompatActivity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        if (!isTimer) {
+                        //if (!isTimer) {
+                        //    break;
+                        //}
+                        if (mathResult.isCheckAnswer()) {
                             break;
                         }
                     }
@@ -483,11 +498,8 @@ public abstract class MathTraining extends AppCompatActivity {
         private void close() {
             progressBar.setProgress(0);
             startTimer = 0;
-            //timer = null;
-
-            //setEnabledButtonAnswers(false);
             handler.sendEmptyMessage(0);
-            //fragmentProceed.setVisibility(View.VISIBLE);
+            timer = null;
         }
     }
 }

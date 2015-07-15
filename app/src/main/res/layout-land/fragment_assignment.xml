@@ -69,6 +69,8 @@
             <View
                 android:layout_width="1dip"
                 android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
                 android:background="?android:attr/dividerHorizontal"
                 android:layout_weight="0"/>
 
@@ -85,6 +87,8 @@
             <View
                 android:layout_width="1dip"
                 android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
                 android:background="?android:attr/dividerHorizontal"
                 android:layout_weight="0"/>
 

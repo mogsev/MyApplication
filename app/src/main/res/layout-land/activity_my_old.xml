@@ -1,0 +1,115 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MyActivity"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="clip_horizontal|center_horizontal">
+
+        <TextView android:text="@string/title_tests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="26sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_span="2" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="clip_horizontal|center_horizontal"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_sum"
+            android:id="@+id/training_sum"
+            android:layout_below="@+id/button_table_multiplication"
+            android:textSize="20sp"
+            android:onClick="startActivityTraining"
+            android:layout_span="1"
+            android:background="@drawable/button_action"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_subtraction"
+            android:id="@+id/training_subtraction"
+            android:layout_below="@+id/button_sum"
+            android:onClick="startActivityTraining"
+            android:textSize="20sp"
+            android:layout_span="1"
+            android:background="@drawable/button_action"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="10dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="clip_horizontal|center_horizontal"
+        android:layout_margin="5dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_multiplication"
+            android:id="@+id/training_multiplication"
+            android:layout_below="@+id/button_subtraction"
+            android:textSize="20sp"
+            android:onClick="startActivityTraining"
+            android:layout_span="1"
+            android:background="@drawable/button_action"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_division"
+            android:id="@+id/training_division"
+            android:layout_below="@+id/button_multiplication"
+            android:textSize="20sp"
+            android:onClick="startActivityTraining"
+            android:layout_span="1"
+            android:background="@drawable/button_action"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="10dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="clip_horizontal|center_horizontal"
+        android:layout_margin="5dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_table_multiplication"
+            android:id="@+id/training_table_multiplication"
+            android:layout_below="@+id/textView"
+            android:textSize="20sp"
+            android:onClick="startActivityTraining"
+            android:layout_span="2"
+            android:background="@drawable/button_action"
+            android:textColor="@android:color/white" />
+    </TableRow>
+
+</TableLayout>
