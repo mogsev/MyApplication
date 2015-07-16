@@ -138,7 +138,7 @@ public class RandomValue implements Serializable {
      * Generate result and expression for Table Multiplication
      */
     private void getTableMultiplicationExpression() {
-        generateData(1, 2);
+        generateData(10, 2);
         int num1 = listNumber.get(0);
         int num2 = listNumber.get(1);
         if ((num1 != 0) && (num2 != 0)) {

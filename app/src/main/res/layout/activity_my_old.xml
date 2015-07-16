@@ -24,7 +24,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/layout_training"
                 android:id="@+id/training_table_multiplication"
-                android:onClick="startActivityTraining">
+                android:onClick="startActivity">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
             android:layout_span="1"
             android:layout_weight="1"
             android:id="@+id/training_sum"
-            android:onClick="startActivityTraining"
+            android:onClick="startActivity"
             android:background="@drawable/layout_training"
             android:layout_marginRight="1dp">
 
@@ -93,7 +93,7 @@
             android:layout_weight="1"
             android:background="@drawable/layout_training"
             android:id="@+id/training_subtraction"
-            android:onClick="startActivityTraining"
+            android:onClick="startActivity"
             android:layout_marginLeft="1dp">
 
             <ImageView
@@ -131,7 +131,7 @@
                 android:layout_marginRight="1dp"
                 android:background="@drawable/layout_training"
                 android:id="@+id/training_multiplication"
-                android:onClick="startActivityTraining">
+                android:onClick="startActivity">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -163,7 +163,7 @@
                 android:layout_marginLeft="1dp"
                 android:background="@drawable/layout_training"
                 android:id="@+id/training_division"
-                android:onClick="startActivityTraining">
+                android:onClick="startActivity">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/layout_training_shadow"
                 android:id="@+id/training_multi"
-                android:onClick="startActivityTraining">
+                android:onClick="startActivity">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -257,7 +257,7 @@
         android:id="@+id/button_table_multiplication"
         android:layout_below="@+id/textView"
         android:textSize="20sp"
-        android:onClick="startActivityTraining"
+        android:onClick="startActivity"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_action"
@@ -270,7 +270,7 @@
         android:id="@+id/button_sum"
         android:layout_below="@+id/button_table_multiplication"
         android:textSize="20sp"
-        android:onClick="startActivityTraining"
+        android:onClick="startActivity"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_action"
@@ -282,7 +282,7 @@
         android:text="@string/title_subtraction"
         android:id="@+id/button_subtraction"
         android:textSize="20sp"
-        android:onClick="startActivityTraining"
+        android:onClick="startActivity"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_action"
         android:textColor="@android:color/white"
@@ -294,7 +294,7 @@
         android:text="@string/title_multiplication"
         android:id="@+id/button_multiplication"
         android:textSize="20sp"
-        android:onClick="startActivityTraining"
+        android:onClick="startActivity"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_action"
@@ -307,7 +307,7 @@
         android:id="@+id/button_division"
         android:layout_below="@+id/button_multiplication"
         android:textSize="20sp"
-        android:onClick="startActivityTraining"
+        android:onClick="startActivity"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_action"

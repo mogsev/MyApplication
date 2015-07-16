@@ -40,6 +40,13 @@
     <!-- Menu -->
     <string name="menu_results">Результаты</string>
 
+    <!-- Results -->
+    <string name="result_score">Всего набрано очков:</string>
+    <string name="result_level">Уровень сложности:</string>
+    <string name="result_questions">Пройдено вопросов:</string>
+    <string name="result_positive_answers">Правильных ответов:</string>
+    <string name="result_negative_answers">Неправильных ответов:</string>
+
     <!-- SharedPreferences Sum -->
     <string name="sum_score">sum_score</string>
     <string name="sum_level">sum_level</string>
@@ -74,8 +81,5 @@
     <string name="table_multiplication_questions">table_multiplication_questions</string>
     <string name="table_multiplication_positive_answers">table_multiplication_positive_answers</string>
     <string name="table_multiplication_negative_answers">table_multiplication_negative_answers</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

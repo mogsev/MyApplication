@@ -24,7 +24,7 @@
                 android:layout_span="2"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training"
-                android:onClick="startActivityTraining"
+                android:onClick="startActivity"
                 android:orientation="vertical">
 
                 <ImageView
@@ -62,7 +62,7 @@
                 android:layout_span="1"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training"
-                android:onClick="startActivityTraining"
+                android:onClick="startActivity"
                 android:orientation="vertical">
 
                 <ImageView
@@ -94,7 +94,7 @@
                 android:layout_span="1"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training"
-                android:onClick="startActivityTraining"
+                android:onClick="startActivity"
                 android:orientation="vertical">
 
                 <ImageView
@@ -131,7 +131,7 @@
                 android:layout_span="1"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training"
-                android:onClick="startActivityTraining"
+                android:onClick="startActivity"
                 android:orientation="vertical">
 
                 <ImageView
@@ -163,7 +163,7 @@
                 android:layout_span="1"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training"
-                android:onClick="startActivityTraining"
+                android:onClick="startActivity"
                 android:orientation="vertical">
 
                 <ImageView
@@ -200,7 +200,7 @@
                 android:layout_span="2"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training_shadow"
-                android:onClick="startActivityTraining"
+                android:onClick="startActivity"
                 android:orientation="vertical">
 
                 <ImageView
@@ -245,6 +245,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="?android:attr/selectableItemBackground"
+            android:onClick="startActivity"
             android:text="@string/title_results" />
     </RelativeLayout>
 </LinearLayout>

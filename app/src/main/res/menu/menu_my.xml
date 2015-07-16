@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MyActivity">
     <item
-        android:id="@+id/action_level"
+        android:id="@+id/action_results"
         android:orderInCategory="100"
-        android:title="@string/action_level"
+        android:title="@string/menu_results"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_about"

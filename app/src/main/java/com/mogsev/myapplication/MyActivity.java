@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.mogsev.myapplication.activity.DivisionActivity;
 import com.mogsev.myapplication.activity.MultiplicationActivity;
+import com.mogsev.myapplication.activity.ResultsActivity;
 import com.mogsev.myapplication.activity.SubtractionActivity;
 import com.mogsev.myapplication.activity.SumActivity;
 import com.mogsev.myapplication.activity.TableMultiplicationActivity;
@@ -34,21 +35,14 @@ public class MyActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
+            case R.id.action_results:
+                startActivity(new Intent(this, ResultsActivity.class));
+                break;
             case R.id.action_about:
                 onActionMenuAbout();
                 break;
-            case R.id.action_level:
-                onActionMenuLevel();
-                break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Create dialog of level menu
-     */
-    private void onActionMenuLevel() {
-
     }
 
     /**
@@ -67,7 +61,7 @@ public class MyActivity extends AppCompatActivity {
      *
      * @param view
      */
-    public void startActivityTraining(View view) {
+    public void startActivity(View view) {
         switch (view.getId()) {
             case R.id.training_sum:
                 startActivity(new Intent(this, SumActivity.class));
@@ -86,6 +80,9 @@ public class MyActivity extends AppCompatActivity {
                 break;
             case R.id.training_multi:
 
+                break;
+            case R.id.button_results:
+                startActivity(new Intent(this, ResultsActivity.class));
                 break;
         }
     }
