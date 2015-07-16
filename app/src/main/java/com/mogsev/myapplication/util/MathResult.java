@@ -10,9 +10,9 @@ public class MathResult implements Serializable {
     private int totalQuestions;
     private int totalPositiveAnswers;
     private int totalNegativeAnswers;
-    private int numPositiveAnswers;
-    private int numNegativeAnswers;
-    private int numAnswer;
+    private int positiveAnswers;
+    private int negativeAnswers;
+    private int answers;
     private int questions;
     private int level;
     private int operation;
@@ -42,25 +42,25 @@ public class MathResult implements Serializable {
      *
      * @return
      */
-    public int getNumPositiveAnswers() {
-        return numPositiveAnswers;
+    public int getPositiveAnswers() {
+        return positiveAnswers;
     }
 
     /**
-     * @param numPositiveAnswers
+     * @param positiveAnswers
      */
-    public void setNumPositiveAnswers(int numPositiveAnswers) {
-        this.numPositiveAnswers = numPositiveAnswers;
+    public void setPositiveAnswers(int positiveAnswers) {
+        this.positiveAnswers = positiveAnswers;
     }
 
     /**
-     * Increase positive answer
+     * Increase positive answers
      *
      * @return
      */
-    public int increaseNumPositiveAnswer() {
-        numPositiveAnswers++;
-        return numPositiveAnswers;
+    public int increaseNumPositiveAnswers() {
+        positiveAnswers++;
+        return positiveAnswers;
     }
 
     /**
@@ -68,25 +68,25 @@ public class MathResult implements Serializable {
      *
      * @return
      */
-    public int getNumNegativeAnswers() {
-        return numNegativeAnswers;
+    public int getNegativeAnswers() {
+        return negativeAnswers;
     }
 
     /**
-     * @param numNegativeAnswers
+     * @param negativeAnswers
      */
-    public void setNumNegativeAnswers(int numNegativeAnswers) {
-        this.numNegativeAnswers = numNegativeAnswers;
+    public void setNegativeAnswers(int negativeAnswers) {
+        this.negativeAnswers = negativeAnswers;
     }
 
     /**
-     * Increase negative answer
+     * Increase negative answers
      *
      * @return
      */
-    public int increaseNumNegativeAnswer() {
-        numNegativeAnswers++;
-        return numNegativeAnswers;
+    public int increaseNumNegativeAnswers() {
+        negativeAnswers++;
+        return negativeAnswers;
     }
 
     /**
@@ -124,34 +124,25 @@ public class MathResult implements Serializable {
     }
 
     /**
-     * Decrease number level
+     * @param answers
      */
-    public void decreaseNumLevel() {
-        if (!(level <= 1)) {
-            level--;
-        }
-    }
-
-    /**
-     * @param numAnswer
-     */
-    public void setNumAnswer(int numAnswer) {
-        this.numAnswer = numAnswer;
+    public void setAnswers(int answers) {
+        this.answers = answers;
     }
 
     /**
      * @return
      */
-    public int getNumAnswer() {
-        return numAnswer;
+    public int getAnswers() {
+        return answers;
     }
 
     /**
      * @return
      */
-    public int increaseNumAnswer() {
-        numAnswer++;
-        return numAnswer;
+    public int increaseNumAnswers() {
+        answers++;
+        return answers;
     }
 
     /**
@@ -173,9 +164,9 @@ public class MathResult implements Serializable {
      */
     public void cleanOutResult() {
         this.setQuestions(10);
-        this.setNumAnswer(0);
-        this.setNumNegativeAnswers(0);
-        this.setNumPositiveAnswers(0);
+        this.setAnswers(0);
+        this.setNegativeAnswers(0);
+        this.setPositiveAnswers(0);
     }
 
     /**
@@ -252,9 +243,9 @@ public class MathResult implements Serializable {
      *
      */
     public void resultHandler() {
-        score += numPositiveAnswers;
+        score += positiveAnswers;
         totalQuestions += questions;
-        totalPositiveAnswers += numPositiveAnswers;
-        totalNegativeAnswers += numNegativeAnswers;
+        totalPositiveAnswers += positiveAnswers;
+        totalNegativeAnswers += negativeAnswers;
     }
 }

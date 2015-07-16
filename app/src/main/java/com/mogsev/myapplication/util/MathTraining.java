@@ -52,10 +52,11 @@ public abstract class MathTraining extends AppCompatActivity {
 
     private Handler handler;
 
+    // SharedPreferences
     protected SharedPreferences sharedPreferences;
     protected SharedPreferences.Editor editor;
 
-    //ProgressBar
+    // ProgressBar
     private ProgressBar progressBar;
     private TimerProgress timer;
     protected int startTimer;
@@ -84,21 +85,7 @@ public abstract class MathTraining extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_results:
-                final AlertDialog.Builder dialogResults = new AlertDialog.Builder(this);
-                View layoutInflater = this.getLayoutInflater().inflate(R.layout.dialog_results_operation, null);
-                dialogResults.setView(layoutInflater);
-                TextView score = (TextView) layoutInflater.findViewById(R.id.score);
-                TextView level = (TextView) layoutInflater.findViewById(R.id.level);
-                TextView totalQuestions = (TextView) layoutInflater.findViewById(R.id.totalQuestions);
-                TextView totalPositiveAnswers = (TextView) layoutInflater.findViewById(R.id.totalPositiveAnswers);
-                TextView totalNegativeAnswers = (TextView) layoutInflater.findViewById(R.id.totalNegativeAnswers);
-                score.setText(String.valueOf(mathResult.getScore()));
-                level.setText(String.valueOf(mathResult.getLevel()));
-                totalQuestions.setText(String.valueOf(mathResult.getTotalQuestions()));
-                totalPositiveAnswers.setText(String.valueOf(mathResult.getTotalPositiveAnswers()));
-                totalNegativeAnswers.setText(String.valueOf(mathResult.getTotalNegativeAnswers()));
-                dialogResults.create();
-                dialogResults.show();
+                showResults();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -107,21 +94,18 @@ public abstract class MathTraining extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
         savePreferences(mathResult.getOperation());
-        //editor.commit();
     }
 
     /**
      * Initialize view elements
      */
-    public void initElements() {
+    protected void initElements() {
         // fragment_assignment content
         textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
         buttonAnswer1 = (Button) findViewById(R.id.answer1);
         buttonAnswer2 = (Button) findViewById(R.id.answer2);
         buttonAnswer3 = (Button) findViewById(R.id.answer3);
-        //buttonProceed = (Button) findViewById(R.id.buttonProceed);
         textViewExpression = (TextView) findViewById(R.id.textViewExpression);
 
         // fragment_proceed content
@@ -135,7 +119,7 @@ public abstract class MathTraining extends AppCompatActivity {
         textViewTotalQuestion = (TextView) findViewById(R.id.textViewTotalQuestion);
 
         // SharedPreferences
-        sharedPreferences = getApplicationContext().getSharedPreferences("MATH_RESULTS", Context.MODE_MULTI_PROCESS);
+        sharedPreferences = getApplicationContext().getSharedPreferences("MATH_RESULTS", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         //progressBar
@@ -169,13 +153,13 @@ public abstract class MathTraining extends AppCompatActivity {
         if (answer.compareTo(randomValue.getResult()) == 0) {
             textViewAnswer.setText(R.string.correct_answer);
             textViewAnswer.setTextColor(Color.GREEN);
-            textViewNumPositiveAnswer.setText(String.valueOf(mathResult.increaseNumPositiveAnswer()));
+            textViewNumPositiveAnswer.setText(String.valueOf(mathResult.increaseNumPositiveAnswers()));
         } else {
             textViewAnswer.setText(R.string.wrong_answer);
             textViewAnswer.setTextColor(Color.RED);
-            textViewNumNegativeAnswer.setText(String.valueOf(mathResult.increaseNumNegativeAnswer()));
+            textViewNumNegativeAnswer.setText(String.valueOf(mathResult.increaseNumNegativeAnswers()));
         }
-        textViewNumAnswer.setText(String.valueOf(mathResult.increaseNumAnswer()));
+        textViewNumAnswer.setText(String.valueOf(mathResult.increaseNumAnswers()));
         setEnabledButtonAnswers(false);
         //buttonProceed.setVisibility(View.VISIBLE);
         mathResult.setCheckAnswer(true);
@@ -188,7 +172,7 @@ public abstract class MathTraining extends AppCompatActivity {
      * @param view
      */
     public void onClickProceed(View view) {
-        if (mathResult.getNumAnswer() >= mathResult.getQuestions()) {
+        if (mathResult.getAnswers() >= mathResult.getQuestions()) {
             showResult();
         } else {
             generateExpression();
@@ -198,7 +182,7 @@ public abstract class MathTraining extends AppCompatActivity {
     /**
      * data filling Activity
      */
-    public void fillingActivity() {
+    protected void fillingActivity() {
         // fragment_assignment content
         textViewAnswer.setText(R.string.title_answer);
         textViewAnswer.setTextColor(Color.BLACK);
@@ -212,10 +196,10 @@ public abstract class MathTraining extends AppCompatActivity {
         fragmentProceed.setVisibility(View.INVISIBLE);
 
         // fragment_bottom content
-        textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswers()));
-        textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getNumPositiveAnswers()));
+        textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNegativeAnswers()));
+        textViewNumPositiveAnswer.setText(String.valueOf(mathResult.getPositiveAnswers()));
         textViewLevel.setText(String.valueOf(mathResult.getLevel()));
-        textViewNumAnswer.setText(String.valueOf(mathResult.getNumAnswer()));
+        textViewNumAnswer.setText(String.valueOf(mathResult.getAnswers()));
         textViewTotalQuestion.setText(String.valueOf(mathResult.getQuestions()));
 
         // Check result view
@@ -280,10 +264,10 @@ public abstract class MathTraining extends AppCompatActivity {
         dialogResultTotalQuestion.append(String.valueOf(mathResult.getQuestions()));
         dialogResultPositiveAnswer.setText(R.string.dialog_number_positive_answer);
         dialogResultPositiveAnswer.append(" ");
-        dialogResultPositiveAnswer.append(String.valueOf(mathResult.getNumPositiveAnswers()));
+        dialogResultPositiveAnswer.append(String.valueOf(mathResult.getPositiveAnswers()));
         dialogResultNegativeAnswer.setText(R.string.dialog_number_negative_answer);
         dialogResultNegativeAnswer.append(" ");
-        dialogResultNegativeAnswer.append(String.valueOf(mathResult.getNumNegativeAnswers()));
+        dialogResultNegativeAnswer.append(String.valueOf(mathResult.getNegativeAnswers()));
         dialogResults = dialogBuilder.create();
         dialogResults.show();
     }
@@ -312,7 +296,7 @@ public abstract class MathTraining extends AppCompatActivity {
      *
      */
     private void checkLevelUp() {
-        if (mathResult.getNumNegativeAnswers() <= 1) {
+        if (mathResult.getNegativeAnswers() <= 1) {
             mathResult.increaseNumLevel();
             textViewLevel.setText(String.valueOf(mathResult.getLevel()));
             Toast.makeText(getApplicationContext(), R.string.toast_next_level, Toast.LENGTH_SHORT).show();
@@ -322,7 +306,7 @@ public abstract class MathTraining extends AppCompatActivity {
     /**
      * @param operation
      */
-    public void savePreferences(int operation) {
+    protected void savePreferences(int operation) {
         switch (operation) {
             case MathOperation.SUM:
                 editor.putInt(getString(R.string.sum_score), mathResult.getScore());
@@ -494,5 +478,32 @@ public abstract class MathTraining extends AppCompatActivity {
             handler.sendEmptyMessage(0);
             timer = null;
         }
+    }
+
+    private void showResults() {
+        final AlertDialog.Builder dialogResults = new AlertDialog.Builder(this);
+        View view = this.getLayoutInflater().inflate(R.layout.dialog_results_operation, null);
+
+        TextView score = (TextView) view.findViewById(R.id.score);
+        TextView level = (TextView) view.findViewById(R.id.level);
+        TextView questions = (TextView) view.findViewById(R.id.totalQuestions);
+        TextView positive = (TextView) view.findViewById(R.id.totalPositiveAnswers);
+        TextView negative = (TextView) view.findViewById(R.id.totalNegativeAnswers);
+
+        score.setText(R.string.result_score);
+        level.setText(R.string.result_level);
+        questions.setText(R.string.result_questions);
+        positive.setText(R.string.result_positive_answers);
+        negative.setText(R.string.result_negative_answers);
+
+        score.append(" " + String.valueOf(mathResult.getScore()));
+        level.append(" " + String.valueOf(mathResult.getLevel()));
+        questions.append(" " + String.valueOf(mathResult.getTotalQuestions()));
+        positive.append(" " + String.valueOf(mathResult.getTotalPositiveAnswers()));
+        negative.append(" " + String.valueOf(mathResult.getTotalNegativeAnswers()));
+
+        dialogResults.setView(view);
+        dialogResults.create();
+        dialogResults.show();
     }
 }

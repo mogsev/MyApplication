@@ -2,35 +2,85 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:drawable/dialog_holo_light_frame"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="4dp"
+        android:text="@null"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="?android:attr/dividerVertical" />
 
     <TextView
         android:id="@+id/level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="4dp"
+        android:text="@null"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="?android:attr/dividerVertical" />
 
     <TextView
         android:id="@+id/totalQuestions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="4dp"
+        android:text="@null"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="?android:attr/dividerVertical" />
 
     <TextView
         android:id="@+id/totalPositiveAnswers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="4dp"
+        android:text="@null"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="?android:attr/dividerVertical" />
 
     <TextView
         android:id="@+id/totalNegativeAnswers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="4dp"
+        android:text="@null"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="16sp" />
+
 </LinearLayout>
