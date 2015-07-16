@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.mogsev.myapplication.R;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -31,16 +30,15 @@ public abstract class MathTraining extends AppCompatActivity {
     public static final String MATH_RESULTS = "MATH_RESULTS";
     public static final String START_TIMER = "START_TIMER";
 
-    public ArrayList<Integer> list;
-    public RandomValue randomValue;
-    public MathResult mathResult;
+    protected ArrayList<Integer> list;
+    protected RandomValue randomValue;
+    protected MathResult mathResult;
 
     private Integer answer;
     private Button buttonClick;
     private Button buttonAnswer1;
     private Button buttonAnswer2;
     private Button buttonAnswer3;
-    //private Button buttonProceed;
     private TextView textViewAnswer;
     private TextView textViewExpression;
     private TextView textViewNumPositiveAnswer;
@@ -190,7 +188,6 @@ public abstract class MathTraining extends AppCompatActivity {
      * @param view
      */
     public void onClickProceed(View view) {
-
         if (mathResult.getNumAnswer() >= mathResult.getQuestions()) {
             showResult();
         } else {
@@ -202,10 +199,7 @@ public abstract class MathTraining extends AppCompatActivity {
      * data filling Activity
      */
     public void fillingActivity() {
-
-        fragmentProceed.setVisibility(View.INVISIBLE);
         // fragment_assignment content
-        //buttonProceed.setVisibility(View.INVISIBLE);
         textViewAnswer.setText(R.string.title_answer);
         textViewAnswer.setTextColor(Color.BLACK);
         textViewExpression.setText(randomValue.getExpression());
@@ -213,6 +207,9 @@ public abstract class MathTraining extends AppCompatActivity {
         buttonAnswer2.setText(String.valueOf(list.get(1)));
         buttonAnswer3.setText(String.valueOf(list.get(2)));
         setEnabledButtonAnswers(true);
+
+        // fragment_proceed content
+        fragmentProceed.setVisibility(View.INVISIBLE);
 
         // fragment_bottom content
         textViewNumNegativeAnswer.setText(String.valueOf(mathResult.getNumNegativeAnswers()));
@@ -236,7 +233,7 @@ public abstract class MathTraining extends AppCompatActivity {
     private void generateExpression() {
         // generate new expression
         randomValue.generateExpression(mathResult.getLevel());
-        list = randomValue.getList();
+        list = randomValue.getListAnswer();
         mathResult.setCheckAnswer(false);
         fillingActivity();
     }
@@ -464,10 +461,6 @@ public abstract class MathTraining extends AppCompatActivity {
 
         public int getStartTime() {
             return startTime;
-        }
-
-        public void setStartTime(int startTime) {
-            this.startTime = startTime;
         }
 
         public void start() {

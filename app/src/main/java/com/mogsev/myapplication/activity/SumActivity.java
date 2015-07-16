@@ -8,14 +8,12 @@ import com.mogsev.myapplication.util.MathResult;
 import com.mogsev.myapplication.util.MathTraining;
 import com.mogsev.myapplication.util.RandomValue;
 
-import java.util.Timer;
-
 public class SumActivity extends MathTraining {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subtraction);
+        setContentView(R.layout.activity_sum);
 
         //Initialize links for objects
         initElements();
@@ -35,7 +33,7 @@ public class SumActivity extends MathTraining {
                 showResult();
             }
         }
-        list = randomValue.getList();
+        list = randomValue.getListAnswer();
 
         loadPreferences(MathOperation.SUM);
 

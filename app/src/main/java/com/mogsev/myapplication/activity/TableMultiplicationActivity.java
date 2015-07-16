@@ -33,7 +33,7 @@ public class TableMultiplicationActivity extends MathTraining {
                 showResult();
             }
         }
-        list = randomValue.getList();
+        list = randomValue.getListAnswer();
 
         loadPreferences(MathOperation.TABLE_MULTIPLICATION);
 

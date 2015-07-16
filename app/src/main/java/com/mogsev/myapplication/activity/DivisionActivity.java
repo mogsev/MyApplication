@@ -33,7 +33,7 @@ public class DivisionActivity extends MathTraining {
                 showResult();
             }
         }
-        list = randomValue.getList();
+        list = randomValue.getListAnswer();
 
         loadPreferences(MathOperation.DIVISION);
 
