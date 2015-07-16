@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class RandomValue implements Serializable {
     private Random random;
-    private Integer number1, number2, number3, number4, result;
+    private Integer result;
     private ArrayList<Integer> listAnswer;
     private ArrayList<Integer> listNumber;
     private int operation;
@@ -65,8 +65,6 @@ public class RandomValue implements Serializable {
                 break;
             default:
                 generateData(level*10, 2);
-                //number1 = random.nextInt(level * 10);
-                //number2 = random.nextInt(level * 10);
                 break;
         }
     }
@@ -118,20 +116,12 @@ public class RandomValue implements Serializable {
                         expression += listNumber.get(i);
                     }
                 }
-                /**
-                if (number1 >= number2) {
-                    result = number1 - number2;
-                    expression = number1 + " - " + number2;
-                } else {
-                    result = number2 - number1;
-                    expression = number2 + " - " + number1;
-                }*/
                 break;
             // Generate result and expression for Multiplication
             case MathOperation.MULTIPLICATION:
-                generateData(level);
-                result = number1 * number2;
-                expression = number1 + " * " + number2;
+                generateData(level*10, 2);
+                result = listNumber.get(0) * listNumber.get(1);
+                expression = listNumber.get(0) + " * " + listNumber.get(1);
                 break;
             //Generate result and expression for Division
             case MathOperation.DIVISION:
@@ -148,10 +138,12 @@ public class RandomValue implements Serializable {
      * Generate result and expression for Table Multiplication
      */
     private void getTableMultiplicationExpression() {
-        generateData(1);
-        if ((number1 != 0) && (number2 != 0)) {
-            result = number1 * number2;
-            expression = number1 + " * " + number2;
+        generateData(1, 2);
+        int num1 = listNumber.get(0);
+        int num2 = listNumber.get(1);
+        if ((num1 != 0) && (num2 != 0)) {
+            result = num1 * num2;
+            expression = num1 + " * " + num2;
         } else {
             getTableMultiplicationExpression();
         }
@@ -161,10 +153,12 @@ public class RandomValue implements Serializable {
      * Generate result and expression for Division
      */
     private void getDivisionExpression(int level) {
-        generateData(level);
-        if ((number2 != 0) && ((number1 / number2) > 0) && (number1 % number2 == 0)) {
-            result = number1 / number2;
-            expression = number1 + " / " + number2;
+        generateData(level*10, 2);
+        int num1 = listNumber.get(0);
+        int num2 = listNumber.get(1);
+        if ((num2 != 0) && ((num1 / num2) > 0) && (num1 % num2 == 0)) {
+            result = num1 / num2;
+            expression = num1 + " / " + num2;
         } else {
             getDivisionExpression(level);
         }
