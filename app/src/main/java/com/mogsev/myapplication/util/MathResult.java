@@ -27,6 +27,7 @@ public class MathResult implements Serializable {
 
     /**
      * Constructor
+     *
      * @param operation
      */
     public MathResult(int operation) {
@@ -38,6 +39,7 @@ public class MathResult implements Serializable {
 
     /**
      * Return amount positive answers
+     *
      * @return
      */
     public int getNumPositiveAnswers() {
@@ -45,7 +47,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param numPositiveAnswers
      */
     public void setNumPositiveAnswers(int numPositiveAnswers) {
@@ -54,6 +55,7 @@ public class MathResult implements Serializable {
 
     /**
      * Increase positive answer
+     *
      * @return
      */
     public int increaseNumPositiveAnswer() {
@@ -63,6 +65,7 @@ public class MathResult implements Serializable {
 
     /**
      * Return amount negative answers
+     *
      * @return
      */
     public int getNumNegativeAnswers() {
@@ -70,7 +73,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param numNegativeAnswers
      */
     public void setNumNegativeAnswers(int numNegativeAnswers) {
@@ -79,6 +81,7 @@ public class MathResult implements Serializable {
 
     /**
      * Increase negative answer
+     *
      * @return
      */
     public int increaseNumNegativeAnswer() {
@@ -88,6 +91,7 @@ public class MathResult implements Serializable {
 
     /**
      * Return number math operation
+     *
      * @return
      */
     public int getOperation() {
@@ -96,6 +100,7 @@ public class MathResult implements Serializable {
 
     /**
      * Set number level
+     *
      * @param level
      */
     public void setLevel(int level) {
@@ -104,6 +109,7 @@ public class MathResult implements Serializable {
 
     /**
      * Return number level
+     *
      * @return
      */
     public int getLevel() {
@@ -122,12 +128,11 @@ public class MathResult implements Serializable {
      */
     public void decreaseNumLevel() {
         if (!(level <= 1)) {
-                level--;
+            level--;
         }
     }
 
     /**
-     *
      * @param numAnswer
      */
     public void setNumAnswer(int numAnswer) {
@@ -135,7 +140,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getNumAnswer() {
@@ -143,7 +147,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int increaseNumAnswer() {
@@ -152,7 +155,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param questions
      */
     public void setQuestions(int questions) {
@@ -160,7 +162,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getQuestions() {
@@ -178,7 +179,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public boolean isCheckAnswer() {
@@ -186,7 +186,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param checkAnswer
      */
     public void setCheckAnswer(boolean checkAnswer) {
@@ -194,7 +193,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getScore() {
@@ -202,7 +200,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param score
      */
     public void setScore(int score) {
@@ -210,7 +207,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getTotalQuestions() {
@@ -218,7 +214,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param totalQuestions
      */
     public void setTotalQuestions(int totalQuestions) {
@@ -226,7 +221,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getTotalPositiveAnswers() {
@@ -234,7 +228,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param totalPositiveAnswers
      */
     public void setTotalPositiveAnswers(int totalPositiveAnswers) {
@@ -242,7 +235,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getTotalNegativeAnswers() {
@@ -250,7 +242,6 @@ public class MathResult implements Serializable {
     }
 
     /**
-     *
      * @param totalNegativeAnswers
      */
     public void setTotalNegativeAnswers(int totalNegativeAnswers) {

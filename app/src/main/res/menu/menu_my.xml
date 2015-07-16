@@ -1,16 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MyActivity">
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MyActivity">
+    <item
+        android:id="@+id/action_level"
         android:orderInCategory="100"
-        app:showAsAction="never" />
-    <item android:id="@+id/action_level"
         android:title="@string/action_level"
-        android:orderInCategory="100"
         app:showAsAction="never" />
-    <item android:id="@+id/action_about"
-        android:title="@string/action_about"
+    <item
+        android:id="@+id/action_about"
         android:orderInCategory="100"
+        android:title="@string/action_about"
         app:showAsAction="never" />
 </menu>

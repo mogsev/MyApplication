@@ -2,32 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mogsev.myapplication.activity.DivisionActivity"
     android:background="@color/gray_50"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingTop="4dp"
     android:paddingRight="16dp"
-    android:orientation="vertical" >
+    android:paddingTop="4dp"
+    tools:context="com.mogsev.myapplication.activity.DivisionActivity">
 
     <fragment
+        android:id="@+id/fragment_assignment"
+        android:name="com.mogsev.myapplication.fragment.AssignmentFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.mogsev.myapplication.fragment.AssignmentFragment"
-        android:id="@+id/fragment_assignment"
         tools:layout="@layout/fragment_assignment" />
 
     <fragment
+        android:id="@+id/fragment_proceed"
+        android:name="com.mogsev.myapplication.fragment.ProceedFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.mogsev.myapplication.fragment.ProceedFragment"
-        android:id="@+id/fragment_proceed"
         tools:layout="@layout/fragment_proceed" />
 
     <fragment
+        android:id="@+id/fragment_bottom"
+        android:name="com.mogsev.myapplication.fragment.BottomFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.mogsev.myapplication.fragment.BottomFragment"
-        android:id="@+id/fragment_bottom"
         tools:layout="@layout/fragment_bottom" />
 
 </LinearLayout>

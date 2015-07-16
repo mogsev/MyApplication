@@ -2,29 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="10dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <TextView
+        android:id="@+id/dialogResultTotalQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Text"
-        android:id="@+id/dialogResultTotalQuestion"
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/dialogResultPositiveAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Text"
-        android:id="@+id/dialogResultPositiveAnswer"
-        android:textSize="20sp"
-        android:textColor="@android:color/holo_green_dark" />
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/dialogResultNegativeAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Text"
-        android:id="@+id/dialogResultNegativeAnswer"
-        android:textSize="20sp"
-        android:textColor="@android:color/holo_red_dark" />
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp" />
 </LinearLayout>

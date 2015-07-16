@@ -1,10 +1,10 @@
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linearProceed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_below="@+id/answer3"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
     <View
         android:layout_width="match_parent"
@@ -13,11 +13,11 @@
 
     <Button
         android:id="@+id/buttonProceed"
-        android:text="@string/title_proceed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:onClick="onClickProceed"
+        android:text="@string/title_proceed"
         android:textSize="16sp" />
 
     <View

@@ -85,7 +85,7 @@ public abstract class MathTraining extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_results :
+            case R.id.menu_results:
                 final AlertDialog.Builder dialogResults = new AlertDialog.Builder(this);
                 View layoutInflater = this.getLayoutInflater().inflate(R.layout.dialog_results_operation, null);
                 dialogResults.setView(layoutInflater);
@@ -158,6 +158,7 @@ public abstract class MathTraining extends AppCompatActivity {
 
     /**
      * Check user's answer
+     *
      * @param view
      */
     public void onClickAnswer(View view) {
@@ -185,9 +186,10 @@ public abstract class MathTraining extends AppCompatActivity {
 
     /**
      * Action when button "proceed" was pressed
+     *
      * @param view
      */
-    public void onClickProceed(View view){
+    public void onClickProceed(View view) {
 
         if (mathResult.getNumAnswer() >= mathResult.getQuestions()) {
             showResult();
@@ -321,7 +323,6 @@ public abstract class MathTraining extends AppCompatActivity {
     }
 
     /**
-     *
      * @param operation
      */
     public void savePreferences(int operation) {
@@ -366,7 +367,6 @@ public abstract class MathTraining extends AppCompatActivity {
     }
 
     /**
-     *
      * @param operation
      */
     protected void loadPreferences(int operation) {
@@ -474,7 +474,7 @@ public abstract class MathTraining extends AppCompatActivity {
             timerThread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    while ( startTime < endTime ) {
+                    while (startTime < endTime) {
                         startTime++;
                         progressBar.setProgress(startTime);
                         try {

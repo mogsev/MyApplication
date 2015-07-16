@@ -2,46 +2,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mogsev.myapplication.fragment.AssignmentFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.mogsev.myapplication.fragment.AssignmentFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:layout_gravity="center_horizontal" >
+        android:layout_gravity="center_horizontal"
+        android:background="@android:drawable/dialog_holo_light_frame">
+
         <TextView
+            android:id="@+id/textViewExpression"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_expression"
-            android:id="@+id/textViewExpression"
             android:layout_centerHorizontal="true"
-            android:textSize="34sp"
-            android:gravity="center"
             android:layout_gravity="center_vertical"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/title_expression"
+            android:textSize="34sp" />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textViewAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewAnswer"
         android:layout_below="@+id/textViewExpression"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:autoText="false"
         android:text="@string/title_answer"
-        android:textSize="18sp"
-        android:layout_gravity="center_horizontal" />
+        android:textSize="18sp" />
 
     <ProgressBar
+        android:id="@+id/progressBarTime"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBarTime"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
 
     <View
         android:layout_width="match_parent"
@@ -54,11 +55,11 @@
 
     <Button
         android:id="@+id/answer1"
-        android:text="answer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:onClick="onClickAnswer"
+        android:text="answer1"
         android:textSize="22sp" />
 
     <View
@@ -68,11 +69,11 @@
 
     <Button
         android:id="@+id/answer2"
-        android:text="answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:onClick="onClickAnswer"
+        android:text="answer2"
         android:textSize="22sp" />
 
     <View
@@ -82,11 +83,11 @@
 
     <Button
         android:id="@+id/answer3"
-        android:text="answer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:onClick="onClickAnswer"
+        android:text="answer3"
         android:textSize="22sp" />
 
     <View

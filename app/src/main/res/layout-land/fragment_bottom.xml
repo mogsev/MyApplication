@@ -3,49 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.mogsev.myapplication.fragment.BottomFragment"
     android:gravity="bottom"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context="com.mogsev.myapplication.fragment.BottomFragment">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ответов:"
-            android:id="@+id/textView4"
             android:layout_alignParentLeft="true"
+            android:text="Ответов:"
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/textViewNumAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ХХ"
-            android:id="@+id/textViewNumAnswer"
             android:layout_toRightOf="@+id/textView4"
             android:paddingLeft="5dp"
+            android:text="ХХ"
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="из"
-            android:id="@+id/textView6"
             android:layout_toRightOf="@+id/textViewNumAnswer"
             android:paddingLeft="5dp"
+            android:text="из"
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/textViewTotalQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ХХ"
-            android:id="@+id/textViewTotalQuestion"
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="false"
             android:layout_toRightOf="@+id/textView6"
             android:paddingLeft="5dp"
+            android:text="ХХ"
             android:textSize="12sp" />
     </RelativeLayout>
 
@@ -54,25 +54,25 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Уровень:"
-            android:id="@+id/textView8"
             android:layout_alignParentBottom="true"
-            android:gravity="center_horizontal"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentLeft="true"
-            android:textSize="12sp"
-            android:layout_marginLeft="20dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_horizontal"
+            android:text="Уровень:"
+            android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/textViewNumLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XX"
-            android:id="@+id/textViewNumLevel"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/textView8"
             android:paddingLeft="5dp"
+            android:text="XX"
             android:textSize="12sp" />
     </RelativeLayout>
 
@@ -81,33 +81,33 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/textViewNumNegativeAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XX"
-            android:id="@+id/textViewNumNegativeAnswer"
-            android:gravity="right"
             android:layout_alignParentBottom="true"
-            android:textSize="12sp"
             android:layout_alignParentRight="false"
+            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/textViewNumPositiveAnswer"
             android:background="@android:color/holo_red_light"
-            android:layout_marginRight="10dp"
+            android:gravity="right"
             android:paddingLeft="5dp"
-            android:paddingRight="5dp" />
+            android:paddingRight="5dp"
+            android:text="XX"
+            android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/textViewNumPositiveAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XX"
-            android:id="@+id/textViewNumPositiveAnswer"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:gravity="right"
-            android:textSize="12sp"
             android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
             android:background="@android:color/holo_green_dark"
+            android:gravity="right"
             android:paddingLeft="5dp"
-            android:paddingRight="5dp" />
+            android:paddingRight="5dp"
+            android:text="XX"
+            android:textSize="12sp" />
     </RelativeLayout>
 
 </LinearLayout>

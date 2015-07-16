@@ -2,12 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MyActivity"
     android:background="@color/gray_50"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:paddingTop="5dp"
-    android:paddingRight="16dp" >
+    tools:context=".MyActivity">
 
     <TableLayout
         android:layout_width="fill_parent"
@@ -16,71 +16,70 @@
         android:layout_marginTop="5dp">
 
         <TableRow>
+
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
+                android:id="@+id/training_table_multiplication"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"
                 android:layout_span="1"
                 android:layout_weight="2"
                 android:background="@drawable/layout_training"
-                android:id="@+id/training_table_multiplication"
                 android:onClick="startActivityTraining"
-                android:layout_marginRight="1dp">
+                android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/image_table_multiplication"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/image_table_multiplication"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@android:drawable/ic_menu_preferences"
-                    android:layout_marginTop="2dp" />
+                    android:layout_marginTop="2dp"
+                    android:background="@android:drawable/ic_menu_preferences" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_table_multiplication"
                     android:layout_below="@+id/image_table_multiplication"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="4dp" />
+                    android:text="@string/title_table_multiplication"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:textSize="16sp" />
             </RelativeLayout>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
+                android:id="@+id/training_multi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
                 android:layout_span="1"
                 android:layout_weight="3"
                 android:background="@drawable/layout_training"
-                android:id="@+id/training_multi"
                 android:onClick="startActivityTraining"
-                android:layout_marginLeft="1dp">
+                android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/image_multi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/image_multi"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@android:drawable/ic_menu_preferences"
-                    android:layout_marginTop="2dp" />
+                    android:layout_marginTop="2dp"
+                    android:background="@android:drawable/ic_menu_preferences" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_multi"
                     android:layout_below="@+id/image_multi"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="4dp" />
+                    android:text="@string/title_multi"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:textSize="16sp" />
             </RelativeLayout>
-
-
         </TableRow>
 
         <TableRow
@@ -88,69 +87,69 @@
             android:layout_height="match_parent"
             android:layout_marginTop="1dp">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_span="1"
-            android:layout_weight="2"
-            android:id="@+id/training_sum"
-            android:onClick="startActivityTraining"
-            android:background="@drawable/layout_training"
-            android:layout_marginRight="1dp">
-
-            <ImageView
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/training_sum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_sum"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="2dp"
-                android:src="@android:drawable/ic_menu_preferences" />
+                android:layout_marginRight="1dp"
+                android:layout_span="1"
+                android:layout_weight="2"
+                android:background="@drawable/layout_training"
+                android:onClick="startActivityTraining"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_sum"
-                android:layout_below="@+id/image_sum"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/primary_text_default_material_light"
-                android:textSize="16sp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="4dp"/>
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/image_sum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:src="@android:drawable/ic_menu_preferences" />
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_span="1"
-            android:layout_weight="3"
-            android:background="@drawable/layout_training"
-            android:id="@+id/training_subtraction"
-            android:onClick="startActivityTraining"
-            android:layout_marginLeft="1dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image_sum"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/title_sum"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:textSize="16sp" />
+            </RelativeLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_subtraction"
-                android:layout_centerHorizontal="true"
-                android:src="@android:drawable/ic_menu_preferences"
-                android:layout_marginTop="2dp"/>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/training_subtraction"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_span="1"
+                android:layout_weight="3"
+                android:background="@drawable/layout_training"
+                android:onClick="startActivityTraining"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_subtraction"
-                android:layout_below="@+id/image_subtraction"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/primary_text_default_material_light"
-                android:textSize="16sp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="4dp"/>
-        </RelativeLayout>
-    </TableRow>
+                <ImageView
+                    android:id="@+id/image_subtraction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:src="@android:drawable/ic_menu_preferences" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image_subtraction"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/title_subtraction"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -158,67 +157,67 @@
             android:layout_marginTop="1dp">
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
+                android:id="@+id/training_multiplication"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginRight="1dp"
                 android:layout_span="1"
                 android:layout_weight="2"
-                android:layout_marginRight="1dp"
                 android:background="@drawable/layout_training_shadow"
-                android:id="@+id/training_multiplication"
-                android:onClick="startActivityTraining">
+                android:onClick="startActivityTraining"
+                android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/image_multiplication"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/image_multiplication"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@android:drawable/ic_menu_preferences"
-                    android:layout_marginTop="2dp" />
+                    android:layout_marginTop="2dp"
+                    android:background="@android:drawable/ic_menu_preferences" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_multiplication"
                     android:layout_below="@+id/image_multiplication"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="8dp" />
+                    android:text="@string/title_multiplication"
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:textSize="16sp" />
             </RelativeLayout>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
+                android:id="@+id/training_division"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
                 android:layout_span="1"
                 android:layout_weight="3"
-                android:layout_marginLeft="1dp"
                 android:background="@drawable/layout_training_shadow"
-                android:id="@+id/training_division"
-                android:onClick="startActivityTraining">
+                android:onClick="startActivityTraining"
+                android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/image_division"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/image_division"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@android:drawable/ic_menu_preferences"
-                    android:layout_marginTop="2dp" />
+                    android:layout_marginTop="2dp"
+                    android:background="@android:drawable/ic_menu_preferences" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_division"
                     android:layout_below="@+id/image_division"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/title_division"
                     android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
             </RelativeLayout>
         </TableRow>
     </TableLayout>
@@ -231,18 +230,19 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dip"
+            android:layout_alignTop="@+id/button_results"
             android:layout_marginLeft="4dip"
             android:layout_marginRight="4dip"
-            android:background="?android:attr/dividerVertical"
-            android:layout_alignTop="@+id/button_results" />
+            android:background="?android:attr/dividerVertical" />
+
         <Button
             android:id="@+id/button_results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="?android:attr/selectableItemBackground"
-            android:text="@string/title_results"
-            android:layout_alignParentBottom="true"/>
-        </RelativeLayout>
+            android:text="@string/title_results" />
+    </RelativeLayout>
 </LinearLayout>
 
 

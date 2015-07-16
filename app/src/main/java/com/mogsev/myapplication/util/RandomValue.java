@@ -15,7 +15,6 @@ public class RandomValue implements Serializable {
     private String expression;
 
     /**
-     *
      * @param operation
      */
     public RandomValue(int operation) {
@@ -25,12 +24,11 @@ public class RandomValue implements Serializable {
     }
 
     /**
-     *
      * @param level
      */
     private void generateData(int level) {
-        number1 = random.nextInt(level*10);
-        number2 = random.nextInt(level*10);
+        number1 = random.nextInt(level * 10);
+        number2 = random.nextInt(level * 10);
     }
 
     /**
@@ -90,7 +88,7 @@ public class RandomValue implements Serializable {
      */
     private void getDivisionExpression(int level) {
         generateData(level);
-        if ( (number2 != 0) && ((number1 / number2) > 0)&& (number1%number2 == 0) ) {
+        if ((number2 != 0) && ((number1 / number2) > 0) && (number1 % number2 == 0)) {
             result = number1 / number2;
             expression = number1 + " / " + number2;
         } else {
@@ -100,6 +98,7 @@ public class RandomValue implements Serializable {
 
     /**
      * Returns ArrayList that contains data
+     *
      * @return
      */
     public ArrayList<Integer> getList() {
@@ -110,7 +109,7 @@ public class RandomValue implements Serializable {
         getRandomNum(result);
         list.add(result);
         int step = random.nextInt(10);
-        for (int i = 0; i < step; i++ ) {
+        for (int i = 0; i < step; i++) {
             int rest = list.get(0);
             list.set(0, list.get(1));
             list.set(1, list.get(2));
@@ -121,6 +120,7 @@ public class RandomValue implements Serializable {
 
     /**
      * Returns result of expression
+     *
      * @return Integer result
      */
     public Integer getResult() {
@@ -129,6 +129,7 @@ public class RandomValue implements Serializable {
 
     /**
      * Returns expression
+     *
      * @return String expression
      */
     public String getExpression() {
@@ -140,7 +141,6 @@ public class RandomValue implements Serializable {
     }
 
     /**
-     *
      * @param result
      */
     private void getRandomNum(int result) {

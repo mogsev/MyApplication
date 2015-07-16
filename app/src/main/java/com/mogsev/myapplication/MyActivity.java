@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.mogsev.myapplication.activity.DivisionActivity;
 import com.mogsev.myapplication.activity.MultiplicationActivity;
@@ -35,10 +34,10 @@ public class MyActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
-            case R.id.action_about :
+            case R.id.action_about:
                 onActionMenuAbout();
                 break;
-            case R.id.action_level :
+            case R.id.action_level:
                 onActionMenuLevel();
                 break;
         }
@@ -65,6 +64,7 @@ public class MyActivity extends AppCompatActivity {
 
     /**
      * Handle clicks on button
+     *
      * @param view
      */
     public void startActivityTraining(View view) {
