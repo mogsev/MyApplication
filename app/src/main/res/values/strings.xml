@@ -83,5 +83,9 @@
     <string name="table_multiplication_questions">table_multiplication_questions</string>
     <string name="table_multiplication_positive_answers">table_multiplication_positive_answers</string>
     <string name="table_multiplication_negative_answers">table_multiplication_negative_answers</string>
+    <string name="title_activity_choice">ChoiceActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_multi">MultiActivity</string>
 
 </resources>
