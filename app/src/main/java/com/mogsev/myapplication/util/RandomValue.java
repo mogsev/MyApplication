@@ -1,10 +1,7 @@
 package com.mogsev.myapplication.util;
 
-import android.util.Log;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -131,9 +128,15 @@ public class RandomValue implements Serializable {
             case MathOperation.TABLE_MULTIPLICATION:
                 getTableMultiplicationExpression();
                 break;
+        }
+    }
 
+    public void generateExpression(int level, MathMulti mathMulti) {
+        result = 0;
+        expression = "";
+        switch (operation) {
             case MathOperation.MULTI:
-                getMultiExpression();
+                generateMultiExpression(level, mathMulti);
                 break;
         }
     }
@@ -234,18 +237,57 @@ public class RandomValue implements Serializable {
      * Generate result and expression for Multi
      * @param mathMulti
      */
-    private void getMultiExpression(MathMulti mathMulti) {
+    public void generateMultiExpression(int level, MathMulti mathMulti) {
+        result = 0;
+        expression = "";
         if (mathMulti.isSum()) {
-
+            int num1 = random.nextInt(level*10);
+            int num2 = random.nextInt(level*10);
+            result = num1 + num2;
+            expression = num1 + " + " + num2;
         }
         if (mathMulti.isSubtraction()) {
-
+            if (expression.equals("")) {
+                int num1 = random.nextInt(level*10);
+                int num2 = random.nextInt(num1);
+                result = num1 - num2;
+                expression = num1 + " - " + num2;
+            } else {
+                expression = "(" + expression + ")";
+                int num = random.nextInt(level*10);
+                result = result - num;
+                expression = expression + " - " + num;
+            }
         }
         if (mathMulti.isMultiplication()) {
-
+            if (expression.equals("")) {
+                int num1 = random.nextInt(level*10);
+                int num2 = random.nextInt(num1);
+                result = num1 * num2;
+                expression = num1 + " * " + num2;
+            } else {
+                expression = "(" + expression + ")";
+                int num = random.nextInt(level*10);
+                result = result * num;
+                expression = expression + " * " + num;
+            }
         }
         if (mathMulti.isDivision()) {
-
+            if (expression.equals("")) {
+                int num1 = random.nextInt(level*10);
+                int num2 = random.nextInt(num1);
+                result = num1 / num2;
+                expression = num1 + " / " + num2;
+            } else {
+                expression = "(" + expression + ")";
+                int num = random.nextInt(level*10);
+                result = result / num;
+                expression = expression + " / " + num;
+            }
         }
+    }
+
+    public int getOperation() {
+        return operation;
     }
 }

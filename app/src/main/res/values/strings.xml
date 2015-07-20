@@ -96,8 +96,8 @@
     <string name="multi_positive_answers">multi_positive_answers</string>
     <string name="multi_negative_answers">multi_negative_answers</string>
     <string name="multi_sum">multi_sum</string>
-    <string name="multi_subtraction">multi_sum</string>
-    <string name="multi_multiplication">multi_sum</string>
-    <string name="multi_division">multi_sum</string>
+    <string name="multi_subtraction">multi_subtraction</string>
+    <string name="multi_multiplication">multi_multiplication</string>
+    <string name="multi_division">multi_division</string>
 
 </resources>

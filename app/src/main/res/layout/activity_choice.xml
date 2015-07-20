@@ -30,7 +30,8 @@
         android:layout_marginTop="4dp"
         android:singleLine="false"
         android:text="@string/title_sum"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:checked="false" />
 
     <CheckBox
         android:id="@+id/checkBoxSubtraction"
@@ -73,7 +74,7 @@
             android:background="?android:attr/dividerVertical" />
 
         <Button
-            android:id="@+id/button_results"
+            android:id="@+id/btn_begin_multi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

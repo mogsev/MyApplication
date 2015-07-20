@@ -173,7 +173,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:background="@android:drawable/ic_menu_preferences" />
+                    android:background="@mipmap/divide" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -209,8 +209,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
-                    android:background="@android:drawable/ic_menu_preferences" />
+                    android:layout_marginTop="6dp"
+                    android:background="@mipmap/calculator_symbols" />
 
                 <TextView
                     android:layout_width="wrap_content"

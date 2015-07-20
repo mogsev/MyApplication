@@ -3,6 +3,7 @@ package com.mogsev.myapplication.activity;
 import android.os.Bundle;
 
 import com.mogsev.myapplication.R;
+import com.mogsev.myapplication.util.MathMulti;
 import com.mogsev.myapplication.util.MathOperation;
 import com.mogsev.myapplication.util.MathResult;
 import com.mogsev.myapplication.util.MathTraining;
@@ -18,8 +19,6 @@ public class MultiActivity extends MathTraining {
         //Initialize links for objects
         initElements();
 
-
-
         //The application was lunched?
         if (savedInstanceState == null) {
             mathResult = new MathResult(MathOperation.MULTI);
@@ -27,6 +26,7 @@ public class MultiActivity extends MathTraining {
             loadPreferences(MathOperation.MULTI);
             randomValue.generateMultiExpression(mathResult.getLevel(), mathMulti);
         } else {
+            mathMulti = (MathMulti) savedInstanceState.get(MATH_MULTI);
             randomValue = (RandomValue) savedInstanceState.get(RANDOM_VALUE);
             mathResult = (MathResult) savedInstanceState.get(MATH_RESULT);
             startTimer = (int) savedInstanceState.getInt(START_TIMER);
@@ -37,8 +37,6 @@ public class MultiActivity extends MathTraining {
             }
         }
         list = randomValue.getListAnswer();
-
-
 
         //filling Activity
         fillingActivity();

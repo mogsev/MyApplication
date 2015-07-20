@@ -29,6 +29,7 @@ public abstract class MathTraining extends AppCompatActivity {
     public static final String MATH_RESULT = "MATH_RESULT";
     public static final String MATH_RESULTS = "MATH_RESULTS";
     public static final String START_TIMER = "START_TIMER";
+    public static final String MATH_MULTI = "MATH_MULTI";
 
     protected ArrayList<Integer> list;
     protected RandomValue randomValue;
@@ -67,6 +68,7 @@ public abstract class MathTraining extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putSerializable(RANDOM_VALUE, randomValue);
         outState.putSerializable(MATH_RESULT, mathResult);
+        outState.putSerializable(MATH_MULTI, mathMulti);
         if (timer != null) {
             outState.putInt(START_TIMER, timer.getStartTime());
         }
@@ -219,7 +221,11 @@ public abstract class MathTraining extends AppCompatActivity {
      */
     private void generateExpression() {
         // generate new expression
-        randomValue.generateExpression(mathResult.getLevel());
+        if (randomValue.getOperation() == MathOperation.MULTI) {
+            randomValue.generateExpression(mathResult.getLevel(), mathMulti);
+        } else {
+            randomValue.generateExpression(mathResult.getLevel());
+        }
         list = randomValue.getListAnswer();
         mathResult.setCheckAnswer(false);
         fillingActivity();
@@ -352,6 +358,10 @@ public abstract class MathTraining extends AppCompatActivity {
                 editor.putInt(getString(R.string.multi_questions), mathResult.getTotalQuestions());
                 editor.putInt(getString(R.string.multi_positive_answers), mathResult.getTotalPositiveAnswers());
                 editor.putInt(getString(R.string.multi_negative_answers), mathResult.getTotalNegativeAnswers());
+                editor.putBoolean(getString(R.string.multi_sum), mathMulti.isSum());
+                editor.putBoolean(getString(R.string.multi_subtraction), mathMulti.isSubtraction());
+                editor.putBoolean(getString(R.string.multi_multiplication), mathMulti.isMultiplication());
+                editor.putBoolean(getString(R.string.multi_division), mathMulti.isDivision());
                 break;
         }
         editor.commit();

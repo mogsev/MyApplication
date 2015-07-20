@@ -1,9 +1,11 @@
 package com.mogsev.myapplication.util;
 
+import java.io.Serializable;
+
 /**
  * Created by zhenya on 20.07.2015.
  */
-public class MathMulti {
+public class MathMulti implements Serializable {
     private boolean sum;
     private boolean subtraction;
     private boolean multiplication;

@@ -99,7 +99,7 @@ public class ResultsActivity extends AppCompatActivity {
                 positive.append(" " + sharedPreferences.getInt(getString(R.string.table_multiplication_positive_answers), 0));
                 negative.append(" " + sharedPreferences.getInt(getString(R.string.table_multiplication_negative_answers), 0));
                 break;
-            case MathOperation.OTHER:
+            case MathOperation.MULTI:
 
                 break;
         }
