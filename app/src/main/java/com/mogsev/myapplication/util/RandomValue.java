@@ -131,6 +131,10 @@ public class RandomValue implements Serializable {
             case MathOperation.TABLE_MULTIPLICATION:
                 getTableMultiplicationExpression();
                 break;
+
+            case MathOperation.MULTI:
+                getMultiExpression();
+                break;
         }
     }
 
@@ -186,6 +190,8 @@ public class RandomValue implements Serializable {
         return listAnswer;
     }
 
+
+
     /**
      * Returns result of expression
      *
@@ -221,6 +227,25 @@ public class RandomValue implements Serializable {
             } else {
                 listAnswer.add(num);
             }
+        }
+    }
+
+    /**
+     * Generate result and expression for Multi
+     * @param mathMulti
+     */
+    private void getMultiExpression(MathMulti mathMulti) {
+        if (mathMulti.isSum()) {
+
+        }
+        if (mathMulti.isSubtraction()) {
+
+        }
+        if (mathMulti.isMultiplication()) {
+
+        }
+        if (mathMulti.isDivision()) {
+
         }
     }
 }

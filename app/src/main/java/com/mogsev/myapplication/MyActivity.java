@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.mogsev.myapplication.activity.ChoiceActivity;
 import com.mogsev.myapplication.activity.DivisionActivity;
 import com.mogsev.myapplication.activity.MultiplicationActivity;
 import com.mogsev.myapplication.activity.ResultsActivity;
@@ -79,7 +80,7 @@ public class MyActivity extends AppCompatActivity {
                 startActivity(new Intent(this, TableMultiplicationActivity.class));
                 break;
             case R.id.training_multi:
-
+                startActivity(new Intent(this, ChoiceActivity.class));
                 break;
             case R.id.button_results:
                 startActivity(new Intent(this, ResultsActivity.class));

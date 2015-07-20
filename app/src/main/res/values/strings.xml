@@ -8,7 +8,6 @@
     <string name="action_about">О MathTest</string>
     <string name="action_begin">Начать</string>
 
-
     <string name="title_table_multiplication">Таблица умножения</string>
     <string name="title_sum">Сложение</string>
     <string name="title_subtraction">Вычитание</string>
@@ -20,10 +19,16 @@
     <string name="title_proceed">Продолжить</string>
     <string name="title_result">Результат</string>
     <string name="title_results">РЕЗУЛЬТАТЫ</string>
+    <string name="title_activity_choice">ChoiceActivity</string>
 
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка</string>
     <string name="check_answer">Вы уже ответили на этот вопрос</string>
+
+    <string name="title_activity_multi">MultiActivity</string>
+
+    <!-- Choice Activity -->
+    <string name="choice_operation">АРИФМЕТИЧЕСКИЕ ОПЕРАЦИИ</string>
 
     <!-- Dialog -->
     <string name="dialog_about_version">Версия 1.0.1</string>
@@ -83,9 +88,16 @@
     <string name="table_multiplication_questions">table_multiplication_questions</string>
     <string name="table_multiplication_positive_answers">table_multiplication_positive_answers</string>
     <string name="table_multiplication_negative_answers">table_multiplication_negative_answers</string>
-    <string name="title_activity_choice">ChoiceActivity</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_multi">MultiActivity</string>
+    <!-- SharedPreferences Table Multiplication -->
+    <string name="multi_score">multi_score</string>
+    <string name="multi_level">multi_level</string>
+    <string name="multi_questions">multi_questions</string>
+    <string name="multi_positive_answers">multi_positive_answers</string>
+    <string name="multi_negative_answers">multi_negative_answers</string>
+    <string name="multi_sum">multi_sum</string>
+    <string name="multi_subtraction">multi_sum</string>
+    <string name="multi_multiplication">multi_sum</string>
+    <string name="multi_division">multi_sum</string>
 
 </resources>

@@ -9,5 +9,5 @@ public interface MathOperation {
     public static final int MULTIPLICATION = 2;
     public static final int DIVISION = 3;
     public static final int TABLE_MULTIPLICATION = 4;
-    public static final int OTHER = 5;
+    public static final int MULTI = 5;
 }

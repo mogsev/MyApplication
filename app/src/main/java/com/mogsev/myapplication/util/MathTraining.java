@@ -33,6 +33,7 @@ public abstract class MathTraining extends AppCompatActivity {
     protected ArrayList<Integer> list;
     protected RandomValue randomValue;
     protected MathResult mathResult;
+    protected MathMulti mathMulti;
 
     private Integer answer;
     private Button buttonClick;
@@ -136,6 +137,8 @@ public abstract class MathTraining extends AppCompatActivity {
                 }
             }
         };
+
+        mathMulti = new MathMulti();
     }
 
     /**
@@ -343,6 +346,13 @@ public abstract class MathTraining extends AppCompatActivity {
                 editor.putInt(getString(R.string.table_multiplication_positive_answers), mathResult.getTotalPositiveAnswers());
                 editor.putInt(getString(R.string.table_multiplication_negative_answers), mathResult.getTotalNegativeAnswers());
                 break;
+            case MathOperation.MULTI:
+                editor.putInt(getString(R.string.multi_score), mathResult.getScore());
+                editor.putInt(getString(R.string.multi_level), mathResult.getLevel());
+                editor.putInt(getString(R.string.multi_questions), mathResult.getTotalQuestions());
+                editor.putInt(getString(R.string.multi_positive_answers), mathResult.getTotalPositiveAnswers());
+                editor.putInt(getString(R.string.multi_negative_answers), mathResult.getTotalNegativeAnswers());
+                break;
         }
         editor.commit();
     }
@@ -387,6 +397,17 @@ public abstract class MathTraining extends AppCompatActivity {
                 mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.table_multiplication_questions), 0));
                 mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_positive_answers), 0));
                 mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.table_multiplication_negative_answers), 0));
+                break;
+            case MathOperation.MULTI:
+                mathResult.setScore(sharedPreferences.getInt(getString(R.string.multi_score), 0));
+                mathResult.setLevel(sharedPreferences.getInt(getString(R.string.multi_level), 1));
+                mathResult.setTotalQuestions(sharedPreferences.getInt(getString(R.string.multi_questions), 0));
+                mathResult.setTotalPositiveAnswers(sharedPreferences.getInt(getString(R.string.multi_positive_answers), 0));
+                mathResult.setTotalNegativeAnswers(sharedPreferences.getInt(getString(R.string.multi_negative_answers), 0));
+                mathMulti.setSum(sharedPreferences.getBoolean(getString(R.string.multi_sum), false));
+                mathMulti.setSubtraction(sharedPreferences.getBoolean(getString(R.string.multi_subtraction), false));
+                mathMulti.setMultiplication(sharedPreferences.getBoolean(getString(R.string.multi_multiplication), false));
+                mathMulti.setDivision(sharedPreferences.getBoolean(getString(R.string.multi_division), false));
                 break;
         }
     }
