@@ -36,6 +36,7 @@
             android:name=".activity.ResultsActivity"
             android:label="@string/title_results" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".activity.ChoiceActivity"
             android:label="@string/title_activity_choice" >
         </activity>

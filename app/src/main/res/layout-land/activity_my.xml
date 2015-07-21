@@ -34,8 +34,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:background="@android:drawable/ic_menu_preferences" />
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/mathematical_book" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -66,8 +66,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:background="@android:drawable/ic_menu_preferences" />
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/plus" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -104,8 +104,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:src="@android:drawable/ic_menu_preferences" />
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/minus" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -135,8 +135,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:src="@android:drawable/ic_menu_preferences" />
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/multiply" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -173,8 +173,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:background="@android:drawable/ic_menu_preferences" />
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/divide" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -205,8 +205,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:background="@android:drawable/ic_menu_preferences" />
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/mathematical" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -241,6 +241,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="?android:attr/selectableItemBackground"
+            android:onClick="startActivity"
             android:text="@string/title_results" />
     </RelativeLayout>
 </LinearLayout>

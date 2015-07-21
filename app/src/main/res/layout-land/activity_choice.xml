@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin_land"
     tools:context="com.mogsev.myapplication.activity.ChoiceActivity">
 
     <TextView
@@ -25,13 +25,13 @@
     <CheckBox
         android:id="@+id/checkBoxSum"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
-        android:singleLine="false"
         android:text="@string/title_sum"
         android:textSize="18sp"
         android:checked="false" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
@@ -40,7 +40,7 @@
     <CheckBox
         android:id="@+id/checkBoxSubtraction"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:text="@string/title_subtraction"
@@ -54,7 +54,7 @@
     <CheckBox
         android:id="@+id/checkBoxMultiplication"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:text="@string/title_multiplication"
@@ -68,11 +68,12 @@
     <CheckBox
         android:id="@+id/checkBoxDivision"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:text="@string/title_division"
         android:textSize="18sp" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"

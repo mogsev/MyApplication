@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.mogsev.myapplication.R;
 
@@ -44,11 +45,6 @@ public class ChoiceActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("checked", String.valueOf(checkSum.isChecked()));
-        Log.d("checked", String.valueOf(checkSubtraction.isChecked()));
-        Log.d("checked", String.valueOf(checkMultiplication.isChecked()));
-        Log.d("checked", String.valueOf(checkDivision.isChecked()));
-
         editor.putBoolean(getString(R.string.multi_sum), checkSum.isChecked());
         editor.putBoolean(getString(R.string.multi_subtraction), checkSubtraction.isChecked());
         editor.putBoolean(getString(R.string.multi_multiplication), checkMultiplication.isChecked());
@@ -58,8 +54,14 @@ public class ChoiceActivity extends AppCompatActivity {
 
     public void startActivity(View view) {
         if (view.getId() == R.id.btn_begin_multi) {
-            Intent intent = new Intent(this, MultiActivity.class);
-            startActivity(intent);
+            if (!checkSum.isChecked() && !checkSubtraction.isChecked()
+                    && !checkMultiplication.isChecked() && !checkDivision.isChecked()) {
+                Toast.makeText(getApplicationContext(), R.string.toast_check_operation, Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(this, MultiActivity.class);
+                startActivity(intent);
+            }
         }
     }
+
 }

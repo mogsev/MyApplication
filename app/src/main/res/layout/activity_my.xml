@@ -34,7 +34,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="6dp"
-                    android:background="@mipmap/mathematical_book" />
+                    android:src="@mipmap/mathematical_book" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -141,7 +141,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="6dp"
-                    android:background="@mipmap/multiply" />
+                    android:src="@mipmap/multiply" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -173,7 +173,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="6dp"
-                    android:background="@mipmap/divide" />
+                    android:src="@mipmap/divide" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -210,7 +210,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="6dp"
-                    android:background="@mipmap/mathematical" />
+                    android:src="@mipmap/mathematical" />
 
                 <TextView
                     android:layout_width="wrap_content"

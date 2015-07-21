@@ -2,7 +2,11 @@
     <!-- Base application theme. -->
     <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/gray_50</item>
 
     </style>
 

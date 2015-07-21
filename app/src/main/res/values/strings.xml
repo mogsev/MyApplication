@@ -42,6 +42,7 @@
     <!-- Toast -->
     <string name="toast_continue">Продолжаем! Так держать</string>
     <string name="toast_next_level">Вы перешли на новый уровень</string>
+    <string name="toast_check_operation">Выбирите арифметическую операцию</string>
 
     <!-- Menu -->
     <string name="menu_results">Результаты</string>
