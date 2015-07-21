@@ -14,18 +14,17 @@
     <string name="title_multiplication">Умножение</string>
     <string name="title_division">Деление</string>
     <string name="title_expression">Expression</string>
-    <string name="title_multi">По выбору</string>
+    <string name="title_multi">Разное</string>
     <string name="title_answer">Выберите правильный ответ</string>
     <string name="title_proceed">Продолжить</string>
     <string name="title_result">Результат</string>
     <string name="title_results">РЕЗУЛЬТАТЫ</string>
-    <string name="title_activity_choice">ChoiceActivity</string>
+    <string name="title_activity_choice">Операции</string>
+    <string name="title_activity_multi">По выбору</string>
 
     <string name="correct_answer">Правильный ответ</string>
     <string name="wrong_answer">Ошибка</string>
     <string name="check_answer">Вы уже ответили на этот вопрос</string>
-
-    <string name="title_activity_multi">MultiActivity</string>
 
     <!-- Choice Activity -->
     <string name="choice_operation">АРИФМЕТИЧЕСКИЕ ОПЕРАЦИИ</string>

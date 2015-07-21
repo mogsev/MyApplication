@@ -160,7 +160,7 @@ public class RandomValue implements Serializable {
      * Generate result and expression for Division
      */
     private void getDivisionExpression(int level) {
-        generateData(level*10, 2);
+        generateData(level * 10, 2);
         int num1 = listNumber.get(0);
         int num2 = listNumber.get(1);
         if ((num2 != 0) && ((num1 / num2) > 0) && (num1 % num2 == 0)) {
@@ -192,8 +192,6 @@ public class RandomValue implements Serializable {
         }
         return listAnswer;
     }
-
-
 
     /**
      * Returns result of expression
@@ -248,21 +246,26 @@ public class RandomValue implements Serializable {
         }
         if (mathMulti.isSubtraction()) {
             if (expression.equals("")) {
-                int num1 = random.nextInt(level*10);
-                int num2 = random.nextInt(num1);
+                int num1 = random.nextInt(level * 10);
+                int num2 = 0;
+                if (num1 == 0) {
+                    num2 = 0;
+                } else {
+                    num2 = random.nextInt(num1);
+                }
                 result = num1 - num2;
                 expression = num1 + " - " + num2;
             } else {
                 expression = "(" + expression + ")";
-                int num = random.nextInt(level*10);
+                int num = random.nextInt(result);
                 result = result - num;
                 expression = expression + " - " + num;
             }
         }
         if (mathMulti.isMultiplication()) {
             if (expression.equals("")) {
-                int num1 = random.nextInt(level*10);
-                int num2 = random.nextInt(num1);
+                int num1 = random.nextInt(level * 10);
+                int num2 = random.nextInt(level * 10);
                 result = num1 * num2;
                 expression = num1 + " * " + num2;
             } else {
@@ -274,20 +277,56 @@ public class RandomValue implements Serializable {
         }
         if (mathMulti.isDivision()) {
             if (expression.equals("")) {
+                getDivisionExpression(level);
+                /**
                 int num1 = random.nextInt(level*10);
                 int num2 = random.nextInt(num1);
                 result = num1 / num2;
                 expression = num1 + " / " + num2;
+                 */
             } else {
-                expression = "(" + expression + ")";
-                int num = random.nextInt(level*10);
-                result = result / num;
-                expression = expression + " / " + num;
+                getDivisionNum(level);
+
             }
         }
     }
 
+    /**
+     *
+     * @param level
+     */
+    private void getDivisionNum(int level) {
+        int num = random.nextInt(level * 10);
+        if (num == 0 || result % num != 0) {
+            getDivisionNum(level);
+        } else {
+            expression = "(" + expression + ")";
+            result = result / num;
+            expression = expression + " / " + num;
+        }
+    }
+
+    /**
+     *
+     * @return
+     */
     public int getOperation() {
         return operation;
+    }
+
+    private int getRandom(int var) {
+        int num = 0;
+        int result = 0;
+        if (var != 0) {
+            num = random.nextInt(var);
+        } else {
+            num = random.nextInt(10);
+        }
+        if (num == 0) {
+            num = getRandom(var);
+        } else {
+            result = num;
+        }
+        return result;
     }
 }

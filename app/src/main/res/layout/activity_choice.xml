@@ -25,40 +25,40 @@
     <CheckBox
         android:id="@+id/checkBoxSum"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:singleLine="false"
         android:text="@string/title_sum"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:checked="false" />
 
     <CheckBox
         android:id="@+id/checkBoxSubtraction"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:text="@string/title_subtraction"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkBoxMultiplication"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:text="@string/title_multiplication"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkBoxDivision"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:text="@string/title_division"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -68,10 +68,9 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dip"
-            android:layout_alignTop="@+id/button_results"
-            android:layout_marginLeft="4dip"
-            android:layout_marginRight="4dip"
-            android:background="?android:attr/dividerVertical" />
+            android:background="?android:attr/dividerVertical"
+            android:layout_above="@+id/btn_begin_multi"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:id="@+id/btn_begin_multi"
