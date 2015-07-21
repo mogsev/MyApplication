@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.mogsev.myapplication.activity.SubtractionActivity"/>
+      <point      
+        x = "2356"      
+        y = "148"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.mogsev.myapplication.activity.MultiplicationActivity"/>
+      <point      
+        x = "2368"      
+        y = "692"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.mogsev.myapplication.MyActivity"/>
+      <point      
+        x = "500"      
+        y = "100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "com.mogsev.myapplication.MyActivity"/>
+      <point      
+        x = "1800"      
+        y = "100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.mogsev.myapplication.activity.TableMultiplicationActivity"/>
+      <point      
+        x = "-44"      
+        y = "704"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.mogsev.myapplication.activity.SumActivity"/>
+      <point      
+        x = "776"      
+        y = "728"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.mogsev.myapplication.activity.DivisionActivity"/>
+      <point      
+        x = "1564"      
+        y = "716"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>
