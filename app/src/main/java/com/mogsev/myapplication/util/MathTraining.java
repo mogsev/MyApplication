@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +27,8 @@ import java.util.ArrayList;
  * Created by zhenya on 24.06.2015.
  */
 public abstract class MathTraining extends AppCompatActivity {
+    private static final String TAG = "MathTraning";
+
     public static final String RANDOM_VALUE = "RANDOM_VALUE";
     public static final String MATH_RESULT = "MATH_RESULT";
     public static final String MATH_RESULTS = "MATH_RESULTS";
@@ -513,6 +517,7 @@ public abstract class MathTraining extends AppCompatActivity {
 
     private void showResults() {
         final AlertDialog.Builder dialogResults = new AlertDialog.Builder(this);
+
         View view = this.getLayoutInflater().inflate(R.layout.dialog_results_operation, null);
 
         TextView score = (TextView) view.findViewById(R.id.score);

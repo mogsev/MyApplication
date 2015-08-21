@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 import com.mogsev.myapplication.R;
 
 public class ChoiceActivity extends AppCompatActivity {
+    private static final String TAG = "ChoiceActivity";
     private CheckBox checkSum;
     private CheckBox checkSubtraction;
     private CheckBox checkMultiplication;
@@ -52,6 +52,10 @@ public class ChoiceActivity extends AppCompatActivity {
         editor.commit();
     }
 
+    /**
+     * Start activity
+     * @param view
+     */
     public void startActivity(View view) {
         if (view.getId() == R.id.btn_begin_multi) {
             if (!checkSum.isChecked() && !checkSubtraction.isChecked()

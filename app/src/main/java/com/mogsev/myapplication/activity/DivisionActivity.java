@@ -1,5 +1,7 @@
 package com.mogsev.myapplication.activity;
 
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.mogsev.myapplication.R;
@@ -9,6 +11,7 @@ import com.mogsev.myapplication.util.MathTraining;
 import com.mogsev.myapplication.util.RandomValue;
 
 public class DivisionActivity extends MathTraining {
+    private static final String TAG = "DivisionActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

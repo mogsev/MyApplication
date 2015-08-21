@@ -6,21 +6,21 @@
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="10dp"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MyActivity">
 
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="@dimen/margin_ten">
 
         <TableRow>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/training_table_multiplication"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_span="2"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training"
@@ -33,18 +33,18 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="6dp"
-                    android:src="@mipmap/mathematical_book" />
+                    android:layout_marginTop="@dimen/margin_four"
+                    android:src="@mipmap/table" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image_table_multiplication"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
                     android:text="@string/title_table_multiplication"
                     android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp" />
+                    android:layout_marginBottom="@dimen/margin_four"
+                    android:textSize="@dimen/text_size_sixteen" />
             </RelativeLayout>
         </TableRow>
 
@@ -56,7 +56,7 @@
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/training_sum"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="1dp"
                 android:layout_span="1"
                 android:layout_weight="1"
@@ -70,24 +70,24 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="6dp"
-                    android:src="@mipmap/plus" />
+                    android:layout_marginTop="@dimen/margin_four"
+                    android:src="@mipmap/plus_sign" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image_sum"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="@dimen/margin_four"
                     android:text="@string/title_sum"
                     android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_sixteen" />
             </RelativeLayout>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/training_subtraction"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:layout_span="1"
                 android:layout_weight="1"
@@ -100,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="@dimen/margin_four"
                     android:src="@mipmap/minus" />
 
                 <TextView
@@ -108,10 +108,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image_subtraction"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="@dimen/margin_four"
                     android:text="@string/title_subtraction"
                     android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_sixteen" />
             </RelativeLayout>
         </TableRow>
 
@@ -123,7 +123,7 @@
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/training_multiplication"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="1dp"
                 android:layout_span="1"
                 android:layout_weight="1"
@@ -137,24 +137,24 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="6dp"
-                    android:src="@mipmap/multiply" />
+                    android:layout_marginTop="@dimen/margin_four"
+                    android:src="@mipmap/multiplication" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image_multiplication"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="@dimen/margin_four"
                     android:text="@string/title_multiplication"
                     android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_sixteen" />
             </RelativeLayout>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/training_division"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:layout_span="1"
                 android:layout_weight="1"
@@ -168,18 +168,18 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="6dp"
-                    android:src="@mipmap/divide" />
+                    android:layout_marginTop="@dimen/margin_four"
+                    android:src="@mipmap/division" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image_division"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="@dimen/margin_four"
                     android:text="@string/title_division"
                     android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_sixteen" />
             </RelativeLayout>
         </TableRow>
 
@@ -191,7 +191,7 @@
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/training_multi"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="wrap_content"
                 android:layout_span="2"
                 android:layout_weight="1"
                 android:background="@drawable/layout_training_shadow"
@@ -204,18 +204,18 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="6dp"
-                    android:src="@mipmap/mathematical" />
+                    android:layout_marginTop="@dimen/margin_four"
+                    android:src="@mipmap/other" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image_multi"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="@dimen/margin_four"
                     android:text="@string/title_multi"
                     android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_sixteen" />
             </RelativeLayout>
         </TableRow>
     </TableLayout>
