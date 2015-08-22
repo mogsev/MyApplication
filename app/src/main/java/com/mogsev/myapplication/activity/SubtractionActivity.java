@@ -9,6 +9,7 @@ import com.mogsev.myapplication.util.MathTraining;
 import com.mogsev.myapplication.util.RandomValue;
 
 public class SubtractionActivity extends MathTraining {
+    private static final String TAG = "SubtractionActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

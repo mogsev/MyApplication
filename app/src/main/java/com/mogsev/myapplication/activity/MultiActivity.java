@@ -10,6 +10,7 @@ import com.mogsev.myapplication.util.MathTraining;
 import com.mogsev.myapplication.util.RandomValue;
 
 public class MultiActivity extends MathTraining {
+    private static final String TAG = "MultiActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

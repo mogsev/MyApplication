@@ -14,6 +14,7 @@ import com.mogsev.myapplication.R;
 import com.mogsev.myapplication.util.MathOperation;
 
 public class ResultsActivity extends AppCompatActivity {
+    private static final String TAG = "ResultActivity";
     private ScrollView scrollView;
     private LayoutInflater layoutInflater;
 
@@ -43,6 +44,11 @@ public class ResultsActivity extends AppCompatActivity {
         scrollView.addView(linearLayout);
     }
 
+    /**
+     * Return view result
+     * @param operation
+     * @return
+     */
     private View getViewResults(int operation) {
         View view = (View) layoutInflater.inflate(R.layout.result, null);
         TextView name = (TextView) view.findViewById(R.id.textViewName);

@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tests Math</string>
-    <string name="title_tests">Tests</string>
+    <string name="app_name">Математические тренировки</string>
+    <string name="title_tests">Тренировки</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="action_level">Level</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_level">Уровень сложности</string>
     <string name="action_about">О MathTest</string>
-    <string name="action_begin">Start</string>
+    <string name="action_begin">Начать</string>
 
-    <string name="title_table_multiplication">Table of multiplication</string>
-    <string name="title_sum">Sum</string>
-    <string name="title_subtraction">Subtraction</string>
-    <string name="title_multiplication">Multiplication</string>
-    <string name="title_division">Division</string>
+    <string name="title_table_multiplication">Таблица умножения</string>
+    <string name="title_sum">Сложение</string>
+    <string name="title_subtraction">Вычитание</string>
+    <string name="title_multiplication">Умножение</string>
+    <string name="title_division">Деление</string>
     <string name="title_expression">Expression</string>
-    <string name="title_multi">Other</string>
-    <string name="title_answer">Choose the correct answer</string>
-    <string name="title_proceed">Continue</string>
-    <string name="title_result">Result</string>
-    <string name="title_results">RESULTS</string>
-    <string name="title_activity_choice">Choice</string>
-    <string name="title_activity_multi">Optionally</string>
+    <string name="title_multi">Разное</string>
+    <string name="title_answer">Выберите правильный ответ</string>
+    <string name="title_proceed">Продолжить</string>
+    <string name="title_result">Результат</string>
+    <string name="title_results">РЕЗУЛЬТАТЫ</string>
+    <string name="title_activity_choice">Операции</string>
+    <string name="title_activity_multi">По выбору</string>
 
-    <string name="correct_answer">Correct answer</string>
-    <string name="wrong_answer">Wrong answer</string>
-    <string name="check_answer">You have already answered</string>
+    <string name="correct_answer">Правильный ответ</string>
+    <string name="wrong_answer">Ошибка</string>
+    <string name="check_answer">Вы уже ответили на этот вопрос</string>
 
     <!-- Choice Activity -->
-    <string name="choice_operation">ARITHMETIC</string>
+    <string name="choice_operation">АРИФМЕТИЧЕСКИЕ ОПЕРАЦИИ</string>
 
     <!-- Dialog -->
-    <string name="dialog_about_version">Version 1.0.9</string>
-    <string name="dialog_total_number_question">Questions:</string>
-    <string name="dialog_number_positive_answer">Correct answers:</string>
-    <string name="dialog_number_negative_answer">Wrong answers:</string>
-    <string name="dialog_save_result">Save</string>
-    <string name="dialog_continue_result">Continue</string>
+    <string name="dialog_about_version">Версия 1.0.9</string>
+    <string name="dialog_total_number_question">Всего вопросов:</string>
+    <string name="dialog_number_positive_answer">Правильных ответов:</string>
+    <string name="dialog_number_negative_answer">Неправильных ответов:</string>
+    <string name="dialog_save_result">Сохранить</string>
+    <string name="dialog_continue_result">Продолжить</string>
     <string name="dialog_ok">OK</string>
-    <string name="dialog_cancel">CANCEL</string>
+    <string name="dialog_cancel">ОТМЕНА</string>
 
     <!-- Toast -->
-    <string name="toast_continue">GO! GO! GO!</string>
-    <string name="toast_next_level">You have moved to a new level</string>
-    <string name="toast_check_operation">Choice arithmetic</string>
+    <string name="toast_continue">Продолжаем! Так держать</string>
+    <string name="toast_next_level">Вы перешли на новый уровень</string>
+    <string name="toast_check_operation">Выбирите арифметическую операцию</string>
 
     <!-- Menu -->
-    <string name="menu_results">Results</string>
+    <string name="menu_results">Результаты</string>
 
     <!-- Results -->
-    <string name="result_score">Score:</string>
-    <string name="result_level">Level:</string>
-    <string name="result_questions">Questions:</string>
-    <string name="result_positive_answers">Correct answers:</string>
-    <string name="result_negative_answers">Wrong answers:</string>
+    <string name="result_score">Всего набрано очков:</string>
+    <string name="result_level">Уровень сложности:</string>
+    <string name="result_questions">Пройдено вопросов:</string>
+    <string name="result_positive_answers">Правильных ответов:</string>
+    <string name="result_negative_answers">Неправильных ответов:</string>
 
     <!-- SharedPreferences Sum -->
     <string name="sum_score">sum_score</string>
